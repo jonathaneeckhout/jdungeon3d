@@ -1,38 +1,69 @@
 extends Node3D
 class_name Component
 ## This serves as a base for all components, all of them will automatically register themselves in a static, shared variable.
-## Each component_dictionary is unique per class of component.
-## The instances of components are registered under the ID of their parent, 
+## The components are registered under an ID which is shared with the entity that owns them.
+## This means that you can always rely on the ID of the parent to find the components.
+##
+## Each component_master_dict is unique per class of component.
 ## So it is easy to access any other component of the same parent.
+##
 ## The ID of each object is currently sourced from their instance ID, but it can be anything.
 
-signal component_added(owner_id: int)
-
-static var component_dictionary: Dictionary
+static var component_master_dict: Dictionary
 
 func _ready():
+	var script: Script = ComponentHealth
+	print(script)
+	
 	#Automatically register this component
-	set_instance(Component.get_owner_id( get_parent() ))
+	register_to_id(
+		get_id()
+		)
+	print(component_master_dict)
 	
 	
-func set_instance(owner_id: int):
-	Component.component_dictionary[owner_id] = self
-	component_added.emit(owner_id)
+func register_to_id(owner_id: int):
+	var global_name: String = get_script().get_global_name()
+	
+	var comp_dict: Dictionary = Component.component_master_dict.get(global_name, {})
+	
+	comp_dict[owner_id] = self
+	
+	Component.component_master_dict[global_name] = comp_dict
+
+
+func get_id() -> int:
+	var id: int = Component.get_id_of_entity(get_parent())
+	if not get_by_id(get_script(), id) == self:
+		push_error("This component is not registered under this entity despite being its child!\nRegistered under ID {0}".format(
+			[str(get_by_id(get_script(), id))]
+		))
+	return id
 	
 	
 ## This may be called without the need of an instance.
-## Example: var player_health: ComponentHealth = ComponentHealth.get_instance(Component.get_owner_id($Player))
-static func get_instance(owner_id: int) -> Component:
-	return Component.component_dictionary.get(owner_id, null)
+## Example: var player_health: ComponentHealth = ComponentHealth.get_by_id(Component.get_id_of_entity($Player))
+static func get_by_id(script: Script, id: int) -> Component:
+	return component_master_dict.get(script, {}).get(id, null)
 
 	
-static func get_all_instances() -> Array[Component]:
-	return component_dictionary.values()
+static func get_all(script: Script) -> Array[Component]:
+	var output: Array[Component] = []
+	var global_name: String = script.get_global_name()
+	output.assign(component_master_dict.get(global_name, {}).values())
+	return output
 	
 	
-static func get_owner_id(node: Node) -> int:
+func get_entity_by_id(id: int) -> Object:
+	return instance_from_id(id)
+	
+	
+static func get_id_of_entity(node: Node) -> int:
 	return node.get_instance_id()
 
-
-static func get_all_owner_ids() -> Array[int]:
-	return component_dictionary.keys()
+	
+static func get_all_entity_ids(script: Script) -> Array[int]:
+	var output: Array[int] = []
+	var global_name: String = script.get_global_name()
+	output.assign( component_master_dict.get(global_name, {}).keys() )
+	return output
