@@ -11,7 +11,7 @@ What do we want to find out with this poc?
 - How can we make it fun?
 - Can we make easily maps as the 2d tilemap system was one of the difficulties of JDungeon?
 - Can we use more the standard proviced high level multiplayer api to make the project simpler?
-- ...
+- Move the things we liked from this poc to the main JDungeon project. 
 
 What are the next things we will focus on with this porject?
 - Add a single enemy
