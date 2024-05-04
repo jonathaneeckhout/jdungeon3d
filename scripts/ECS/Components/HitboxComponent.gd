@@ -1,5 +1,6 @@
 extends Component
 class_name ComponentHitbox
+## Designed to work with an Area3D that only finds others but can't be found. It then deals the specified damage.
 
 static var area_to_hitbox_dict: Dictionary
 
@@ -28,9 +29,9 @@ func is_area_valid(area: Area3D) -> bool:
 		return false
 		
 	if area.collision_mask == 0:
-		push_warning("An area without a mask won't work for a hitbox.")
+		push_warning("An Area3D without a mask won't work for a hitbox.")
 	
 	if area.collision_layer != 0:
-		push_warning("An area for a hitbox does not need to be on a layer.")
+		push_warning("An Area3D for a hitbox does not need to be on a layer.")
 	
 	return true

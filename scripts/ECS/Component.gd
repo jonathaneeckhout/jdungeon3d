@@ -4,15 +4,12 @@ class_name Component
 ## The components are registered under an ID which is shared with the entity that owns them.
 ## This means that you can always rely on the ID of the parent to find the components.
 ##
-## Each component_master_dict is unique per class of component.
-## So it is easy to access any other component of the same parent.
-##
 ## The ID of each object is currently sourced from their instance ID, but it can be anything.
 
 static var component_master_dict: Dictionary
 
 func _enter_tree() -> void:
-	#Automatically register this component
+	## Automatically register this component
 	register_to_id(
 		get_id()
 		)

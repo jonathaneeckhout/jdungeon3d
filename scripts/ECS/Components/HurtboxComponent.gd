@@ -1,5 +1,6 @@
 extends Component
 class_name ComponentHurtbox
+## Designed to work with Area3Ds that can only be detected but cannot detect others.
 
 static var area_to_hurtbox_dict: Dictionary
 
@@ -33,11 +34,11 @@ func is_area_valid(area: Area3D) -> bool:
 		
 	
 	if area.collision_layer == 0:
-		push_warning("An area without a layer won't work for a hurtbox.")
+		push_warning("An Area3D without a layer won't work for a hurtbox.")
 		
 		
 	if area.collision_mask != 0:
-		push_warning("An area for a hurtbox does not need to be on a layer.")
+		push_warning("An Area3D for a hurtbox does not need to be on a layer.")
 		
 	
 	return true
