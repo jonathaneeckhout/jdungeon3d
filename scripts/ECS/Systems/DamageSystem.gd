@@ -1,5 +1,6 @@
 extends System
 class_name SystemDamage
+## Checks which Hitbox components are touching which Hurtbox components, then deals damage to their Health component.
 
 signal attack_ocurred(attacker_id: int, victim_id: int, amount: int)
 
@@ -21,9 +22,6 @@ func _tick():
 		## Get the attacker's id
 		var attacker_id: int = hitbox.get_id()
 		var overlaps: Array[Area3D] = area.get_overlapping_areas()
-		
-		if overlaps.is_empty():
-			continue
 		
 		## Check their collisions
 		for overlapping_area: Area3D in overlaps:
@@ -52,7 +50,7 @@ func _tick():
 				
 			
 		
-## In the future, the function can take into account stats or other properties from the attacker to influence the attack.
+## In the future, the function could take into account stats or other properties from the attacker to influence the attack.
 func deal_damage(attacker_id: int, victim_id: int, amount: int):
 	var victim_health: ComponentHealth = Component.get_by_id(ComponentHealth, victim_id)
 	
