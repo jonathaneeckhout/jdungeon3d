@@ -4,8 +4,8 @@ class_name ComponentHealth
 signal health_changed(change_amount: float)
 signal health_max_changed(change_amount: float)
 
-@export var current: float
-@export var maximum: float
+@export var current: float = 100
+@export var maximum: float = 100
 
 func set_max_health(new_amount: float):
 	var old_max: float = maximum

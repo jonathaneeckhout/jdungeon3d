@@ -1,29 +1,37 @@
 extends Component
 class_name ComponentHitbox
 
-@export var damage: float
+static var area_to_hitbox_dict: Dictionary
+
+@export var damage: float = 0
 @export var area_node: Area3D
 
-func _ready():
+func _ready() -> void:
 	super._ready()
+	if not is_area_valid(get_area_3d()):
+		push_error("No area found.")
+		return 
+		
+	area_to_hitbox_dict[get_area_3d()] = self
+
 	
-	var area: Area3D = get_area_3d()
-	
-	#Check if it has the correct parent
+static func get_hitbox_of_area(area: Area3D) -> ComponentHitbox:
+	return area_to_hitbox_dict.get(area, null)
+
+
+func get_area_3d() -> Area3D:
+	return area_node
+
+
+func is_area_valid(area: Area3D) -> bool:
 	if not area is Area3D:
 		push_error("Area3D not set.")
+		return false
 		
 	if area.collision_mask == 0:
 		push_warning("An area without a mask won't work for a hitbox.")
 	
 	if area.collision_layer != 0:
-		push_warning("A hitbox shouldn't need to be on a layer.")		
-		
-		
-
-func get_area_3d() -> Area3D:
-	return area_node
+		push_warning("An area for a hitbox does not need to be on a layer.")
 	
-	
-func get_():
-	pass
+	return true
