@@ -15,8 +15,6 @@ func _tick():
 			hurtbox_timer_dict.erase(id)
 		
 	## Check all hitboxes
-	print(Component.component_master_dict)
-	
 	for hitbox: ComponentHitbox in Component.get_all(ComponentHitbox):
 		var area: Area3D = hitbox.get_area_3d()
 		

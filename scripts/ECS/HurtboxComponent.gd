@@ -7,7 +7,6 @@ static var area_to_hurtbox_dict: Dictionary
 @export var area_node: Area3D
 
 func _ready() -> void:
-	super._ready()
 	if not is_area_valid(get_area_3d()):
 		push_error("No area found.")
 		return 

@@ -11,15 +11,11 @@ class_name Component
 
 static var component_master_dict: Dictionary
 
-func _ready():
-	var script: Script = ComponentHealth
-	print(script)
-	
+func _enter_tree() -> void:
 	#Automatically register this component
 	register_to_id(
 		get_id()
 		)
-	print(component_master_dict)
 	
 	
 func register_to_id(owner_id: int):
@@ -34,10 +30,6 @@ func register_to_id(owner_id: int):
 
 func get_id() -> int:
 	var id: int = Component.get_id_of_entity(get_parent())
-	if not get_by_id(get_script(), id) == self:
-		push_error("This component is not registered under this entity despite being its child!\nRegistered under ID {0}".format(
-			[str(get_by_id(get_script(), id))]
-		))
 	return id
 	
 	
