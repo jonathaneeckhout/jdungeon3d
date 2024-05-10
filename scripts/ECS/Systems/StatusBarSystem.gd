@@ -19,16 +19,16 @@ func _tick():
 	for id: int in ids_registered_arr:
 		var bounding_box_comp: ComponentBoundingBox = Component.get_by_id(ComponentBoundingBox, id)
 		var health_comp: ComponentHealth = Component.get_by_id(ComponentHealth, id)
-		var entity_pos: Vector3 = health_comp.get_parent().global_position
 		
 		if not bounding_box_comp or not health_comp:
 			push_warning("Missing components for entity {0}".format([str(id)]))
 			continue
 			
+		var entity_pos: Vector3 = health_comp.get_parent().global_position
 		var status_bar: Sprite3D = status_bar_cache_dict.get(id, null)
 		
 		var status_percent: float = health_comp.get_health() / health_comp.get_max_health()
-		var status_pos: Vector3 = bounding_box_comp.get_top()
+		var status_pos: Vector3 = bounding_box_comp.get_top() + entity_pos
 		
 		status_bar.global_position = entity_pos
 		status_bar.modulate = COLOR_BAD.lerp(COLOR_GOOD, status_percent)
