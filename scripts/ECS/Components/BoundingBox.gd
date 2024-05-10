@@ -9,8 +9,8 @@ func get_aabb():
 
 
 func get_top() -> Vector3:
-	var ends: Vector3 = get_aabb().end
-	ends.x /= 2
-	ends.z /= 2
-	return ends
-	
+	var output: Vector3 = get_aabb().size
+	output.x = output.x / 2
+	output.z = output.z / 2
+	return output + offset
+
