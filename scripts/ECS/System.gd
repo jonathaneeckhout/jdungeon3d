@@ -2,7 +2,7 @@ extends Node3D
 class_name System
 ## Systems essentially act as singletons. They perform actions by looking for the appropiate components on a given entity.
 
-@export var time_per_tick: float = 1/60
+@export var time_per_tick: float = 1.0/60.0
 
 func _ready() -> void:
 	var timer := Timer.new()

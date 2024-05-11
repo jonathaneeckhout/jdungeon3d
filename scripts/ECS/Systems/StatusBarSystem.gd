@@ -3,6 +3,7 @@ class_name SatusBarSystem
 
 const COLOR_GOOD := Color.LAWN_GREEN
 const COLOR_BAD := Color.RED
+const STATUS_BAR_TEXTURE: Texture2D = preload("res://icon.svg")
 
 var status_bar_cache_dict: Dictionary = {}
 var ids_registered_arr: Array[int]
@@ -28,13 +29,13 @@ func _tick():
 		var status_bar: Sprite3D = status_bar_cache_dict.get(id, null)
 		
 		var status_percent: float = health_comp.get_health() / health_comp.get_max_health()
-		var status_pos: Vector3 = bounding_box_comp.get_top() + entity_pos
+		var status_pos: Vector3 = entity_pos + (Vector3.UP * bounding_box_comp.size.y)
 		
-		status_bar.global_position = entity_pos
+		status_bar.global_position = status_pos
 		status_bar.modulate = COLOR_BAD.lerp(COLOR_GOOD, status_percent)
-		
-			
+		status_bar.region_rect.size.x = STATUS_BAR_TEXTURE.get_width() * status_percent
 	
+			
 
 
 func create_status_bar(id: int) -> Sprite3D:
@@ -42,6 +43,13 @@ func create_status_bar(id: int) -> Sprite3D:
 	sprite_3d.centered = true
 	sprite_3d.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	sprite_3d.texture = preload("res://icon.svg")
+	
+	sprite_3d.double_sided = false
+	sprite_3d.pixel_size = 0.005
+	
+	sprite_3d.region_enabled = true
+	sprite_3d.region_rect = Rect2(Vector2.ZERO, STATUS_BAR_TEXTURE.get_size())
+	
 	status_bar_cache_dict[id] = sprite_3d
 	add_child(sprite_3d)
 	return sprite_3d
