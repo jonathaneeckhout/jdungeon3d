@@ -38,7 +38,6 @@ func _tick():
 			if get_hurtbox_current_invul_timer(victim_id) > 0:
 				continue
 				
-			
 			deal_damage(attacker_id, victim_id, hitbox.damage)
 			start_hurtbox_invul_timer(victim_id)
 			
@@ -46,10 +45,7 @@ func _tick():
 				[str(attacker_id), str(victim_id), str(hitbox.damage)])
 				)
 
-			
-				
-			
-		
+
 ## In the future, the function could take into account stats or other properties from the attacker to influence the attack.
 func deal_damage(attacker_id: int, victim_id: int, amount: int):
 	var victim_health: ComponentHealth = Component.get_by_id(ComponentHealth, victim_id)
