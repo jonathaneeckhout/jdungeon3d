@@ -1,8 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt7hseynikewq"]
+[gd_scene load_steps=23 format=3 uid="uid://bt7hseynikewq"]
 
 [ext_resource type="PackedScene" uid="uid://cqwv8qsyohma4" path="res://scenes/player.tscn" id="1_luhdr"]
+<<<<<<< HEAD
 [ext_resource type="Shader" path="res://scenes/water.gdshader" id="3_wm1yi"]
 [ext_resource type="PackedScene" uid="uid://c0s2ocl52x40p" path="res://scenes/starter_coast.tscn" id="5_hivdr"]
+=======
+[ext_resource type="PackedScene" uid="uid://bdhh2eg3bjpnt" path="res://assets/models/terrain/pine_tree.glb" id="2_pr0bt"]
+[ext_resource type="PackedScene" uid="uid://bum05mrlbku2h" path="res://assets/models/terrain/basic_tent.glb" id="3_w0tby"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/HealthComponent.gd" id="4_efliw"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/HurtboxComponent.gd" id="5_tsjnb"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/ClientIdentifierComponent.gd" id="6_odaub"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/BoundingBox.gd" id="7_xj57o"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/InputComponent.gd" id="8_yj0ac"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/AttackComponent.gd" id="8_yy8kf"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/HitboxComponent.gd" id="9_57ls5"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/DamageSystem.gd" id="9_kjpcu"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/StatusBarSystem.gd" id="10_ak8u5"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/InputSystem.gd" id="12_vmbqw"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/AttackSystem.gd" id="15_kc6ah"]
+>>>>>>> 1c6437e (Damage, input and attack systems)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p44tw"]
 sky_top_color = Color(0.52549, 0.737255, 0.92549, 1)
@@ -10,6 +26,14 @@ sky_horizon_color = Color(0.905882, 0.909804, 0.913725, 1)
 
 [sub_resource type="Sky" id="Sky_j8mbj"]
 sky_material = SubResource("ProceduralSkyMaterial_p44tw")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2gxbk"]
+radius = 0.457384
+height = 1.77816
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jaqtq"]
+radius = 0.6
+height = 1.5
 
 [sub_resource type="Environment" id="Environment_rx1wd"]
 background_mode = 2
@@ -32,6 +56,9 @@ material = SubResource("ShaderMaterial_0yhsh")
 size = Vector2(300, 300)
 subdivide_width = 50
 subdivide_depth = 50
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1el1"]
+size = Vector3(4.09808, 2.43457, 6.00525)
 
 [node name="Map" type="Node3D"]
 
