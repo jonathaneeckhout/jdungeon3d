@@ -1,9 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt7hseynikewq"]
+[gd_scene load_steps=23 format=3 uid="uid://bt7hseynikewq"]
 
 [ext_resource type="PackedScene" uid="uid://didvnvrc756bi" path="res://assets/models/terrain/spike_wall.glb" id="1_bmc8q"]
 [ext_resource type="PackedScene" uid="uid://cqwv8qsyohma4" path="res://scenes/player.tscn" id="1_luhdr"]
 [ext_resource type="PackedScene" uid="uid://bdhh2eg3bjpnt" path="res://assets/models/terrain/pine_tree.glb" id="2_pr0bt"]
 [ext_resource type="PackedScene" uid="uid://bum05mrlbku2h" path="res://assets/models/terrain/basic_tent.glb" id="3_w0tby"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/HealthComponent.gd" id="4_efliw"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/HurtboxComponent.gd" id="5_tsjnb"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/ClientIdentifierComponent.gd" id="6_odaub"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/BoundingBox.gd" id="7_xj57o"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/InputComponent.gd" id="8_yj0ac"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/AttackComponent.gd" id="8_yy8kf"]
+[ext_resource type="Script" path="res://scripts/ECS/Components/HitboxComponent.gd" id="9_57ls5"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/DamageSystem.gd" id="9_kjpcu"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/StatusBarSystem.gd" id="10_ak8u5"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/InputSystem.gd" id="12_vmbqw"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/AttackSystem.gd" id="15_kc6ah"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yr2pm"]
 size = Vector2(100, 100)
@@ -14,12 +25,23 @@ albedo_color = Color(0.121569, 0.27451, 0.0392157, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cpv8d"]
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2gxbk"]
+radius = 0.457384
+height = 1.77816
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jaqtq"]
+radius = 0.6
+height = 1.5
+
 [sub_resource type="Environment" id="Environment_rx1wd"]
 background_mode = 2
 ambient_light_source = 3
 ambient_light_color = Color(0.756863, 0.756863, 0.756863, 1)
 tonemap_exposure = 0.8
 fog_density = 0.0793
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1el1"]
+size = Vector3(4.09808, 2.43457, 6.00525)
 
 [node name="Map" type="Node3D"]
 
@@ -476,13 +498,65 @@ transform = Transform3D(-0.441104, 0.725903, -0.527723, 0.465543, 0.687797, 0.55
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_luhdr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.73691, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3093, 0.73691, 30.465)
+
+[node name="ComponentHealth" type="Node3D" parent="Player"]
+script = ExtResource("4_efliw")
+current = 60.0
+
+[node name="ComponentHurtbox" type="Node3D" parent="Player" node_paths=PackedStringArray("area_node")]
+script = ExtResource("5_tsjnb")
+area_node = NodePath("../Hurtbox")
+
+[node name="Hurtbox" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.795238, 0)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Hurtbox"]
+shape = SubResource("CapsuleShape3D_2gxbk")
+
+[node name="ComponentClientIdentifier" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.73691, 0)
+script = ExtResource("6_odaub")
+
+[node name="ComponentBoundingBox" type="Node3D" parent="Player"]
+script = ExtResource("7_xj57o")
+size = Vector3(1, 2, 1)
+
+[node name="ComponentHitbox" type="Node3D" parent="Player" node_paths=PackedStringArray("area_node")]
+script = ExtResource("9_57ls5")
+area_node = NodePath("../Hitbox")
+damage = 5.0
+
+[node name="Hitbox" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Hitbox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_jaqtq")
+
+[node name="ComponentInput" type="Node3D" parent="Player"]
+script = ExtResource("8_yj0ac")
+
+[node name="ComponentAttack" type="Node3D" parent="Player"]
+script = ExtResource("8_yy8kf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rx1wd")
 
 [node name="basic_tent" parent="." instance=ExtResource("3_w0tby")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 39.4132, 0, 33.0818)
+
+[node name="ComponentHurtbox" type="Node3D" parent="basic_tent" node_paths=PackedStringArray("area_node")]
+script = ExtResource("5_tsjnb")
+area_node = NodePath("../Area3D")
+
+[node name="Area3D" type="Area3D" parent="basic_tent"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="basic_tent/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0550232, 0.717285, 0.00640869)
+shape = SubResource("BoxShape3D_g1el1")
 
 [node name="basic_tent3" parent="." instance=ExtResource("3_w0tby")]
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 38.4132, 0, 25.0818)
@@ -492,3 +566,16 @@ transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 37.4132, 0
 
 [node name="basic_tent4" parent="." instance=ExtResource("3_w0tby")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 23.4132, 0, 40.0818)
+
+[node name="InputSystem" type="Node3D" parent="."]
+script = ExtResource("12_vmbqw")
+debug_mode = false
+
+[node name="SystemDamage" type="Node3D" parent="."]
+script = ExtResource("9_kjpcu")
+
+[node name="SatusBarSystem" type="Node3D" parent="."]
+script = ExtResource("10_ak8u5")
+
+[node name="AttackSystem" type="Node3D" parent="."]
+script = ExtResource("15_kc6ah")

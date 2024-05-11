@@ -9,8 +9,16 @@ func get_aabb():
 
 
 func get_top() -> Vector3:
-	var output: Vector3 = get_aabb().size
-	output.x = output.x / 2
-	output.z = output.z / 2
-	return output + offset
+	var output := Vector3(0,size.y,0)
+	return output
 
+
+func get_center() -> Vector3:
+	var output := Vector3(0,size.y/2,0)
+	return output
+
+func get_front() -> Vector3:
+	var output := get_center() + Vector3.FORWARD * size.z / 2
+	return output
+	
+	
