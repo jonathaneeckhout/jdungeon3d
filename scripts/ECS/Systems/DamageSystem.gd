@@ -23,7 +23,7 @@ func _tick():
 		
 		## Skip if it is spent
 		if hitbox.get_hit_limit() <= 0:
-			hitbox.area_node
+			hitbox.set_enabled(false)
 			continue
 			
 		var area: Area3D = hitbox.get_area_3d()

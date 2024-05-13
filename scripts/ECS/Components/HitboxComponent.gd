@@ -2,7 +2,7 @@ extends Component
 class_name ComponentHitbox
 ## Designed to work with an Area3D that only finds others but can't be found. It then deals the specified damage.
 
-const HIT_LIMIT_UPPER_BOUND: int = pow(2,62)
+const HIT_LIMIT_UPPER_BOUND: int = int(pow(2,62))
 
 static var area_to_hitbox_dict: Dictionary
 

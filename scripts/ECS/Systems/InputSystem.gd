@@ -2,7 +2,12 @@ extends System
 class_name InputSystem
 
 const ComponentActionDict: Dictionary = {
-	"attack_1" : ComponentInput.Actions.ATTACK
+	"attack_1" : ComponentInput.Actions.ATTACK,
+	"move_left" : ComponentInput.Actions.MOVE_LEFT,
+	"move_right" : ComponentInput.Actions.MOVE_RIGHT,
+	"move_up" : ComponentInput.Actions.MOVE_FORWARD,
+	"move_down" : ComponentInput.Actions.MOVE_BACK,
+	
 }
 
 func _unhandled_input(event: InputEvent):
@@ -15,12 +20,25 @@ func update_component_input_from_client(event: InputEvent):
 	var action: ComponentInput.Actions
 	var pressed: bool
 	
-	if event.is_action_pressed("attack_1"):
-		action = ComponentActionDict["attack_1"]
-		pressed = true
-	elif event.is_action_released("attack_1"):
-		action = ComponentActionDict["attack_1"]
-		pressed = false
+	if event.is_action("attack_1"):
+		action = ComponentActionDict["attack_1"] as ComponentInput.Actions
+		pressed = event.is_pressed()
+		
+	elif event.is_action("move_left"):
+		action = ComponentActionDict["move_left"] as ComponentInput.Actions
+		pressed = event.is_pressed()
+		
+	elif event.is_action("move_right"):
+		action = ComponentActionDict["move_right"] as ComponentInput.Actions
+		pressed = event.is_pressed()
+		
+	elif event.is_action("move_down"):
+		action = ComponentActionDict["move_down"] as ComponentInput.Actions
+		pressed = event.is_pressed()
+		
+	elif event.is_action("move_up"):
+		action = ComponentActionDict["move_up"] as ComponentInput.Actions
+		pressed = event.is_pressed()
 	
 	clientside_input_comp.set_action_pressed(
 		action, pressed
