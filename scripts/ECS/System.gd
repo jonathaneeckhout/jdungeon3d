@@ -2,7 +2,7 @@ extends Node3D
 class_name System
 ## Systems essentially act as singletons. They perform actions by looking for the appropiate components on a given entity.
 
-@export var debug_mode: bool = true
+@export var debug_mode: bool = false
 @export var time_per_tick: float = 1.0/60.0
 
 func _ready() -> void:
