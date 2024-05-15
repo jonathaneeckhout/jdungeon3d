@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqwv8qsyohma4" path="res://scenes/player.tscn" id="1_luhdr"]
 [ext_resource type="Shader" path="res://scenes/water.gdshader" id="3_wm1yi"]
-[ext_resource type="PackedScene" uid="uid://bdevee14nxmet" path="res://scenes/starter_coast.tscn" id="5_hivdr"]
+[ext_resource type="PackedScene" uid="uid://c0s2ocl52x40p" path="res://scenes/starter_coast.tscn" id="5_hivdr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p44tw"]
 sky_top_color = Color(0.52549, 0.737255, 0.92549, 1)
@@ -49,8 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 52)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rx1wd")
 
-[node name="starter_coast" parent="." instance=ExtResource("5_hivdr")]
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("PlaneMesh_d1tox")
+
+[node name="starter_coast" parent="." instance=ExtResource("5_hivdr")]
