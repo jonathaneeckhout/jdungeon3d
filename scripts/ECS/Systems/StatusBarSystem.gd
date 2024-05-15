@@ -3,7 +3,7 @@ class_name SatusBarSystem
 
 const COLOR_GOOD := Color.LAWN_GREEN
 const COLOR_BAD := Color.RED
-const STATUS_BAR_TEXTURE: Texture2D = preload("res://icon.svg")
+const STATUS_BAR_TEXTURE: Texture2D = preload("res://assets/UI/RoundedBar.png")
 
 var status_bar_cache_dict: Dictionary = {}
 var ids_registered_arr: Array[int]
@@ -42,7 +42,7 @@ func create_status_bar(id: int) -> Sprite3D:
 	var sprite_3d := Sprite3D.new()
 	sprite_3d.centered = true
 	sprite_3d.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	sprite_3d.texture = preload("res://icon.svg")
+	sprite_3d.texture = STATUS_BAR_TEXTURE
 	
 	sprite_3d.double_sided = false
 	sprite_3d.pixel_size = 0.005
