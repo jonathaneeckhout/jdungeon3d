@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b06vtjtfvs7gs"]
+
+[ext_resource type="Script" path="res://scripts/ECS/Systems/StatusBarSystem.gd" id="1_mimq6"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/AttackSystem.gd" id="2_nq2sy"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/InputSystem.gd" id="3_2apbk"]
+[ext_resource type="Script" path="res://scripts/ECS/Systems/DamageSystem.gd" id="4_cxc83"]
+
+[node name="Node" type="Node"]
+
+[node name="SatusBarSystem" type="Node3D" parent="."]
+script = ExtResource("1_mimq6")
+
+[node name="AttackSystem" type="Node3D" parent="."]
+script = ExtResource("2_nq2sy")
+
+[node name="InputSystem" type="Node3D" parent="."]
+script = ExtResource("3_2apbk")
+
+[node name="SystemDamage" type="Node3D" parent="."]
+script = ExtResource("4_cxc83")
