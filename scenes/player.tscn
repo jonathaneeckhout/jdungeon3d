@@ -48,8 +48,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="ComponentHealth" type="Node3D" parent="."]
 script = ExtResource("3_dmhdn")
 
-[node name="ComponentHurtbox" type="Node3D" parent="."]
+[node name="ComponentHurtbox" type="Node3D" parent="." node_paths=PackedStringArray("area_node")]
 script = ExtResource("4_7air1")
+area_node = NodePath("../Hurtbox")
 
 [node name="Hurtbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.795238, 0)
@@ -66,8 +67,9 @@ script = ExtResource("5_a0he8")
 script = ExtResource("6_bbqc5")
 size = Vector3(1, 2, 1)
 
-[node name="ComponentHitbox" type="Node3D" parent="."]
+[node name="ComponentHitbox" type="Node3D" parent="." node_paths=PackedStringArray("area_node")]
 script = ExtResource("7_1m8mp")
+area_node = NodePath("../Hitbox")
 damage = 5.0
 
 [node name="Hitbox" type="Area3D" parent="."]
