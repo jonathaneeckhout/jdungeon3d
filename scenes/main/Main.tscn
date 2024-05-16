@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://jtvb256amfa4"]
+
+[ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_xj771"]
+[ext_resource type="PackedScene" uid="uid://bt7hseynikewq" path="res://scenes/maps/coast/Coast.tscn" id="2_vupm0"]
+[ext_resource type="Script" path="res://scenes/maps/coast/Coast.gd" id="3_6h3ju"]
+[ext_resource type="PackedScene" uid="uid://b06vtjtfvs7gs" path="res://scenes/main/Systems.tscn" id="4_scllg"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_xj771")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Coast" parent="Map" instance=ExtResource("2_vupm0")]
+script = ExtResource("3_6h3ju")
+
+[node name="Systems" parent="." instance=ExtResource("4_scllg")]

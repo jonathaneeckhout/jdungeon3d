@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bp6dnf73o6v4w"]
 
-[ext_resource type="PackedScene" uid="uid://bujkg5eiwr24j" path="res://assets/models/axe.glb" id="2_fiw0p"]
-[ext_resource type="PackedScene" uid="uid://cdqk7m1e5xldl" path="res://assets/models/simple_player.glb" id="2_jmbjx"]
-[ext_resource type="PackedScene" uid="uid://duq4b4qmcdr77" path="res://assets/models/shield.glb" id="3_ejyvk"]
+[ext_resource type="PackedScene" uid="uid://cdqk7m1e5xldl" path="res://assets/models/simple_player.glb" id="1_83tc6"]
+[ext_resource type="PackedScene" uid="uid://bujkg5eiwr24j" path="res://assets/models/axe.glb" id="2_ns7s7"]
+[ext_resource type="PackedScene" uid="uid://duq4b4qmcdr77" path="res://assets/models/shield.glb" id="3_sldqr"]
 
-[node name="simple_player" instance=ExtResource("2_jmbjx")]
+[node name="PlayerModel" instance=ExtResource("1_83tc6")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(-0.575523, -0.298503, 0.34423, 0.679099)
@@ -43,7 +43,7 @@ transform = Transform3D(-0.194469, -0.865359, 0.461882, 0.658887, 0.233589, 0.71
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
-[node name="axe" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_fiw0p")]
+[node name="axe" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_ns7s7")]
 transform = Transform3D(73.6616, 15.2973, 65.8782, -10.0726, 98.8033, -11.6799, -66.8768, 1.96798, 74.321, 4.71957, 4.66896, 4.88527)
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
@@ -51,7 +51,7 @@ transform = Transform3D(0.111399, -0.948858, -0.295398, 0.0266986, 0.299998, -0.
 bone_name = "mixamorig_LeftHand"
 bone_idx = 10
 
-[node name="shield" parent="Armature/Skeleton3D/BoneAttachment3D2" index="0" instance=ExtResource("3_ejyvk")]
+[node name="shield" parent="Armature/Skeleton3D/BoneAttachment3D2" index="0" instance=ExtResource("3_sldqr")]
 transform = Transform3D(11.1401, -99.3417, 2.6699, -94.8858, -9.83412, 29.9997, -29.5397, -5.87535, -95.3567, 32.7118, 13.8361, 6.2685)
 
 [node name="Axe" parent="." index="1"]
