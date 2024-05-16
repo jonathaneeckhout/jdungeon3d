@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://jtvb256amfa4"]
+[gd_scene load_steps=6 format=3 uid="uid://jtvb256amfa4"]
 
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_xj771"]
 [ext_resource type="PackedScene" uid="uid://bt7hseynikewq" path="res://scenes/maps/coast/Coast.tscn" id="2_vupm0"]
 [ext_resource type="Script" path="res://scenes/maps/coast/Coast.gd" id="3_6h3ju"]
 [ext_resource type="PackedScene" uid="uid://b06vtjtfvs7gs" path="res://scenes/main/Systems.tscn" id="4_scllg"]
+[ext_resource type="PackedScene" uid="uid://d2hrillew8rlk" path="res://scenes/quest_items/kelp/Kelp.tscn" id="5_5ggqa"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xj771")
@@ -12,5 +13,18 @@ script = ExtResource("1_xj771")
 
 [node name="Coast" parent="Map" instance=ExtResource("2_vupm0")]
 script = ExtResource("3_6h3ju")
+metadata/_edit_lock_ = true
 
 [node name="Systems" parent="." instance=ExtResource("4_scllg")]
+
+[node name="Kelp" parent="." instance=ExtResource("5_5ggqa")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -48.995, 0, 39.1991)
+
+[node name="Kelp2" parent="." instance=ExtResource("5_5ggqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.0626, 2, 35.1108)
+
+[node name="Kelp3" parent="." instance=ExtResource("5_5ggqa")]
+transform = Transform3D(0.753219, 0, 0.65777, 0, 1, 0, -0.65777, 0, 0.753219, -87.5635, 1.11868, 40.9889)
+
+[node name="Kelp4" parent="." instance=ExtResource("5_5ggqa")]
+transform = Transform3D(0.66467, -0.341216, -0.66467, 0.241276, 0.939985, -0.241276, 0.707107, 0, 0.707107, -99.0835, 0.599003, 34.0789)
