@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bynjy07o7j2k7"
-path="res://.godot/imported/CelticBarnModel.glb-81b33e4065a22acc63019f8e2ad96c95.scn"
+uid="uid://djomoxumidsya"
+path="res://.godot/imported/KelpModel.glb-b0a9e9a94dbb8263ed535b415bdc3508.scn"
 
 [deps]
 
-source_file="res://assets/models/buildings/CelticBarnModel.glb"
-dest_files=["res://.godot/imported/CelticBarnModel.glb-81b33e4065a22acc63019f8e2ad96c95.scn"]
+source_file="res://assets/models/nature/kelp/KelpModel.glb"
+dest_files=["res://.godot/imported/KelpModel.glb-b0a9e9a94dbb8263ed535b415bdc3508.scn"]
 
 [params]
 

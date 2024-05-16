@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cqrkt27rp1bf4"
-path="res://.godot/imported/PineTreeModel.glb-284d92f83b987f10edd583c096c4b384.scn"
+uid="uid://bynjy07o7j2k7"
+path="res://.godot/imported/CelticBarnModel.glb-9b1864b4737ed6fc31710e9197fe2cd3.scn"
 
 [deps]
 
-source_file="res://assets/models/nature/PineTreeModel.glb"
-dest_files=["res://.godot/imported/PineTreeModel.glb-284d92f83b987f10edd583c096c4b384.scn"]
+source_file="res://assets/models/buildings/celtic_barn/CelticBarnModel.glb"
+dest_files=["res://.godot/imported/CelticBarnModel.glb-9b1864b4737ed6fc31710e9197fe2cd3.scn"]
 
 [params]
 

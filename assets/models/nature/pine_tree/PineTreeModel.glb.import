@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://coppxtpfpthb7"
-path="res://.godot/imported/CelticHouseModel.glb-e53fa055dc351811082c03117db12a19.scn"
+uid="uid://cqrkt27rp1bf4"
+path="res://.godot/imported/PineTreeModel.glb-bb94d253dc4ea1ef98dfd318d726fd70.scn"
 
 [deps]
 
-source_file="res://assets/models/buildings/CelticHouseModel.glb"
-dest_files=["res://.godot/imported/CelticHouseModel.glb-e53fa055dc351811082c03117db12a19.scn"]
+source_file="res://assets/models/nature/pine_tree/PineTreeModel.glb"
+dest_files=["res://.godot/imported/PineTreeModel.glb-bb94d253dc4ea1ef98dfd318d726fd70.scn"]
 
 [params]
 

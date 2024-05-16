@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cwj03r56jr6wv"
-path="res://.godot/imported/CelticBlackSmithModel.glb-cb0565e42b4edeca9b48e7c35b9f9c2b.scn"
+uid="uid://b3dom2ic3mtkp"
+path="res://.godot/imported/TavernModel.glb-69af576787c3db663adb21fed9bbc44b.scn"
 
 [deps]
 
-source_file="res://assets/models/buildings/CelticBlackSmithModel.glb"
-dest_files=["res://.godot/imported/CelticBlackSmithModel.glb-cb0565e42b4edeca9b48e7c35b9f9c2b.scn"]
+source_file="res://assets/models/buildings/celtic_tavern/TavernModel.glb"
+dest_files=["res://.godot/imported/TavernModel.glb-69af576787c3db663adb21fed9bbc44b.scn"]
 
 [params]
 

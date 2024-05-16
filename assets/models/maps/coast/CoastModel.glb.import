@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c0215hbns362b"
-path="res://.godot/imported/CoastModel.glb-3074aa50bf2dedb0527ccf60743f7dfa.scn"
+path="res://.godot/imported/CoastModel.glb-5d10a9b94d351dce82b481c39d4d00dc.scn"
 
 [deps]
 
-source_file="res://assets/models/maps/CoastModel.glb"
-dest_files=["res://.godot/imported/CoastModel.glb-3074aa50bf2dedb0527ccf60743f7dfa.scn"]
+source_file="res://assets/models/maps/coast/CoastModel.glb"
+dest_files=["res://.godot/imported/CoastModel.glb-5d10a9b94d351dce82b481c39d4d00dc.scn"]
 
 [params]
 
