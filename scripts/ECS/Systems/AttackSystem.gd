@@ -39,5 +39,3 @@ func _tick():
 		attack_timer_dict[entity_id] = attack_comp.attack_duration
 		hitbox_comp.set_enabled(true)
 		debug_msg("Attack preformed")
-			
-		

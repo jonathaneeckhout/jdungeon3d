@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bt7hseynikewq"]
 
 [ext_resource type="PackedScene" uid="uid://cqwv8qsyohma4" path="res://scenes/player.tscn" id="1_luhdr"]
-[ext_resource type="Shader" path="res://scenes/water.gdshader" id="3_wm1yi"]
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="3_wm1yi"]
 [ext_resource type="PackedScene" uid="uid://c0s2ocl52x40p" path="res://scenes/starter_coast.tscn" id="5_hivdr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p44tw"]

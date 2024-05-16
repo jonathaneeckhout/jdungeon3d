@@ -1,8 +1,6 @@
 extends Component
 
-
 @export var visibility: bool = true
-
 
 func set_visibility(vis: bool):
 	visibility = vis

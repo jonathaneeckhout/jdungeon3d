@@ -3,18 +3,16 @@ class_name SatusBarSystem
 
 const COLOR_GOOD := Color.LAWN_GREEN
 const COLOR_BAD := Color.RED
-const STATUS_BAR_TEXTURE: Texture2D = preload("res://assets/UI/RoundedBar.png")
+const STATUS_BAR_TEXTURE: Texture2D = preload ("res://assets/UI/RoundedBar.png")
 
 var status_bar_cache_dict: Dictionary = {}
 var ids_registered_arr: Array[int]
-
 
 func _ready():
 	super._ready()
 	
 	for client: ComponentClientIdentifier in Component.get_all(ComponentClientIdentifier):
 		register_id(client.get_id())
-
 
 func _tick():
 	for id: int in ids_registered_arr:
@@ -34,9 +32,6 @@ func _tick():
 		status_bar.global_position = status_pos
 		status_bar.modulate = COLOR_BAD.lerp(COLOR_GOOD, status_percent)
 		status_bar.region_rect.size.x = STATUS_BAR_TEXTURE.get_width() * status_percent
-	
-			
-
 
 func create_status_bar(id: int) -> Sprite3D:
 	var sprite_3d := Sprite3D.new()
@@ -68,7 +63,6 @@ func register_id(id: int):
 	else:
 		status_bar_cache_dict[id] = create_status_bar(id)
 		ids_registered_arr.append(id)
-	
 
 ##TODO: Make this get called when a player's entity is added to the scene
 func _on_client_entity_spawned(id: int):
