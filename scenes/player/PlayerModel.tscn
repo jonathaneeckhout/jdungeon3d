@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bp6dnf73o6v4w"]
 
-[ext_resource type="PackedScene" uid="uid://cdqk7m1e5xldl" path="res://assets/models/simple_player.glb" id="1_83tc6"]
-[ext_resource type="PackedScene" uid="uid://bujkg5eiwr24j" path="res://assets/models/axe.glb" id="2_ns7s7"]
-[ext_resource type="PackedScene" uid="uid://duq4b4qmcdr77" path="res://assets/models/shield.glb" id="3_sldqr"]
+[ext_resource type="PackedScene" uid="uid://cdqk7m1e5xldl" path="res://assets/models/player/PlayerModel.glb" id="1_83tc6"]
+[ext_resource type="PackedScene" uid="uid://bujkg5eiwr24j" path="res://assets/models/player/weapons/AxeModel.glb" id="2_ns7s7"]
+[ext_resource type="PackedScene" uid="uid://duq4b4qmcdr77" path="res://assets/models/player/weapons/ShieldModel.glb" id="3_sldqr"]
 
 [node name="PlayerModel" instance=ExtResource("1_83tc6")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(-0.575523, -0.298503, 0.34423, 0.679099)
+bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0638911, 0.0305654, -0.0274309, 0.997111)
 bones/2/rotation = Quaternion(0.0108004, 0.0121826, 0.0204151, 0.999659)
 bones/2/scale = Vector3(1, 1, 1)
@@ -39,7 +40,7 @@ bones/23/rotation = Quaternion(0.329197, -0.149664, 0.0471747, 0.931131)
 bones/23/scale = Vector3(1, 1, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.194469, -0.865359, 0.461882, 0.658887, 0.233589, 0.715055, -0.72667, 0.443385, 0.524748, -40.0649, -17.451, -84.4996)
+transform = Transform3D(-0.19447, -0.865359, 0.461882, 0.658888, 0.233588, 0.715055, -0.726669, 0.443385, 0.524748, -40.0649, -17.451, -84.4996)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -47,7 +48,7 @@ bone_idx = 14
 transform = Transform3D(73.6616, 15.2973, 65.8782, -10.0726, 98.8033, -11.6799, -66.8768, 1.96798, 74.321, 4.71957, 4.66896, 4.88527)
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.111399, -0.948858, -0.295398, 0.0266986, 0.299998, -0.953566, 0.993417, 0.0983393, 0.0587526, -11.9871, 42.613, -90.0984)
+transform = Transform3D(0.111401, -0.948857, -0.295396, 0.026699, 0.299997, -0.953566, 0.993416, 0.0983414, 0.0587535, -11.9872, 42.613, -90.0983)
 bone_name = "mixamorig_LeftHand"
 bone_idx = 10
 

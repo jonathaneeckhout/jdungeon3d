@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://duq4b4qmcdr77"
-path="res://.godot/imported/shield.glb-009ff2cb6dc58bf4277c7c3e83a0e3c9.scn"
+uid="uid://bujkg5eiwr24j"
+path="res://.godot/imported/AxeModel.glb-0eeee3593f2e95259dc63ff47e21d90b.scn"
 
 [deps]
 
-source_file="res://assets/models/shield.glb"
-dest_files=["res://.godot/imported/shield.glb-009ff2cb6dc58bf4277c7c3e83a0e3c9.scn"]
+source_file="res://assets/models/player/weapons/AxeModel.glb"
+dest_files=["res://.godot/imported/AxeModel.glb-0eeee3593f2e95259dc63ff47e21d90b.scn"]
 
 [params]
 
