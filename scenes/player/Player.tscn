@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=17 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
@@ -9,6 +9,10 @@
 [ext_resource type="Script" path="res://scripts/ecs/components/HitboxComponent.gd" id="7_p8x5l"]
 [ext_resource type="Script" path="res://scripts/ecs/components/InputComponent.gd" id="8_b4644"]
 [ext_resource type="Script" path="res://scripts/ecs/components/AttackComponent.gd" id="9_absd7"]
+[ext_resource type="Texture2D" uid="uid://2qnxwmrm083o" path="res://assets/ui/RoundedBar.png" id="10_dlvix"]
+[ext_resource type="Script" path="res://scripts/ecs/components/MovementComponent.gd" id="11_tdxur"]
+[ext_resource type="Script" path="res://scripts/ecs/components/ViewComponent.gd" id="12_1mvmm"]
+[ext_resource type="Script" path="res://scripts/ecs/components/InterfaceRefComponent.gd" id="13_mcxey"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
 
@@ -79,3 +83,23 @@ script = ExtResource("8_b4644")
 
 [node name="ComponentAttack" type="Node3D" parent="."]
 script = ExtResource("9_absd7")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.58301, 0)
+billboard = 1
+double_sided = false
+no_depth_test = true
+texture = ExtResource("10_dlvix")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 64)
+
+[node name="ComponentMovement" type="Node3D" parent="."]
+script = ExtResource("11_tdxur")
+
+[node name="ComponentView" type="Node3D" parent="." node_paths=PackedStringArray("camera_node")]
+script = ExtResource("12_1mvmm")
+camera_node = NodePath("../Head/Camera3D")
+
+[node name="ComponentUIReference" type="Node3D" parent="." node_paths=PackedStringArray("floating_health_bar")]
+script = ExtResource("13_mcxey")
+floating_health_bar = NodePath("../Sprite3D")
