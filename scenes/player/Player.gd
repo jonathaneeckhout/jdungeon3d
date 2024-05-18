@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const WALK_SPEED = 2.5
+const SPRINT_SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 ## Mouse sensitivity of the player.
@@ -17,6 +18,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var left_mouse_pressed = false
 var right_mouse_pressed = false
+var sprinting_pressed = false
 var animation_done = true
 
 func _ready():
@@ -41,6 +43,10 @@ func _input(event):
     elif event.is_action_pressed("attack_1"):
         animation_player.play("Slash")
         animation_done = false
+    elif event.is_action_pressed("sprint"):
+        sprinting_pressed = true
+    elif event.is_action_released("sprint"):
+        sprinting_pressed = false
 
     if event is InputEventMouseMotion:
         if left_mouse_pressed:
@@ -77,12 +83,19 @@ func _physics_process(delta):
     # As good practice, you should replace UI actions with custom gameplay actions.
     var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
     var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-    if direction:
-        velocity.x = direction.x * SPEED
-        velocity.z = direction.z * SPEED
+
+    var speed: float = 0.0
+    if sprinting_pressed:
+        speed = SPRINT_SPEED
     else:
-        velocity.x = move_toward(velocity.x, 0, SPEED)
-        velocity.z = move_toward(velocity.z, 0, SPEED)
+        speed = WALK_SPEED
+
+    if direction:
+        velocity.x = direction.x * speed
+        velocity.z = direction.z * speed
+    else:
+        velocity.x = move_toward(velocity.x, 0, speed)
+        velocity.z = move_toward(velocity.z, 0, speed)
 
     if not animation_done:
         if animation_player.is_playing():
@@ -95,6 +108,9 @@ func _physics_process(delta):
     elif velocity.is_zero_approx():
         animation_player.play("Idle")
     else:
-        animation_player.play("Run")
+        if sprinting_pressed:
+            animation_player.play("Running")
+        else:
+            animation_player.play("Walking")
 
     move_and_slide()
