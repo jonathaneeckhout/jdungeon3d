@@ -9,7 +9,7 @@ enum Actions {
 	ATTACK,
 }
 
-var targeted_direction: Vector3
+var look_rotation: Vector3
 
 var pressed_actions: Dictionary
 
@@ -19,8 +19,8 @@ func set_action_pressed(action: Actions, pressed: bool):
 func is_action_pressed(action: Actions) -> bool:
 	return pressed_actions.get(action, false)
 
-func set_targeted_direction(val: Vector3):
-	targeted_direction = val
+func set_look_rotation(val: Vector3):
+	look_rotation = val
 
-func get_targeted_direction() -> Vector3:
-	return targeted_direction
+func get_look_rotation() -> Vector3:
+	return look_rotation

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b06vtjtfvs7gs"]
+[gd_scene load_steps=7 format=3 uid="uid://b06vtjtfvs7gs"]
 
 [ext_resource type="Script" path="res://scripts/ecs/systems/StatusBarSystem.gd" id="1_0f6c7"]
 [ext_resource type="Script" path="res://scripts/ecs/systems/AttackSystem.gd" id="2_hsuu0"]
 [ext_resource type="Script" path="res://scripts/ecs/systems/InputSystem.gd" id="3_xvd8y"]
 [ext_resource type="Script" path="res://scripts/ecs/systems/DamageSystem.gd" id="4_xk77a"]
 [ext_resource type="Script" path="res://scripts/ecs/systems/MovementSystem.gd" id="5_h6hef"]
+[ext_resource type="Script" path="res://scripts/ecs/systems/AnimationSystem.gd" id="6_kform"]
 
 [node name="Systems" type="Node"]
 
@@ -23,3 +24,6 @@ script = ExtResource("4_xk77a")
 [node name="MovementSystem" type="Node3D" parent="."]
 script = ExtResource("5_h6hef")
 time_per_tick = 0.0
+
+[node name="AnimationSystem" type="Node3D" parent="."]
+script = ExtResource("6_kform")
