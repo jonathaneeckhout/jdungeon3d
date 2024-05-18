@@ -9,6 +9,8 @@ const ComponentActionDict: Dictionary = {
 	&"move_down": ComponentInput.Actions.MOVE_BACK,
 }
 
+var last_debug_msg: String
+
 func _unhandled_input(event: InputEvent):
 	update_component_input_from_client(event)
 
@@ -32,19 +34,18 @@ func update_component_input_from_client(event: InputEvent):
 	clientside_input_comp.set_action_pressed(
 		action, pressed
 	)
-	debug_msg(str(action) + ", pressed: " + str(pressed))
+	var debug_str: String = str(action) + ", pressed: " + str(pressed)
+	if last_debug_msg != debug_str:
+		debug_msg(debug_str)
+	last_debug_msg = debug_str
 	
 	var entity: Node3D = clientside_input_comp.get_parent()
 	clientside_input_comp.set_targeted_direction(entity.rotation)
 
 func get_client_input_comp() -> ComponentInput:
-	var client_entity: Node = ComponentClientIdentifier.get_client_entity()
-	if not client_entity:
+	var client_entity_id: int = ComponentClientIdentifier.get_client_entity_id()
+	if client_entity_id == Component.INVALID_ID:
 		return null
 		
-	var target_entity_id: int = Component.get_id_of_entity(
-		ComponentClientIdentifier.get_client_entity()
-		)
-	
-	var current_input_comp: ComponentInput = Component.get_by_id(ComponentInput, target_entity_id)
+	var current_input_comp: ComponentInput = Component.get_by_id(ComponentInput, client_entity_id)
 	return current_input_comp

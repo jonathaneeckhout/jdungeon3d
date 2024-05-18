@@ -4,8 +4,6 @@ class_name FloatingStatusSystem
 const COLOR_GOOD := Color.LAWN_GREEN
 const COLOR_BAD := Color.RED
 
-var ids_registered_arr: Array[int]
-
 func _ready():
 	super._ready()
 	
@@ -14,7 +12,7 @@ func _ready():
 
 
 func _tick():
-	for id: int in ids_registered_arr:
+	for id: int in registered_ids:
 		var health_comp: ComponentHealth = Component.get_by_id(ComponentHealth, id)
 		var ui_ref_comp: ComponentUIReference = Component.get_by_id(ComponentUIReference, id)
 		
@@ -39,7 +37,7 @@ func register_id(id: int):
 		return
 	
 	else:
-		ids_registered_arr.append(id)
+		super.register_id(id)
 
 
 ##TODO: Make this get called when a player's entity is added to the scene

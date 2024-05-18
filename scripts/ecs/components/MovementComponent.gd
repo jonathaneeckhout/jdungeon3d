@@ -1,9 +1,11 @@
 extends Component
 class_name ComponentMovement
 
+@export var model_node_reference: Node3D
 @export var enabled: bool = true
-@export var base_speed: float = 10.0
+@export var base_speed: float = 150.0
 var movement_vector: Vector3
+var on_floor: bool
 
 func set_movement_vector(val: Vector3):
 	movement_vector = val
@@ -33,3 +35,9 @@ func set_enabled(val: bool):
 
 func is_enabled() -> bool:
 	return enabled
+
+func set_on_floor(val: bool):
+	on_floor = val
+	
+func is_on_floor() -> bool:
+	return on_floor

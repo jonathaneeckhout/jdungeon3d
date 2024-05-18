@@ -1,15 +1,13 @@
 extends System
 class_name AttackSystem
 
-var registered_ids: Array[int]
-
 var attack_timer_dict: Dictionary
 
 func _ready():
 	super._ready()
 	
 	for comp: ComponentClientIdentifier in Component.get_all(ComponentClientIdentifier):
-		registered_ids.append(comp.get_id())
+		register_id(comp.get_id())
 
 func _tick():
 	## Progress attack timers

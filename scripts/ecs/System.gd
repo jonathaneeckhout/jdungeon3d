@@ -5,6 +5,8 @@ class_name System
 @export var debug_mode: bool = false
 @export var time_per_tick: float = 1.0 / 60.0
 
+var registered_ids: Array[int]
+
 func _ready() -> void:
 	## Do not start a timer if this is 0 or lower.
 	if time_per_tick <= 0:
@@ -26,3 +28,15 @@ func debug_msg(variant: Variant):
 	if not debug_mode:
 		return
 	print_debug(variant)
+	
+
+func register_id(id: int):
+	registered_ids.append(id)
+	
+	
+#func is_valid_id(id: int) -> bool:
+	#return _is_valid_id(id)
+	#
+	#
+#func _is_valid_id(id: int) -> bool:
+	#return true

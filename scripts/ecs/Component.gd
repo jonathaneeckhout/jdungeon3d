@@ -6,6 +6,8 @@ class_name Component
 ##
 ## The ID of each object is currently sourced from their instance ID, but it can be anything.
 
+const INVALID_ID: int = -2^62
+
 static var component_master_dict: Dictionary
 
 static var script_identifier_cache_dict: Dictionary
