@@ -1,6 +1,6 @@
-# Fragnere
+# JDungeon3D
 
-Fragnere is the 3D single player proof of concept project for https://github.com/jonathaneeckhout/jdungeon.
+JDungeon3D is the 3D single player proof of concept project for https://github.com/jonathaneeckhout/jdungeon.
 
 For now we will keep this project single player for simplicity. This way we can focus more easily on the core gameplay instead of network syncing.
 

@@ -44,7 +44,7 @@ Reviewing code takes a lot of time. By doing some simple tests you can help the 
 
 ### Use Code Style for Scripts
 
-Fragnere uses the code style defined by [GDtoolkit](https://pypi.org/project/gdtoolkit/). Use this tool to format your code. It can also be added as a plugin to VSCode.
+JDungeon3D uses the code style defined by [GDtoolkit](https://pypi.org/project/gdtoolkit/). Use this tool to format your code. It can also be added as a plugin to VSCode.
 
 ### Remove any Debug Code
 
