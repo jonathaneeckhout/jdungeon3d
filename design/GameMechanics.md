@@ -98,10 +98,35 @@ The player in JDungeon has an inventory with a maximum capacity of 16 items. The
 * **Trading:** Players can also trade items with other players. This adds a social and strategic layer to inventory management, allowing players to acquire needed items or exchange excess items for valuable resources.
 
 ## Equipment
+In JDungeon, characters can equip multiple pieces of equipment to enhance their capabilities in combat and exploration. Each piece of equipment provides a boost to the secondary stats of the player and may have specific requirements for wielding.
 
-## NPC's
+### Equipment Slots
+Players can equip items in various slots, including:
+
+* Headpiece
+* Neck
+* Body
+* Legs
+* Arms
+* Left Hand
+* Right Hand
+* Left Ring
+* Right Ring
+* Boots
+
+### Equipment Management
+* **Inventory Interaction:** When unequipping an item, it is placed back into the inventory of the player.
+* **Combat Restrictions:** No equipment can be swapped during combat, ensuring that players cannot change their gear mid-battle. This adds a strategic element to combat preparation and encourages players to carefully plan their equipment loadout before engaging in combat.
+
+### Equipment Requirements
+Each piece of equipment may have minimum level requirements and/or primary stat requirements to be wielded effectively. For example, a powerful sword may require a minimum strength stat to use, while a magical robe may have a minimum intellect requirement.
+
+### Weapon Types
+Weapons can be equipped in the right and left hand slots. Depending on whether a weapon is single-handed or dual-wielded, another weapon or shield can be equipped in the other hand. This allows for diverse combat strategies and playstyles.
 
 ## Level system
+
+## NPC's
 
 ## Keymapping
 To enhance the player experience and accommodate personal preferences, all player inputs can be remapped to preferred keys via a keymapping system. This feature allows players to customize their control scheme for optimal comfort and accessibility.
