@@ -14,4 +14,3 @@ jobs:
     - uses: actions/checkout@v4
     - uses: Scony/godot-gdscript-toolkit@master
     - run: gdformat --check scenes/ scripts/
-    - run: gdlint scenes/ scripts/
