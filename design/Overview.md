@@ -7,13 +7,13 @@ Welcome to the JDungeon3D game design overview!
 - [Game Mechanics](./GameMechanics.md)
 - [Character Design](./CharacterDesign.md)
 - [Level Design](./LevelDesign.md)
-- [Sound Design](./SoundSesign.md)
+- [Sound Design](./SoundDesign.md)
 
 ## Game Mechanics
 
 This section covers the core mechanics of the game, including player controls, objectives, and rules.
 
-## Class Design
+## Character Design
 
 In this section, we'll explore the design of the game's characters, including their appearance, abilities, and backstories.
 
