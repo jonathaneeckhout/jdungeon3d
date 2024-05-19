@@ -29,10 +29,27 @@ Challenging Enemies and Rewards
 JDungeon's main focus is to present players with challenging enemies. The difficulty of enemies varies, and defeating stronger enemies will yield higher rewards. These rewards can include more experience points, better loot, and significant progress in quests. This encourages players to develop their skills and strategies to overcome tougher adversaries for greater benefits.
 
 ## Skills
+In JDungeon, players have the opportunity to obtain and utilize various skills. These skills can enhance a player's abilities in combat, providing clever tools to gain the upper hand and secure victory.
+Obtaining Skills
+
+Skills can be acquired through completing certain challenging quests or by defeating difficult foes. This ensures that players are rewarded for their efforts and progress within the game.
+Types of Skills
+
+There are different types of skills available to players:
+
+* **Instant Skills:** These skills can be performed instantly on a target, providing immediate effects.
+* **Cast Time Skills:** These skills require a casting time, during which the player must remain stationary or perform specific actions to complete the skill.
+* **Area Skills:** Certain skills require the player to aim at a specific area using the mouse, allowing for strategic placement and execution.
+
+Skill Mechanics
+
+* **Energy Cost:** Performing a skill may cost energy, which must be managed to ensure the player can continue to use their abilities effectively during combat.
+* **Cooldowns:** After using a certain skill, there may be a cooldown period during which the skill cannot be used again. This requires players to strategically plan their skill usage to maximize effectiveness and maintain a tactical advantage in combat.
+* **Skill Selection:** Players can only select a limited number of 8 skills for each combat situation. This means that players must choose wisely to ensure they have the correct combination of skills for each specific encounter. Proper skill selection can greatly influence the outcome of a battle, encouraging strategic thinking and preparation.
+
+JDungeon's skill system is designed to provide depth and strategy to combat, encouraging players to develop and utilize a variety of skills to overcome challenges and achieve success in the game world.
 
 ## Attributes
-
-## Classes
 
 ## Inventory
 
