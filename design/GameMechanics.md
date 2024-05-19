@@ -125,8 +125,15 @@ Each piece of equipment may have minimum level requirements and/or primary stat 
 Weapons can be equipped in the right and left hand slots. Depending on whether a weapon is single-handed or dual-wielded, another weapon or shield can be equipped in the other hand. This allows for diverse combat strategies and playstyles.
 
 ## Level system
+In JDungeon, players progress through the game by gaining levels, starting at level 1 and reaching a maximum level of 100. To advance to the next level, a player must obtain a certain amount of experience points.
 
-## NPC's
+### Experience Gain
+Experience points can be obtained by:
+* **Defeating Enemies:** Players earn experience by defeating enemies in combat.
+* **Completing Quests:** Quest completion also rewards players with experience points.
+
+### Level Advancement
+Each new level attained provides the player with a certain amount of stat points. These stat points can be allocated to increase the player's base stats, such as strength, agility, intellect, and vitality. Allocating these points strategically allows players to tailor their characters to their preferred playstyle and strategic preferences.
 
 ## Keymapping
 To enhance the player experience and accommodate personal preferences, all player inputs can be remapped to preferred keys via a keymapping system. This feature allows players to customize their control scheme for optimal comfort and accessibility.
