@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://oop2nmlsxk5j"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qd024"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_igled"]
+
+[node name="ClamDog" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_qd024")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_igled")

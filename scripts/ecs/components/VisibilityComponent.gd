@@ -4,8 +4,8 @@ extends Component
 
 
 func set_visibility(vis: bool):
-	visibility = vis
+    visibility = vis
 
 
 func get_visibility() -> bool:
-	return visibility
+    return visibility
