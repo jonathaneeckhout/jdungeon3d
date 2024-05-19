@@ -30,17 +30,26 @@ JDungeon's main focus is to present players with challenging enemies. The diffic
 
 ## Skills
 
+## Attributes
+
+## Classes
+
 ## Inventory
 
 ## Loot
+In JDungeon, each enemy has a possibility to drop a certain type of loot upon defeat. Different types of enemies have distinct sets of items they can drop. Generally, stronger enemies will reward players with higher quality loot. Additionally, some quests will require players to collect specific types of loot. Certain enemies also have the chance to drop gold, adding another layer of reward for defeating foes.
+Loot Mechanics
 
+* **Loot Drops:** Each enemy has a unique loot table, with various items that can be dropped upon their defeat. The rarity and quality of loot generally increase with the difficulty of the enemy.
+* **Gold Drops:** Certain enemies can also drop gold, providing players with a valuable resource for purchasing items, equipment, and other necessities in the game.
+* **Quest-Related Loot:** Some quests may require players to collect specific items dropped by enemies.
+
+Loot can be picked up by the player who killed the enemy. Once an item is picked up, it is placed in the player's bag, provided there is enough space.
+
+JDungeon's loot system is designed to incentivize players to take on more challenging foes and to engage in various quests, offering a rewarding experience for their efforts and achievements.
 ## NPC's
 
-## Attributes
-
 ## Level system
-
-## Classes
 
 ## Keymapping
 To enhance the player experience and accommodate personal preferences, all player inputs can be remapped to preferred keys via a keymapping system. This feature allows players to customize their control scheme for optimal comfort and accessibility.
