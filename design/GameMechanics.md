@@ -48,7 +48,30 @@ There are different types of skills available to players:
 
 JDungeon's skill system is designed to provide depth and strategy to combat, encouraging players to develop and utilize a variety of skills to overcome challenges and achieve success in the game world.
 
-## Attributes
+## Stats
+Each player in JDungeon has a certain set of base stats: Strength, Agility, Intellect, and Vitality. These stats are fundamental to a player's capabilities in combat and exploration.
+
+### Base Stats
+* **Strength:** A measure of a player's physical power, affecting their attack power and melee damage.
+* **Agility:** Determines a player's speed, reflexes, and dexterity, influencing their attack speed, critical hit chance, and evasion.
+* **Intellect:** Represents a player's intelligence and magical prowess, affecting their spell power and magical damage.
+* **Vitality:** Measures a player's health and resilience, influencing their maximum health points and overall durability in combat.
+
+### Secondary Stats
+These base stats are used to calculate secondary stats, including:
+
+* **Attack Power:** Determines the damage dealt by physical attacks.
+* **Spell Power:** Influences the effectiveness of magical spells and abilities.
+* **Defense:** Reduces incoming damage from physical attacks.
+* **Energy:** Represents a player's resource pool for using skills and abilities.
+* **Health:** Determines a player's maximum health points.
+
+### Stat Enhancement
+Stats can be increased through various means:
+
+* **Leveling Up:** Gaining stat points while leveling up allows players to increase their base stats according to their preferences.
+* **Gear:** Equipping certain gear can provide bonuses to specific stats, enhancing a player's capabilities in combat and exploration.
+* **Skills and Consumables:** Certain skills or consumables can temporarily boost a player's stats, providing strategic advantages in battle or during challenging encounters.
 
 ## Loot
 In JDungeon, each enemy has a possibility to drop a certain type of loot upon defeat. Different types of enemies have distinct sets of items they can drop. Generally, stronger enemies will reward players with higher quality loot. Additionally, some quests will require players to collect specific types of loot. Certain enemies also have the chance to drop gold, adding another layer of reward for defeating foes.
