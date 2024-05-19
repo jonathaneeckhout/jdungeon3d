@@ -1,27 +1,21 @@
 # JDungeon3D
 
-JDungeon3D is the 3D single player proof of concept project for https://github.com/jonathaneeckhout/jdungeon.
+JDungeon3D is a free-to-play open-world MMORPG set in a medieval fantasy world, where players can embark on adventures, face challenging enemies, and explore captivating quests. JDungeon3D is an open-source project, fostering a community-driven approach to development, inviting enthusiasts to contribute to its ongoing expansion and maintenance. Built with the Godot game engine, JDungeon3D combines immersive gameplay with community-driven development, offering players an engaging experience in a dynamic fantasy universe.
 
-For now we will keep this project single player for simplicity. This way we can focus more easily on the core gameplay instead of network syncing.
+## Screenshots
+![Screenshot from 2024-05-16 14-15-33](https://github.com/jonathaneeckhout/jdungeon3d/assets/44840503/defe4ad8-36ff-4281-8995-0c907ea17aec)
 
-JDungeon did have a good start to make a MORPG game in godot, we proved that the game works on the multiplayer part. However it missed some core concepts as "Fun" and "A goal to play" it was also too complex for some topics making the threshold too high for new people to participate in the project.
+## Contributing
+We encourage contributions from the community. If you'd like to contribute to JDungeon3D, please follow the guidelines in our [Contribution Guide](CONTRIBUTING.md).
 
-What do we want to find out with this poc?
-- If 3D is feasible for this project?
-- How can we make it fun?
-- Can we make easily maps as the 2d tilemap system was one of the difficulties of JDungeon?
-- Can we use more the standard proviced high level multiplayer api to make the project simpler?
-- Move the things we liked from this poc to the main JDungeon project. 
+## Support and Community
 
-What are the next things we will focus on with this porject?
-- Add a single enemy
-- Check if basic meelee combat feels exciting
-- Add some AI to enemies (pathfinding ect)
-- Create a very basic Awakening Forest + Base Camp
-- Create a basic quest
+Join our [Discord server](https://discord.gg/KGwTyXumdv) to connect with other players and developers, seek assistance, and stay updated on the latest developments.
 
+## License
 
-Do you want to participate in this journey? Please be free to do so! You can create issues or pull requests.
+JDungeon3D is licensed under the [MIT License](LICENSE).
 
-If you have some questions feel free to join us on discord:
-https://discord.gg/KGwTyXumdv 
+---
+
+Thank you for choosing JDungeon3D. We look forward to your adventures in our medieval fantasy world!
