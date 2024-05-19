@@ -134,6 +134,3 @@ Experience points can be obtained by:
 
 ### Level Advancement
 Each new level attained provides the player with a certain amount of stat points. These stat points can be allocated to increase the player's base stats, such as strength, agility, intellect, and vitality. Allocating these points strategically allows players to tailor their characters to their preferred playstyle and strategic preferences.
-
-## Keymapping
-To enhance the player experience and accommodate personal preferences, all player inputs can be remapped to preferred keys via a keymapping system. This feature allows players to customize their control scheme for optimal comfort and accessibility.
