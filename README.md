@@ -1,5 +1,6 @@
-# JDungeon3D
+[![](https://dcbadge.vercel.app/api/server/KGwTyXumdv?style=flat)](https://discord.gg/KGwTyXumdv)
 
+# JDungeon3D
 JDungeon3D is a free-to-play open-world MMORPG set in a medieval fantasy world, where players can embark on adventures, face challenging enemies, and explore captivating quests. JDungeon3D is an open-source project, fostering a community-driven approach to development, inviting enthusiasts to contribute to its ongoing expansion and maintenance. Built with the Godot game engine, JDungeon3D combines immersive gameplay with community-driven development, offering players an engaging experience in a dynamic fantasy universe.
 
 ## Screenshots
