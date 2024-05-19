@@ -26,5 +26,11 @@ To define the boundaries of the game world, certain areas are restricted. The pl
 
 ## NPC's
 
+## Attributes
+
+## Level system
+
+## Classes
+
 ## Keymapping
 To enhance the player experience and accommodate personal preferences, all player inputs can be remapped to preferred keys via a keymapping system. This feature allows players to customize their control scheme for optimal comfort and accessibility.
