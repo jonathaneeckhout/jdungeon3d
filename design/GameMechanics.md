@@ -19,29 +19,28 @@ To define the boundaries of the game world, certain areas are restricted. The pl
 
 ## Combat
 Within the world of JDungeon, players will encounter various enemies. These enemies are entities that can be targeted and fought against. Defeating enemies will reward players with experience points and potential rewards in the form of loot or quest progression.
-Targeting and Engaging Enemies
 
+### Targeting and Engaging Enemies
 * **Targeting:** Left-clicking an enemy will target it, making it your primary target.
 * **Engaging Combat:** Right-clicking an enemy will trigger your character to engage in combat. If the enemy is within range of your auto-attack skills, the player character will automatically attack the enemy.
 
-Challenging Enemies and Rewards
-
+### Challenging Enemies and Rewards
 JDungeon's main focus is to present players with challenging enemies. The difficulty of enemies varies, and defeating stronger enemies will yield higher rewards. These rewards can include more experience points, better loot, and significant progress in quests. This encourages players to develop their skills and strategies to overcome tougher adversaries for greater benefits.
 
 ## Skills
 In JDungeon, players have the opportunity to obtain and utilize various skills. These skills can enhance a player's abilities in combat, providing clever tools to gain the upper hand and secure victory.
-Obtaining Skills
 
+### Obtaining Skills
 Skills can be acquired through completing certain challenging quests or by defeating difficult foes. This ensures that players are rewarded for their efforts and progress within the game.
-Types of Skills
 
+### Types of Skills
 There are different types of skills available to players:
 
 * **Instant Skills:** These skills can be performed instantly on a target, providing immediate effects.
 * **Cast Time Skills:** These skills require a casting time, during which the player must remain stationary or perform specific actions to complete the skill.
 * **Area Skills:** Certain skills require the player to aim at a specific area using the mouse, allowing for strategic placement and execution.
 
-Skill Mechanics
+### Skill Mechanics
 
 * **Energy Cost:** Performing a skill may cost energy, which must be managed to ensure the player can continue to use their abilities effectively during combat.
 * **Cooldowns:** After using a certain skill, there may be a cooldown period during which the skill cannot be used again. This requires players to strategically plan their skill usage to maximize effectiveness and maintain a tactical advantage in combat.
@@ -51,12 +50,10 @@ JDungeon's skill system is designed to provide depth and strategy to combat, enc
 
 ## Attributes
 
-## Inventory
-
 ## Loot
 In JDungeon, each enemy has a possibility to drop a certain type of loot upon defeat. Different types of enemies have distinct sets of items they can drop. Generally, stronger enemies will reward players with higher quality loot. Additionally, some quests will require players to collect specific types of loot. Certain enemies also have the chance to drop gold, adding another layer of reward for defeating foes.
-Loot Mechanics
 
+### Loot Mechanics
 * **Loot Drops:** Each enemy has a unique loot table, with various items that can be dropped upon their defeat. The rarity and quality of loot generally increase with the difficulty of the enemy.
 * **Gold Drops:** Certain enemies can also drop gold, providing players with a valuable resource for purchasing items, equipment, and other necessities in the game.
 * **Quest-Related Loot:** Some quests may require players to collect specific items dropped by enemies.
@@ -64,6 +61,21 @@ Loot Mechanics
 Loot can be picked up by the player who killed the enemy. Once an item is picked up, it is placed in the player's bag, provided there is enough space.
 
 JDungeon's loot system is designed to incentivize players to take on more challenging foes and to engage in various quests, offering a rewarding experience for their efforts and achievements.
+
+## Inventory
+The player in JDungeon has an inventory with a maximum capacity of 16 items. These items, gained from loot, trade, or quests, are stored in the inventory and can be used by the player. There are multiple types of items:
+
+* **Equipment:** Items that can be equipped by the player to enhance their abilities or provide protection.
+* **Consumables:** Items that provide an instant or temporary boost to the player, such as health potions or buffs.
+* **Junk:** Items that have no direct use for the player but can be sold to merchants for gold.
+
+### Inventory Management
+* **Capacity Limit:** Once the inventory is full, the player cannot carry any more items. This requires the player to manage their inventory carefully.
+* **Item Disposal:** To free up space, the player can drop, sell, or delete items from their inventory. This ensures that players make strategic decisions about which items to keep and which to discard, balancing their needs for combat, exploration, and trade.
+* **Trading:** Players can also trade items with other players. This adds a social and strategic layer to inventory management, allowing players to acquire needed items or exchange excess items for valuable resources.
+
+## Equipment
+
 ## NPC's
 
 ## Level system
