@@ -1,6 +1,7 @@
 # Game Mechanics Document
 This document describes the game mechanics of JDungeon3D.
 
+This is a document is not final yet and open for suggestions and improvements. If you feel like adding/changing something have a look at the CONTRIBUTING.MD file.
 
 ## Movement
 The player has the freedom to move seamlessly throughout the open world using a combination of the WSAD keys and the mouse. Specifically, the controls are as follows:
