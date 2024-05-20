@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp6dnf73o6v4w"]
+
+[ext_resource type="PackedScene" uid="uid://cdqk7m1e5xldl" path="res://assets/models/player/PlayerModel.glb" id="1_83tc6"]
+[ext_resource type="PackedScene" uid="uid://bujkg5eiwr24j" path="res://assets/models/player/weapons/AxeModel.glb" id="2_ns7s7"]
+[ext_resource type="PackedScene" uid="uid://duq4b4qmcdr77" path="res://assets/models/player/weapons/ShieldModel.glb" id="3_sldqr"]
+
+[node name="PlayerModel" instance=ExtResource("1_83tc6")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.694888, 0.0149867, -0.00860186, 0.718911)
+bones/1/rotation = Quaternion(0.0538565, -0.0113287, -0.00583203, 0.998467)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(0.0215658, -0.0213392, 0.0102915, 0.999487)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.0213173, -0.0209715, 0.0112616, 0.999489)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(-0.00425867, 0.0185705, -0.00215046, 0.999816)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(3.72529e-09, 1.86265e-09, 1.16415e-10, 1)
+bones/7/rotation = Quaternion(0.64947, 0.341715, -0.551083, 0.397149)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.389641, 0.183616, 0.128976, 0.893213)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(4.19079e-05, 3.3101e-05, 0.0963788, 0.995345)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.0913346, 0.0255419, -0.0336627, 0.994923)
+bones/11/rotation = Quaternion(0.629762, -0.353093, 0.582303, 0.373696)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.313304, -0.144892, -0.199375, 0.917113)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(5.72552e-05, 4.22656e-05, -0.201067, 0.979577)
+bones/14/rotation = Quaternion(0.0513956, 0.0115188, -0.00879389, 0.998573)
+bones/15/rotation = Quaternion(0.0892558, 0.19724, 0.976235, -0.0097384)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-0.540103, 0.0351066, -0.0180837, 0.840672)
+bones/17/rotation = Quaternion(0.545234, 0.107656, -0.0371749, 0.830511)
+bones/18/rotation = Quaternion(0.477031, 0.208979, 0.00550702, 0.853662)
+bones/19/rotation = Quaternion(3.44753e-08, -3.0268e-08, 4.50446e-08, 1)
+bones/20/rotation = Quaternion(-0.0619736, 0.0899491, 0.993883, -0.0163005)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.216528, -0.0280448, -0.0345012, 0.975263)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/rotation = Quaternion(0.580686, -0.102325, 0.032335, 0.807024)
+bones/23/scale = Vector3(1, 1, 1)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.529017, -7.23451e-05, 0.848611, 0.79142, 0.36094, -0.493333, -0.306262, 0.932589, 0.191, -28.4473, 15.5448, -79.0556)
+bone_name = "mixamorig_RightHand"
+bone_idx = 14
+
+[node name="axe" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_ns7s7")]
+transform = Transform3D(73.6616, 15.2973, 65.8782, -10.0726, 98.8033, -11.6799, -66.8768, 1.96798, 74.321, 4.71957, 4.66896, 4.88527)
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.699189, 0.0575546, -0.712616, -0.705022, -0.109917, -0.700616, -0.118653, 0.992273, -0.0362759, 27.3441, 10.0078, -78.2271)
+bone_name = "mixamorig_LeftHand"
+bone_idx = 10
+
+[node name="shield" parent="Armature/Skeleton3D/BoneAttachment3D2" index="0" instance=ExtResource("3_sldqr")]
+transform = Transform3D(11.1401, -99.3417, 2.6699, -94.8858, -9.83412, 29.9997, -29.5397, -5.87535, -95.3567, 32.7118, 13.8361, 6.2685)
+
+[node name="Shield" parent="." index="1"]
+visible = false
+
+[node name="Axe" parent="." index="2"]
+visible = false

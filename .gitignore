@@ -1,2 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Ignore Blender backup files
+*.blend1
+*.blend2
+*.blend3

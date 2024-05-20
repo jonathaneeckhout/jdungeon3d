@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bt7hseynikewq"]
+
+[ext_resource type="PackedScene" uid="uid://cqwv8qsyohma4" path="res://scenes/player/Player.tscn" id="1_sv0vd"]
+[ext_resource type="PackedScene" uid="uid://355it4y74uxw" path="res://scenes/maps/coast/CoastModel.tscn" id="3_wldb8"]
+[ext_resource type="Shader" path="res://shaders/Water.gdshader" id="3_wm1yi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p44tw"]
+sky_top_color = Color(0.52549, 0.737255, 0.92549, 1)
+sky_horizon_color = Color(0.905882, 0.909804, 0.913725, 1)
+
+[sub_resource type="Sky" id="Sky_j8mbj"]
+sky_material = SubResource("ProceduralSkyMaterial_p44tw")
+
+[sub_resource type="Environment" id="Environment_rx1wd"]
+background_mode = 2
+sky = SubResource("Sky_j8mbj")
+fog_enabled = true
+fog_density = 0.005
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0yhsh"]
+render_priority = 0
+shader = ExtResource("3_wm1yi")
+shader_parameter/out_col = Color(0.466667, 0.666667, 0.733333, 1)
+shader_parameter/amount = 0.8
+shader_parameter/beer_factor = 0.4
+shader_parameter/metallic = 0.7
+shader_parameter/roughness = 0.3
+shader_parameter/specular = 0.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d1tox"]
+material = SubResource("ShaderMaterial_0yhsh")
+size = Vector2(300, 300)
+subdivide_width = 50
+subdivide_depth = 50
+
+[node name="Coast" type="Node3D"]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.817847, -0.0938325, -0.567734, 0.465543, 0.687797, 0.556961, 0.338224, -0.719813, 0.606196, -22.6113, 27.6846, 0)
+light_color = Color(0.643137, 0.643137, 0.643137, 1)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_sv0vd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 52)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rx1wd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_d1tox")
+
+[node name="CoastModel" parent="." instance=ExtResource("3_wldb8")]
