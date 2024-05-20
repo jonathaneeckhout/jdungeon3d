@@ -1,4 +1,4 @@
-extends Component
+extends ECSComponent
 class_name ComponentHurtbox
 ## Designed to work with Area3Ds that can only be detected but cannot detect others.
 

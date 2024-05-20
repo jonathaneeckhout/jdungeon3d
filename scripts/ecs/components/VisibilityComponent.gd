@@ -1,4 +1,4 @@
-extends Component
+extends ECSComponent
 
 @export var visibility: bool = true
 

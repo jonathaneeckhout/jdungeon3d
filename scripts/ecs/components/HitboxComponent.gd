@@ -1,4 +1,4 @@
-extends Component
+extends ECSComponent
 class_name ComponentHitbox
 ## Designed to work with an Area3D that only finds others but can't be found. It then deals the specified damage.
 

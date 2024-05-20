@@ -1,4 +1,4 @@
-extends Component
+extends ECSComponent
 class_name ComponentAttack
 
 @export var attack_duration: float = 0.6

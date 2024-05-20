@@ -1,4 +1,4 @@
-extends System
+extends ECSSystem
 class_name SatusBarSystem
 
 const COLOR_GOOD := Color.LAWN_GREEN
@@ -12,14 +12,14 @@ var ids_registered_arr: Array[int]
 func _ready():
 	super._ready()
 
-	for client: ComponentClientIdentifier in Component.get_all(ComponentClientIdentifier):
+	for client: ComponentClientIdentifier in ECSComponent.get_all(ComponentClientIdentifier):
 		register_id(client.get_id())
 
 
 func _tick():
 	for id: int in ids_registered_arr:
-		var bounding_box_comp: ComponentBoundingBox = Component.get_by_id(ComponentBoundingBox, id)
-		var health_comp: ComponentHealth = Component.get_by_id(ComponentHealth, id)
+		var bounding_box_comp: ComponentBoundingBox = ECSComponent.get_by_id(ComponentBoundingBox, id)
+		var health_comp: ComponentHealth = ECSComponent.get_by_id(ComponentHealth, id)
 
 		if not bounding_box_comp or not health_comp:
 			push_warning("Missing components for entity {0}".format([str(id)]))
@@ -54,10 +54,10 @@ func create_status_bar(id: int) -> Sprite3D:
 
 
 func register_id(id: int):
-	var comps: Array[Component] = [
-		Component.get_by_id(ComponentClientIdentifier, id),
-		Component.get_by_id(ComponentHealth, id),
-		Component.get_by_id(ComponentBoundingBox, id),
+	var comps: Array[ECSComponent] = [
+		ECSComponent.get_by_id(ComponentClientIdentifier, id),
+		ECSComponent.get_by_id(ComponentHealth, id),
+		ECSComponent.get_by_id(ComponentBoundingBox, id),
 	]
 
 	if comps.has(null):

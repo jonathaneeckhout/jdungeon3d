@@ -1,4 +1,4 @@
-extends Component
+extends ECSComponent
 class_name ComponentBoundingBox
 
 @export var size: Vector3

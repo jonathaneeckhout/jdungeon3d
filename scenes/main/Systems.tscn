@@ -8,7 +8,6 @@
 [node name="Systems" type="Node"]
 
 [node name="SatusBarSystem" type="Node3D" parent="."]
-visible = false
 script = ExtResource("1_0f6c7")
 
 [node name="AttackSystem" type="Node3D" parent="."]

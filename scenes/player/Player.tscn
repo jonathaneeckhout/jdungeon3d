@@ -1,14 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=6 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
-[ext_resource type="Script" path="res://scripts/ecs/components/HealthComponent.gd" id="3_ri4gw"]
-[ext_resource type="Script" path="res://scripts/ecs/components/HurtboxComponent.gd" id="4_w470j"]
-[ext_resource type="Script" path="res://scripts/ecs/components/ClientIdentifierComponent.gd" id="5_vuvah"]
-[ext_resource type="Script" path="res://scripts/ecs/components/BoundingBox.gd" id="6_xmc4k"]
-[ext_resource type="Script" path="res://scripts/ecs/components/HitboxComponent.gd" id="7_p8x5l"]
-[ext_resource type="Script" path="res://scripts/ecs/components/InputComponent.gd" id="8_b4644"]
-[ext_resource type="Script" path="res://scripts/ecs/components/AttackComponent.gd" id="9_absd7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
 
@@ -39,32 +32,12 @@ current = true
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="ComponentHealth" type="Node3D" parent="."]
-script = ExtResource("3_ri4gw")
-
-[node name="ComponentHurtbox" type="Node3D" parent="." node_paths=PackedStringArray("area_node")]
-script = ExtResource("4_w470j")
-area_node = NodePath("../Hurtbox")
-
 [node name="Hurtbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.795238, 0)
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape3D_3f8mh")
-
-[node name="ComponentClientIdentifier" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.73691, 0)
-script = ExtResource("5_vuvah")
-
-[node name="ComponentBoundingBox" type="Node3D" parent="."]
-script = ExtResource("6_xmc4k")
-size = Vector3(1, 2, 1)
-
-[node name="ComponentHitbox" type="Node3D" parent="." node_paths=PackedStringArray("area_node")]
-script = ExtResource("7_p8x5l")
-area_node = NodePath("../Hitbox")
-damage = 5.0
 
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
@@ -73,9 +46,3 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_ox642")
-
-[node name="ComponentInput" type="Node3D" parent="."]
-script = ExtResource("8_b4644")
-
-[node name="ComponentAttack" type="Node3D" parent="."]
-script = ExtResource("9_absd7")

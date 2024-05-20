@@ -1,4 +1,4 @@
-extends System
+extends ECSSystem
 class_name InputSystem
 
 const ComponentActionDict: Dictionary = {"attack_1": ComponentInput.Actions.ATTACK}
@@ -29,9 +29,9 @@ func update_component_input_from_client(event: InputEvent):
 
 
 func get_client_input_comp() -> ComponentInput:
-	var target_entity_id: int = Component.get_id_of_entity(
+	var target_entity_id: int = ECSComponent.get_id_of_entity(
 		ComponentClientIdentifier.get_client_entity()
 	)
 
-	var current_input_comp: ComponentInput = Component.get_by_id(ComponentInput, target_entity_id)
+	var current_input_comp: ComponentInput = ECSComponent.get_by_id(ComponentInput, target_entity_id)
 	return current_input_comp
