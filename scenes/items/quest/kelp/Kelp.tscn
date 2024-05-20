@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2hrillew8rlk"]
+
+[ext_resource type="Script" path="res://scenes/items/quest/kelp/Kelp.gd" id="1_r4wjl"]
+[ext_resource type="PackedScene" uid="uid://cyvuoaulvrdy1" path="res://scenes/items/quest/kelp/KelpModel.tscn" id="1_s3dpl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pajc6"]
+radius = 1.0
+
+[node name="Kelp" type="Node3D" node_paths=PackedStringArray("loot_area")]
+script = ExtResource("1_r4wjl")
+item_class = "Kelp"
+type = 1
+loot_area = NodePath("LootArea")
+
+[node name="KelpModel" parent="." instance=ExtResource("1_s3dpl")]
+
+[node name="LootArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LootArea"]
+shape = SubResource("SphereShape3D_pajc6")
