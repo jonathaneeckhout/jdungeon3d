@@ -9,10 +9,11 @@ var _animation_done = true
 
 
 func _ready():
-	super._ready()
+	register_component()
 
 	_animation_player = model.get_node("AnimationPlayer")
 	_movement_component = get_node("../MovementComponent") as MovementComponent
+
 
 func _process(_delta):
 	if not _animation_done:

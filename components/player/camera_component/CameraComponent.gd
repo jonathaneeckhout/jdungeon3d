@@ -26,12 +26,14 @@ func _input(event):
 
 		# Ensure not to look too far.
 		camera_pivot_point.rotation.x = clamp(
-			camera_pivot_point.rotation.x, deg_to_rad(camera_lower_limit), deg_to_rad(camera_upper_limit)
+			camera_pivot_point.rotation.x,
+			deg_to_rad(camera_lower_limit),
+			deg_to_rad(camera_upper_limit)
 		)
 		camera_pivot_point.rotation.z = 0
 
 
 func _ready():
-	super._ready()
+	register_component()
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

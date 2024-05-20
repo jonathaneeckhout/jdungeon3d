@@ -30,7 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 4, 3)
-current = true
 
 [node name="Model" parent="." instance=ExtResource("2_xfbpx")]
 unique_name_in_owner = true
@@ -58,6 +57,9 @@ actor = NodePath("..")
 
 [node name="CameraComponent" parent="ComponentList" node_paths=PackedStringArray("camera_pivot_point") instance=ExtResource("5_eulpo")]
 camera_pivot_point = NodePath("../../Head")
+mouse_sensitivity = 0.4
+camera_upper_limit = 89.0
+camera_lower_limit = -50.0
 
 [node name="AnimationComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("6_nf4qt")]
 model = NodePath("../../Model")
