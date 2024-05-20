@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=14 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://drplm06kt5saj" path="res://components/player/camera_component/CameraComponent.tscn" id="5_eulpo"]
 [ext_resource type="PackedScene" uid="uid://bx2c22mbau62x" path="res://components/player/animation_component/AnimationComponent.tscn" id="6_nf4qt"]
 [ext_resource type="PackedScene" uid="uid://bw5kc4smwcefn" path="res://components/player/inventory_component/InventoryComponent.tscn" id="7_w7ayg"]
+[ext_resource type="PackedScene" uid="uid://64wk7xf4vgg6" path="res://components/player/loot_component/LootComponent.tscn" id="8_8veax"]
+[ext_resource type="PackedScene" uid="uid://dxiu6amc5nf7" path="res://scenes/ui/loot_preview/LootPreview.tscn" id="9_sgtll"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
 
@@ -17,6 +19,9 @@ height = 1.77816
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ox642"]
 radius = 0.6
 height = 1.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_02c85"]
+radius = 4.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_cl805")
@@ -64,3 +69,20 @@ camera_pivot_point = NodePath("../../Head")
 model = NodePath("../../Model")
 
 [node name="InventoryComponent" parent="ComponentList" instance=ExtResource("7_w7ayg")]
+
+[node name="LootComponent" parent="ComponentList" node_paths=PackedStringArray("loot_area", "loot_preview") instance=ExtResource("8_8veax")]
+loot_area = NodePath("../../LootArea")
+loot_scan_depth = 1000.0
+loot_preview = NodePath("../../Ui/LootPreview")
+
+[node name="LootArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LootArea"]
+shape = SubResource("SphereShape3D_02c85")
+
+[node name="Ui" type="CanvasLayer" parent="."]
+
+[node name="LootPreview" parent="Ui" instance=ExtResource("9_sgtll")]
+visible = false
