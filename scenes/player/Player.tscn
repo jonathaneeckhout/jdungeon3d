@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=11 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://iu6bb5qppyho" path="res://components/player/movement_component/MovementComponent.tscn" id="4_kjobu"]
 [ext_resource type="PackedScene" uid="uid://drplm06kt5saj" path="res://components/player/camera_component/CameraComponent.tscn" id="5_eulpo"]
 [ext_resource type="PackedScene" uid="uid://bx2c22mbau62x" path="res://components/player/animation_component/AnimationComponent.tscn" id="6_nf4qt"]
+[ext_resource type="PackedScene" uid="uid://bw5kc4smwcefn" path="res://components/player/inventory_component/InventoryComponent.tscn" id="7_w7ayg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
 
@@ -30,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 4, 3)
+current = true
 
 [node name="Model" parent="." instance=ExtResource("2_xfbpx")]
 unique_name_in_owner = true
@@ -57,9 +59,8 @@ actor = NodePath("..")
 
 [node name="CameraComponent" parent="ComponentList" node_paths=PackedStringArray("camera_pivot_point") instance=ExtResource("5_eulpo")]
 camera_pivot_point = NodePath("../../Head")
-mouse_sensitivity = 0.4
-camera_upper_limit = 89.0
-camera_lower_limit = -89.0
 
 [node name="AnimationComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("6_nf4qt")]
 model = NodePath("../../Model")
+
+[node name="InventoryComponent" parent="ComponentList" instance=ExtResource("7_w7ayg")]
