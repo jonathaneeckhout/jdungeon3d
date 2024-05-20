@@ -6,6 +6,7 @@
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_xj771")
+client_logging_prefix = null
 
 [node name="Map" type="Node3D" parent="."]
 
