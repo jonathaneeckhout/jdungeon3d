@@ -135,6 +135,8 @@ Players can equip items in various slots, including:
 * Head (Helmet or any large headgear)
 * Arms (Gauntlets, gloves)
 * Legs (Boots, shin-guards, footwear)
+* Accessory 1 (Any miscellaneous addition)
+* Accessory 2
 
 ### Equipment Management
 * **Inventory Interaction:** When unequipping an item, it is placed back into the inventory of the player.
