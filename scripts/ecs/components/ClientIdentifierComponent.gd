@@ -1,4 +1,4 @@
-extends Component
+extends ECSComponent
 class_name ComponentClientIdentifier
 
 static var client_entity: Node = null

@@ -1,4 +1,4 @@
-extends System
+extends ECSSystem
 class_name SystemDamage
 ## Checks which Hitbox components are touching which Hurtbox components, then deals damage to their Health component.
 
@@ -17,7 +17,7 @@ func _tick():
 			hurtbox_timer_dict.erase(id)
 
 	## Check all hitboxes
-	for hitbox: ComponentHitbox in Component.get_all(ComponentHitbox):
+	for hitbox: ComponentHitbox in ECSComponent.get_all(ComponentHitbox):
 		if not hitbox.is_enabled():
 			continue
 
@@ -63,7 +63,7 @@ func _tick():
 
 ## In the future, the function could take into account stats or other properties from the attacker to influence the attack.
 func deal_damage(attacker_id: int, victim_id: int, amount: int):
-	var victim_health: ComponentHealth = Component.get_by_id(ComponentHealth, victim_id)
+	var victim_health: ComponentHealth = ECSComponent.get_by_id(ComponentHealth, victim_id)
 
 	## Do not deal damage if the target does not have health.
 	if victim_health == null:
@@ -77,7 +77,7 @@ func deal_damage(attacker_id: int, victim_id: int, amount: int):
 
 
 func start_hurtbox_invul_timer(component_id: int):
-	var hurtbox := Component.get_by_id(ComponentHurtbox, component_id)
+	var hurtbox := ECSComponent.get_by_id(ComponentHurtbox, component_id)
 	if hurtbox == null:
 		return
 	hurtbox_timer_dict[component_id] = hurtbox.invul_time

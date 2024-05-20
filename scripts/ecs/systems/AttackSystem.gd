@@ -1,4 +1,4 @@
-extends System
+extends ECSSystem
 class_name AttackSystem
 
 var registered_ids: Array[int]
@@ -9,7 +9,7 @@ var attack_timer_dict: Dictionary
 func _ready():
 	super._ready()
 
-	for comp: ComponentClientIdentifier in Component.get_all(ComponentClientIdentifier):
+	for comp: ComponentClientIdentifier in ECSComponent.get_all(ComponentClientIdentifier):
 		registered_ids.append(comp.get_id())
 
 
@@ -22,9 +22,9 @@ func _tick():
 			attack_timer_dict.erase(id)
 
 	for entity_id: int in registered_ids:
-		var input_comp: ComponentInput = Component.get_by_id(ComponentInput, entity_id)
-		var hitbox_comp: ComponentHitbox = Component.get_by_id(ComponentHitbox, entity_id)
-		var attack_comp: ComponentAttack = Component.get_by_id(ComponentAttack, entity_id)
+		var input_comp: ComponentInput = ECSComponent.get_by_id(ComponentInput, entity_id)
+		var hitbox_comp: ComponentHitbox = ECSComponent.get_by_id(ComponentHitbox, entity_id)
+		var attack_comp: ComponentAttack = ECSComponent.get_by_id(ComponentAttack, entity_id)
 
 		## Any previous attack must have ended
 		if attack_timer_dict.get(entity_id, 0.0) > 0:

@@ -1,5 +1,5 @@
 extends Node3D
-class_name System
+class_name ECSSystem
 ## Systems essentially act as singletons. They perform actions by looking for the appropiate components on a given entity.
 
 @export var debug_mode: bool = false

@@ -15,9 +15,17 @@ run/main_scene="res://scenes/main/Main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GodotLogger="*res://addons/logger/logger.gd"
+
 [debug]
 
 gdscript/warnings/narrowing_conversion=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/logger/plugin.cfg")
 
 [input]
 
