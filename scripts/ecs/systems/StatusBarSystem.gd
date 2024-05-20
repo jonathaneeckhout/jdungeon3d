@@ -18,7 +18,9 @@ func _ready():
 
 func _tick():
 	for id: int in ids_registered_arr:
-		var bounding_box_comp: ComponentBoundingBox = ECSComponent.get_by_id(ComponentBoundingBox, id)
+		var bounding_box_comp: ComponentBoundingBox = ECSComponent.get_by_id(
+			ComponentBoundingBox, id
+		)
 		var health_comp: ComponentHealth = ECSComponent.get_by_id(ComponentHealth, id)
 
 		if not bounding_box_comp or not health_comp:

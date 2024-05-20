@@ -33,5 +33,7 @@ func get_client_input_comp() -> ComponentInput:
 		ComponentClientIdentifier.get_client_entity()
 	)
 
-	var current_input_comp: ComponentInput = ECSComponent.get_by_id(ComponentInput, target_entity_id)
+	var current_input_comp: ComponentInput = ECSComponent.get_by_id(
+		ComponentInput, target_entity_id
+	)
 	return current_input_comp
