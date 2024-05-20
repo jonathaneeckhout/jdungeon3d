@@ -4,7 +4,7 @@ extends Component
 @export var camera_pivot_point: Node3D = null
 @export var mouse_sensitivity: float = 0.4
 @export var camera_upper_limit: float = 89
-@export var camera_lower_limit: float = -50
+@export var camera_lower_limit: float = -89
 
 var _last_mouse_position: Vector2 = Vector2.ZERO
 var _left_mouse_pressed: bool = true
@@ -22,9 +22,10 @@ func _input(event):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		_right_mouse_pressed = true
 	elif event.is_action_released("right_click"):
-		# Set the mouse at the last position.
 		# Show the mouse cursor.
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+		# Set the mouse at the last position.
 		Input.warp_mouse(_last_mouse_position)
 		_right_mouse_pressed = false
 

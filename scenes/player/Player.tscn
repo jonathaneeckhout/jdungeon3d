@@ -59,7 +59,7 @@ actor = NodePath("..")
 camera_pivot_point = NodePath("../../Head")
 mouse_sensitivity = 0.4
 camera_upper_limit = 89.0
-camera_lower_limit = -50.0
+camera_lower_limit = -89.0
 
 [node name="AnimationComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("6_nf4qt")]
 model = NodePath("../../Model")
