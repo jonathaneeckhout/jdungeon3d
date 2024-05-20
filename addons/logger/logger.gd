@@ -163,4 +163,3 @@ func _write_logs(message: String):
 	if _file == null:
 		_file = FileAccess.open(log_path, FileAccess.WRITE)
 	_file.store_line(message)
-	pass
