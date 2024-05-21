@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6ujxb4xlfsvf" path="res://components/component_list/ComponentList.tscn" id="3_ghfnh"]
 [ext_resource type="PackedScene" uid="uid://iu6bb5qppyho" path="res://components/player/movement_component/MovementComponent.tscn" id="4_kjobu"]
 [ext_resource type="PackedScene" uid="uid://drplm06kt5saj" path="res://components/player/camera_component/CameraComponent.tscn" id="5_eulpo"]
-[ext_resource type="PackedScene" uid="uid://bx2c22mbau62x" path="res://components/player/animation_component/AnimationComponent.tscn" id="6_nf4qt"]
+[ext_resource type="PackedScene" uid="uid://bx2c22mbau62x" path="res://components/common/animation_component/AnimationComponent.tscn" id="6_nf4qt"]
 [ext_resource type="PackedScene" uid="uid://bw5kc4smwcefn" path="res://components/player/inventory_component/InventoryComponent.tscn" id="7_w7ayg"]
 [ext_resource type="PackedScene" uid="uid://64wk7xf4vgg6" path="res://components/player/loot_component/LootComponent.tscn" id="8_8veax"]
 [ext_resource type="PackedScene" uid="uid://dxiu6amc5nf7" path="res://scenes/ui/loot_preview/LootPreview.tscn" id="9_sgtll"]
