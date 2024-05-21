@@ -60,8 +60,22 @@ mesh = SubResource("PlaneMesh_d1tox")
 [node name="Items" type="Node3D" parent="Entities"]
 
 [node name="Kelp" parent="Entities/Items" instance=ExtResource("4_p11iw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 26)
+transform = Transform3D(0.0632434, 0, 0.997998, 0, 1, 0, -0.997998, 0, 0.0632434, -90.4965, 2, 34.0667)
 
-[node name="Kelp2" parent="Entities/Items" node_paths=PackedStringArray("loot_area") instance=ExtResource("4_p11iw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1836, 19.0777)
+[node name="Kelp5" parent="Entities/Items" node_paths=PackedStringArray("loot_area") instance=ExtResource("4_p11iw")]
+transform = Transform3D(0.931634, 0, -0.363398, 0, 1, 0, 0.363398, 0, 0.931634, -90.4965, 2, 21.2824)
 loot_area = NodePath("../Kelp/LootArea")
+
+[node name="Kelp3" parent="Entities/Items" node_paths=PackedStringArray("loot_area") instance=ExtResource("4_p11iw")]
+transform = Transform3D(-0.774393, 0, 0.632705, 0, 1, 0, -0.632705, 0, -0.774393, -63.0875, 2, 31.9774)
+loot_area = NodePath("../Kelp/LootArea")
+
+[node name="Kelp2" parent="Entities/Items" instance=ExtResource("4_p11iw")]
+transform = Transform3D(1, 0, 0, 0, 0.972941, -0.231052, 0, 0.231052, 0.972941, -86.8279, 0.378529, 42.6821)
+
+[node name="Kelp4" parent="Entities/Items" node_paths=PackedStringArray("loot_area") instance=ExtResource("4_p11iw")]
+transform = Transform3D(-0.38758, -0.212992, -0.896893, 0, 0.972941, -0.231052, 0.921836, -0.089551, -0.377093, -72.2364, 0.378529, 42.6821)
+loot_area = NodePath("../Kelp2/LootArea")
+
+[node name="Kelp6" parent="Entities/Items" instance=ExtResource("4_p11iw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.6893, 0, 23.2328)
