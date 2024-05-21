@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=15 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bw5kc4smwcefn" path="res://components/player/inventory_component/InventoryComponent.tscn" id="7_w7ayg"]
 [ext_resource type="PackedScene" uid="uid://64wk7xf4vgg6" path="res://components/player/loot_component/LootComponent.tscn" id="8_8veax"]
 [ext_resource type="PackedScene" uid="uid://dxiu6amc5nf7" path="res://scenes/ui/loot_preview/LootPreview.tscn" id="9_sgtll"]
+[ext_resource type="PackedScene" uid="uid://bxx5fdoyrlkku" path="res://scenes/ui/inventory_panel/InventoryPanel.tscn" id="10_kufwp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
 
@@ -72,7 +73,7 @@ model = NodePath("../../Model")
 
 [node name="LootComponent" parent="ComponentList" node_paths=PackedStringArray("loot_area", "loot_preview") instance=ExtResource("8_8veax")]
 loot_area = NodePath("../../LootArea")
-loot_preview = NodePath("../../Ui/LootPreview")
+loot_preview = NodePath("../../Ui/MarginContainer/HBoxContainer/LootPreview")
 
 [node name="LootArea" type="Area3D" parent="."]
 collision_layer = 0
@@ -83,5 +84,29 @@ shape = SubResource("SphereShape3D_02c85")
 
 [node name="Ui" type="CanvasLayer" parent="."]
 
-[node name="LootPreview" parent="Ui" instance=ExtResource("9_sgtll")]
+[node name="MarginContainer" type="MarginContainer" parent="Ui"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -156.0
+offset_top = -129.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Ui/MarginContainer"]
+layout_mode = 2
+
+[node name="LootPreview" parent="Ui/MarginContainer/HBoxContainer" instance=ExtResource("9_sgtll")]
 visible = false
+layout_mode = 2
+
+[node name="InventoryPanel" parent="Ui/MarginContainer/HBoxContainer" node_paths=PackedStringArray("inventory_component") instance=ExtResource("10_kufwp")]
+visible = false
+layout_mode = 2
+inventory_component = NodePath("../../../../ComponentList/InventoryComponent")

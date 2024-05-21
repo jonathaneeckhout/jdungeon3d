@@ -61,3 +61,7 @@ mesh = SubResource("PlaneMesh_d1tox")
 
 [node name="Kelp" parent="Entities/Items" instance=ExtResource("4_p11iw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 26)
+
+[node name="Kelp2" parent="Entities/Items" node_paths=PackedStringArray("loot_area") instance=ExtResource("4_p11iw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1836, 19.0777)
+loot_area = NodePath("../Kelp/LootArea")

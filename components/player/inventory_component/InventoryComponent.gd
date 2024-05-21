@@ -1,10 +1,22 @@
 class_name InventoryComponent
 extends Component
 
-@export var size: int = 16
+signal inventory_changed
 
+@export var size: int = 16
 @export var inventory: Array[Item] = []
 @export var gold: int = 0
+
+
+func get_inventory() -> Array[Item]:
+	return inventory
+
+
+func get_inventory_item(index: int) -> Item:
+	if index < 0 or index >= inventory.size():
+		return null
+
+	return inventory[index]
 
 
 func add_item(item: Item) -> bool:
@@ -17,6 +29,8 @@ func add_item(item: Item) -> bool:
 
 	inventory.append(item)
 
+	inventory_changed.emit()
+
 	return true
 
 
@@ -26,6 +40,9 @@ func remove_item(uuid: String) -> bool:
 		return false
 
 	inventory.erase(item)
+
+	inventory_changed.emit()
+
 	return true
 
 
