@@ -6,7 +6,7 @@ This is a document is not final yet and open for suggestions and improvements. I
 ## Movement
 The player has the freedom to move seamlessly throughout the open world.
 
-To define the boundaries of the game world, certain areas are restricted. The player is not allowed to swim (plot reasons, trust :) ) ; water bodies will serve as natural boundaries that the player cannot cross. Furthermore, steep hills and cliffs will be used strategically to limit access to specific regions, guiding the player’s exploration and progression within the game world.
+To define the boundaries of the game world, certain areas are restricted. The player is not allowed to swim in the sea as it will serve as a natural boundary that the player cannot cross. Furthermore, steep hills and cliffs will be used strategically to limit access to specific regions, guiding the player’s exploration and progression within the game world.
 
 ## Controls   
     
@@ -21,20 +21,7 @@ The game allows independent movement of the mouse cursor as a way to select thin
 * When moving the camera the cursor is considered to be in the center of the screen, allowing you to "aim" at objects with the camera to select them. This makes it impossible to move the cursor towards HUD elements and is reliant on key binds. 
 * When moving the cursor, the camera remains stationary. But you can select anything within your field of view.  
   
-  A button can be used to temporarily invert the behavior.
-    
-#### Mouse Control Schemes:    
-There are different schemes to choose from for player comfort.
-* **RTS scheme:** 
-	* Mouse movement moves the cursor. 
-	* The player faces the last direction it was moving towards or its current target. 
-	* A separate button may be used to select a facing without moving.
-* **Shooter scheme:** 
-	* Mouse movement rotates the camera. 
-	* The player always faces away from the camera. 
-* **Adventure scheme:** 
-	* Mouse movement rotates the camera. 
-	* The player faces whichever direction was last pressed (relative to the camera position) or its current target. 
+  A button can be used to temporarily invert the behavior. By default, the mouse moves the camera.
 
     
 ## Combat
@@ -61,13 +48,13 @@ Skills can be acquired by performing certain activities, including combat. This 
 ### Types of Skills
 There are different types of skills available to players:
 
-* **Instant Skills:** These skills activate instantly on a target chosen automatically (which may the the user itself and/or certain nearby creatures), providing immediate effects.
-* **Active Skills:** Same as "instant", but they have a brief time after activation that prevents the user from performing other actions (usually occupied by an animation). Active skills cannot be interrupted even if their animation were to be stopped for any reason.
+* **Instant Skills:** These skills activate instantly with an immediate effect.
+* **Active Skills:** These have a brief time after activation that prevents the user from performing other actions (usually occupied by an animation). Active skills cannot be interrupted even if their animation were to be stopped for any reason.
 * **Cast Time Skills:** Upon usage, the player becomes unable to perform other actions, sometimes even becoming unable to move. After a timer, the skill activates. These may be interrupted by other creatures or the user itself.
-* **Targeted Skills:** Certain skills require the player to aim at a specific spot using the mouse, allowing for strategic placement and execution.
 
 ### Skill Mechanics
 
+* **Targeting:** Skills have different targeting requirements for being activated. Some acquire targets automatically and can be activated at any time (some may require a valid target to be present), while others may require a specific creature to be selected. Additionally, some allow manually aiming at a spot in the ground instead of at creatures.
 * **Energy Cost:** Performing a skill may cost energy, which must be managed to ensure the player can continue to use their abilities effectively during combat.
 * **Cooldowns:** After using a certain skill, there may be a cooldown period during which the skill cannot be used again. This requires players to strategically plan their skill usage to maximize effectiveness and maintain a tactical advantage in combat.
 * **Skill Selection:** Players can only select a limited number of 8 skills for each combat situation. This means that players must choose wisely to ensure they have the correct combination of skills for each specific encounter. Proper skill selection can greatly influence the outcome of a battle, encouraging strategic thinking and preparation. Skills may be changed in any safe zone.
@@ -137,6 +124,9 @@ Players can equip items in various slots, including:
 * Legs (Boots, shin-guards, footwear)
 * Accessory 1 (Any miscellaneous addition)
 * Accessory 2
+* Accessory ...
+* Hand (Occupied by the main weapon)
+* Offhand (When using one handed weapons, it can hold another weapon/shield. Otherwise it is disabled while the main weapon is equipped.)
 
 ### Equipment Management
 * **Inventory Interaction:** When unequipping an item, it is placed back into the inventory of the player.
