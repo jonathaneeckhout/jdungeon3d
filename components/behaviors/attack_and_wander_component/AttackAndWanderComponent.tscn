@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb66yi38wvanp"]
+
+[ext_resource type="Script" path="res://components/behaviors/attack_and_wander_component/AttackAndWanderComponent.gd" id="1_8e8ww"]
+
+[node name="AttackAndWanderComponent" type="Node"]
+script = ExtResource("1_8e8ww")
