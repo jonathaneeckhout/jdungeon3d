@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://0ssul17mr63j"]
+[gd_scene load_steps=6 format=3 uid="uid://0ssul17mr63j"]
 
-[ext_resource type="PackedScene" uid="uid://tsaccn3tkgp2" path="res://assets/models/enemies/mushroomdog/MushroomdogModel.glb" id="1_uyrxu"]
+[ext_resource type="Script" path="res://scenes/enemies/mushroomdog/Mushroomdog.gd" id="1_ucre5"]
+[ext_resource type="PackedScene" uid="uid://b5lwk4plbr6ld" path="res://assets/models/enemies/mushroomdog/MushroomdogModel.glb" id="1_uyrxu"]
+[ext_resource type="PackedScene" uid="uid://6ujxb4xlfsvf" path="res://components/component_list/ComponentList.tscn" id="3_fiy2q"]
+[ext_resource type="PackedScene" uid="uid://bx2c22mbau62x" path="res://components/common/animation_component/AnimationComponent.tscn" id="4_wbgph"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s6d2s"]
 
 [node name="Mushroomdog" type="CharacterBody3D"]
+script = ExtResource("1_ucre5")
+enemy_class = "Mushroomdog"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0)
@@ -12,3 +17,10 @@ shape = SubResource("CapsuleShape3D_s6d2s")
 
 [node name="MushroomdogModel" parent="." instance=ExtResource("1_uyrxu")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -0.5)
+
+[node name="ComponentList" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_fiy2q")]
+actor = NodePath("..")
+
+[node name="AnimationComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("4_wbgph")]
+model = NodePath("../../MushroomdogModel")
+idle_animations = Array[String](["Idle", "Idle_Shake"])
