@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bp6dnf73o6v4w"]
 
 [ext_resource type="PackedScene" uid="uid://gvdqnbp2pu30" path="res://assets/models/player/PlayerModel.glb" id="1_83tc6"]
-[ext_resource type="PackedScene" uid="uid://bujkg5eiwr24j" path="res://assets/models/player/weapons/AxeModel.glb" id="2_ns7s7"]
-[ext_resource type="PackedScene" uid="uid://duq4b4qmcdr77" path="res://assets/models/player/weapons/ShieldModel.glb" id="3_sldqr"]
+[ext_resource type="PackedScene" uid="uid://bujkg5eiwr24j" path="res://assets/models/player/weapons/axe/AxeModel.glb" id="2_ns7s7"]
+[ext_resource type="PackedScene" uid="uid://duq4b4qmcdr77" path="res://assets/models/player/weapons/shield/ShieldModel.glb" id="3_sldqr"]
 
 [node name="PlayerModel" instance=ExtResource("1_83tc6")]
 

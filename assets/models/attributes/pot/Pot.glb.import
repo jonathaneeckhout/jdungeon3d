@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bujkg5eiwr24j"
-path="res://.godot/imported/AxeModel.glb-0eeee3593f2e95259dc63ff47e21d90b.scn"
+uid="uid://bmfevunpavvkw"
+path="res://.godot/imported/Pot.glb-78b373b7a36e17667c5d2fdd8503f2bf.scn"
 
 [deps]
 
-source_file="res://assets/models/player/weapons/AxeModel.glb"
-dest_files=["res://.godot/imported/AxeModel.glb-0eeee3593f2e95259dc63ff47e21d90b.scn"]
+source_file="res://assets/models/attributes/pot/Pot.glb"
+dest_files=["res://.godot/imported/Pot.glb-78b373b7a36e17667c5d2fdd8503f2bf.scn"]
 
 [params]
 

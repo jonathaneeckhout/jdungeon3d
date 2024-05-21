@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://duq4b4qmcdr77"
-path="res://.godot/imported/ShieldModel.glb-497d41e77a61ca95041cab51386f31b0.scn"
+uid="uid://3fb5b6m0p3io"
+path="res://.godot/imported/Vase.glb-66c15502ab4c9e702850964d05956686.scn"
 
 [deps]
 
-source_file="res://assets/models/player/weapons/ShieldModel.glb"
-dest_files=["res://.godot/imported/ShieldModel.glb-497d41e77a61ca95041cab51386f31b0.scn"]
+source_file="res://assets/models/attributes/vase/Vase.glb"
+dest_files=["res://.godot/imported/Vase.glb-66c15502ab4c9e702850964d05956686.scn"]
 
 [params]
 
