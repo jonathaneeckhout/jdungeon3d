@@ -7,9 +7,13 @@ var _component_list: ComponentList = null
 
 
 func _ready():
-	register_component()
+	register_to_parent_list()
 
 
-func register_component():
-	_component_list = get_parent()
-	_component_list.register_component(self)
+func register_to_parent_list():
+	var parent: Node = get_parent()
+	
+	if not parent is ComponentList:
+		GodotLogger.error("Must be the child of a ComponentList")
+		
+	_component_list.register_to_parent_list(self)
