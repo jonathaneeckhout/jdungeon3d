@@ -17,6 +17,8 @@ var _idle_timer: Timer = null
 # The starting position of the parent
 var _starting_postion: Vector3
 
+var _gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 
 # Make sure to not register to component list
 func _ready():
@@ -35,7 +37,7 @@ func _ready():
 	_idle_timer.start(randf_range(idle_time / 2, idle_time))
 
 
-func wander():
+func wander(delta: float):
 	if navigation_agent.is_navigation_finished():
 		if _idle_timer.is_stopped():
 			_idle_timer.start(randf_range(idle_time / 2, idle_time))
@@ -46,6 +48,10 @@ func wander():
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 
 	actor.velocity = current_agent_position.direction_to(next_path_position) * movement_speed
+
+	if not actor.is_on_floor():
+		actor.velocity.y -= _gravity * delta
+
 	actor.move_and_slide()
 
 

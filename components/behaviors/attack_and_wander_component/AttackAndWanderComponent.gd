@@ -34,9 +34,10 @@ func _ready():
 	add_child(_wander_behavior)
 
 
-func _physics_process(_delta: float):
-	behavior()
+func _physics_process(delta: float):
+	behavior(delta)
 
 
-func behavior():
-	_wander_behavior.wander()
+func behavior(delta: float):
+	# TODO: Implement attack behavior
+	_wander_behavior.wander(delta)

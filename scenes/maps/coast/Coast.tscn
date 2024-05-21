@@ -86,7 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.6893, 0, 23.2328)
 [node name="Enemies" type="Node3D" parent="Entities"]
 
 [node name="Mushroomdog" parent="Entities/Enemies" instance=ExtResource("5_nvjjd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.8509, 3.18257, 9.93906)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.8509, 2.47823, 9.93906)
 
 [node name="Mushroomdog2" parent="Entities/Enemies" instance=ExtResource("5_nvjjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.3571, 2, -1.76025)
