@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt7hseynikewq"]
+[gd_scene load_steps=10 format=3 uid="uid://bt7hseynikewq"]
 
 [ext_resource type="PackedScene" uid="uid://cqwv8qsyohma4" path="res://scenes/player/Player.tscn" id="1_sv0vd"]
 [ext_resource type="PackedScene" uid="uid://355it4y74uxw" path="res://scenes/maps/coast/CoastModel.tscn" id="3_wldb8"]
 [ext_resource type="Shader" path="res://shaders/Water.gdshader" id="3_wm1yi"]
+[ext_resource type="PackedScene" uid="uid://d2hrillew8rlk" path="res://scenes/items/quest/kelp/Kelp.tscn" id="4_p11iw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p44tw"]
 sky_top_color = Color(0.52549, 0.737255, 0.92549, 1)
@@ -53,3 +54,28 @@ environment = SubResource("Environment_rx1wd")
 mesh = SubResource("PlaneMesh_d1tox")
 
 [node name="CoastModel" parent="." instance=ExtResource("3_wldb8")]
+
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="Items" type="Node3D" parent="Entities"]
+
+[node name="Kelp" parent="Entities/Items" instance=ExtResource("4_p11iw")]
+transform = Transform3D(0.0632434, 0, 0.997998, 0, 1, 0, -0.997998, 0, 0.0632434, -90.4965, 2, 34.0667)
+
+[node name="Kelp5" parent="Entities/Items" node_paths=PackedStringArray("loot_area") instance=ExtResource("4_p11iw")]
+transform = Transform3D(0.931634, 0, -0.363398, 0, 1, 0, 0.363398, 0, 0.931634, -90.4965, 2, 21.2824)
+loot_area = NodePath("../Kelp/LootArea")
+
+[node name="Kelp3" parent="Entities/Items" node_paths=PackedStringArray("loot_area") instance=ExtResource("4_p11iw")]
+transform = Transform3D(-0.774393, 0, 0.632705, 0, 1, 0, -0.632705, 0, -0.774393, -63.0875, 2, 31.9774)
+loot_area = NodePath("../Kelp/LootArea")
+
+[node name="Kelp2" parent="Entities/Items" instance=ExtResource("4_p11iw")]
+transform = Transform3D(1, 0, 0, 0, 0.972941, -0.231052, 0, 0.231052, 0.972941, -86.8279, 0.378529, 42.6821)
+
+[node name="Kelp4" parent="Entities/Items" node_paths=PackedStringArray("loot_area") instance=ExtResource("4_p11iw")]
+transform = Transform3D(-0.38758, -0.212992, -0.896893, 0, 0.972941, -0.231052, 0.921836, -0.089551, -0.377093, -72.2364, 0.378529, 42.6821)
+loot_area = NodePath("../Kelp2/LootArea")
+
+[node name="Kelp6" parent="Entities/Items" instance=ExtResource("4_p11iw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.6893, 0, 23.2328)
