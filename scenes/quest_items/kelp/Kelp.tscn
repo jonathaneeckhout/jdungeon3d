@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2hrillew8rlk"]
-
-[ext_resource type="PackedScene" uid="uid://cyvuoaulvrdy1" path="res://scenes/quest_items/kelp/KelpModel.tscn" id="1_s3dpl"]
-
-[node name="Kelp" type="Node3D"]
-
-[node name="KelpModel" parent="." instance=ExtResource("1_s3dpl")]

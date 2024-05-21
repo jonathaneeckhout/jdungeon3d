@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bewvoxwjed7xl"]
+
+[ext_resource type="Script" path="res://scenes/ui/inventory_panel/InventorySlot.gd" id="1_iwgie"]
+
+[node name="InventorySlot" type="Panel"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_iwgie")
+
+[node name="ItemLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
