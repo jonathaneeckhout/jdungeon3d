@@ -4,4 +4,3 @@
 
 [node name="LootComponent" type="Node"]
 script = ExtResource("1_54cga")
-loot_scan_depth = null

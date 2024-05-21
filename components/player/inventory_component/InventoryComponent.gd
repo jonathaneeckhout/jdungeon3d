@@ -12,8 +12,6 @@ func add_item(item: Item) -> bool:
 		add_gold(item.amount)
 		return true
 
-	item.collision_layer = 0
-
 	if inventory.size() >= size:
 		return false
 

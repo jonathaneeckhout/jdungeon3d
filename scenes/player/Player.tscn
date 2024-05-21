@@ -72,7 +72,6 @@ model = NodePath("../../Model")
 
 [node name="LootComponent" parent="ComponentList" node_paths=PackedStringArray("loot_area", "loot_preview") instance=ExtResource("8_8veax")]
 loot_area = NodePath("../../LootArea")
-loot_scan_depth = 1000.0
 loot_preview = NodePath("../../Ui/LootPreview")
 
 [node name="LootArea" type="Area3D" parent="."]

@@ -3,9 +3,6 @@
 class_name LootComponent
 extends Component
 
-signal item_selected(item: Item)
-signal item_deselected(item: Item)
-
 @export var loot_area: Area3D = null
 @export var loot_scan_depth: float = 1000
 @export var loot_preview: LootPreview = null
@@ -14,12 +11,19 @@ var _items_in_loot_range: Array[Item] = []
 var _right_mouse_pressed: bool = false
 var _selected_item: Item = null
 
+@onready var _inventory_component: InventoryComponent = $"../InventoryComponent"
+
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray = []
 
 	if loot_area == null:
 		warnings.append("loot area is null, please link a loot area")
+
+	if _inventory_component == null:
+		warnings.append(
+			"inventory component is null, please add the inventory component to the component list"
+		)
 
 	return warnings
 
@@ -31,19 +35,27 @@ func _ready():
 	# But it should look for items
 	loot_area.collision_mask = Utils.PHYSICS_LAYER_ITEMS
 
+	# Check if an item is in loot range
 	loot_area.area_entered.connect(_on_loot_area_entered)
+
+	# Check if an item left loot range
 	loot_area.area_exited.connect(_on_loot_area_exited)
 
 
 func _input(event):
 	if event.is_action_pressed("right_click"):
 		_right_mouse_pressed = true
+
 	elif event.is_action_released("right_click"):
 		_right_mouse_pressed = false
+
 	elif event is InputEventMouseMotion:
 		if not _right_mouse_pressed:
 			_selected_item = _get_items_under_mouse(event.position)
 			_update_loot_preview()
+
+	elif event.is_action_pressed("loot"):
+		_loot_item()
 
 
 func _get_items_under_mouse(mouse_position: Vector2) -> Item:
@@ -87,6 +99,23 @@ func _update_loot_preview():
 
 	loot_preview.set_loot_label(_selected_item.item_class)
 	loot_preview.show()
+
+
+func _loot_item():
+	if _selected_item != null:
+		# Add the item to the inventory
+		if _inventory_component.add_item(_selected_item):
+			# Remove the item from the map
+			_selected_item.get_parent().remove_child(_selected_item)
+		else:
+			GodotLogger.info("Inventory is full")
+			return
+
+		# Clear the selected item
+		_selected_item = null
+
+		# Update the loot preview
+		_update_loot_preview()
 
 
 func _on_loot_area_entered(area: Area3D):
