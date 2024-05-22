@@ -27,7 +27,7 @@ var _wander_behavior: WanderBehavior = WanderBehavior.new()
 
 
 func _ready():
-	register_component()
+	super._ready()
 
 	_wander_behavior.actor = actor
 	_wander_behavior.name = "WanderBehavior"

@@ -71,7 +71,3 @@ func _input(event):
 				deg_to_rad(camera_upper_limit)
 			)
 			camera_pivot_point.rotation.z = 0
-
-
-func _ready():
-	register_component()

@@ -16,4 +16,5 @@ func register_to_parent_list():
 	if not parent is ComponentList:
 		GodotLogger.error("Must be the child of a ComponentList")
 		
-	_component_list.register_to_parent_list(self)
+	_component_list = parent
+	_component_list.register_component(self)

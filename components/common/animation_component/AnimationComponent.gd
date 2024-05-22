@@ -9,7 +9,7 @@ var _movement_component: MovementComponent = null
 
 
 func _ready():
-	register_component()
+	super._ready()
 
 	_animation_player = model.get_node("AnimationPlayer")
 	_animation_player.play("Idle")
