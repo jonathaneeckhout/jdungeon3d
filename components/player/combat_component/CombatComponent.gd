@@ -32,7 +32,6 @@ func _physics_process(_delta):
 
 		# Attack logic here
 		attacking.emit()
-		print("Attacking")
 
 		# Check for hit
 		if hit_box != null:
@@ -40,10 +39,8 @@ func _physics_process(_delta):
 			for area in areas:
 				var body = area.get_parent()
 				if body is Enemy:
-					pass
 					var health_component: HealthComponent = body.componnt_list.get_component(
 						"HealthComponent"
 					)
 					if health_component != null:
 						health_component.take_damage(attack_power)
-					# body.take_damage(attack_power)
