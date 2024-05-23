@@ -3,6 +3,7 @@ extends Component
 
 signal attacking
 
+@export var attack_power: float = 10.0
 @export var attack_speed: float = 1.0
 
 var _attack_timer: Timer = null

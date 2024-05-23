@@ -4,7 +4,7 @@ class_name HealthComponent
 signal health_changed(change_amount: float)
 signal health_max_changed(change_amount: float)
 
-@export var current: float = 100
+@export var health: float = 100
 @export var maximum: float = 100
 
 
@@ -13,7 +13,7 @@ func set_max_health(new_amount: float):
 	maximum = clamp(new_amount, 0, INF)
 
 	#Update health to respect the new maximum
-	set_health(current)
+	set_health(health)
 
 	health_max_changed.emit(new_amount - old_max)
 
@@ -23,11 +23,11 @@ func get_max_health() -> float:
 
 
 func set_health(new_amount: float):
-	var old_health: float = current
-	current = clamp(new_amount, 0, maximum)
+	var old_health: float = health
+	health = clamp(new_amount, 0, maximum)
 
 	health_changed.emit(new_amount - old_health)
 
 
 func get_health() -> float:
-	return current
+	return health
