@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5lwk4plbr6ld" path="res://assets/models/enemies/mushroomdog/MushroomdogModel.glb" id="1_kpvaq"]
 
-[node name="mushroomdog" instance=ExtResource("1_kpvaq")]
+[node name="MushroomdogModel" instance=ExtResource("1_kpvaq")]
 
 [node name="Skeleton3D" parent="metarig" index="0"]
 bones/2/rotation = Quaternion(-0.0615868, -4.75924e-07, -2.93659e-08, 0.998102)
