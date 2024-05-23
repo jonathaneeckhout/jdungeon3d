@@ -25,6 +25,8 @@ extends Component
 
 var _wander_behavior: WanderBehavior = WanderBehavior.new()
 
+var _health_component: HealthComponent = null
+
 
 func _ready():
 	super._ready()
@@ -33,8 +35,13 @@ func _ready():
 	_wander_behavior.name = "WanderBehavior"
 	add_child(_wander_behavior)
 
+	_health_component = get_node("../HealthComponent")
+
 
 func _physics_process(delta: float):
+	if _health_component.is_dead:
+		return
+
 	behavior(delta)
 
 

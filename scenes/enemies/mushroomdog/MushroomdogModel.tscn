@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5lwk4plbr6ld" path="res://assets/models/enemies/mushroomdog/MushroomdogModel.glb" id="1_kpvaq"]
 
-[node name="mushroomdog" instance=ExtResource("1_kpvaq")]
+[node name="MushroomdogModel" instance=ExtResource("1_kpvaq")]
 
 [node name="Skeleton3D" parent="metarig" index="0"]
 bones/2/rotation = Quaternion(-0.0615868, -4.75924e-07, -2.93659e-08, 0.998102)
@@ -59,6 +59,7 @@ bones/6/rotation = Quaternion(-0.0265544, -3.57504e-07, -1.58276e-08, 0.999647)
 bones/6/scale = Vector3(1, 0.999999, 0.999996)
 bones/7/rotation = Quaternion(-0.000709303, -5.33366e-14, -1.69175e-10, 1)
 bones/8/rotation = Quaternion(-0.0556581, -4.02345e-13, -1.32697e-08, 0.99845)
+bones/8/scale = Vector3(1, 1, 1)
 bones/9/rotation = Quaternion(-0.627119, -9.28551e-08, -7.47593e-08, 0.778923)
 bones/10/rotation = Quaternion(1.11159e-16, 0.04956, 0.998771, 4.03438e-08)
 bones/10/scale = Vector3(0.167204, 0.167204, 0.167204)
@@ -142,8 +143,10 @@ bones/66/scale = Vector3(1, 1, 1)
 bones/68/rotation = Quaternion(6.98492e-08, 1.26842e-07, -8.25385e-08, 1)
 bones/68/scale = Vector3(1, 1, 1)
 bones/70/rotation = Quaternion(4.38429e-08, -0.111475, -8.80178e-09, 0.993767)
+bones/70/scale = Vector3(1, 1, 1)
 bones/71/rotation = Quaternion(-1.17145e-09, 0.111473, 2.46005e-09, 0.993767)
 bones/71/scale = Vector3(1, 1, 1)
+bones/72/scale = Vector3(1, 1, 1)
 bones/74/rotation = Quaternion(-2.32729e-07, -0.0285904, -1.31363e-07, 0.999591)
 bones/74/scale = Vector3(1, 1, 1)
 bones/75/scale = Vector3(1, 1, 1)
@@ -220,6 +223,7 @@ bones/124/rotation = Quaternion(0.294164, -1.76101e-07, -4.52121e-10, 0.955755)
 bones/124/scale = Vector3(1, 1, 1)
 bones/125/rotation = Quaternion(-8.47499e-08, 4.09782e-06, -9.68572e-08, 1)
 bones/126/rotation = Quaternion(-0.267771, -0.0555441, -0.1954, 0.941824)
+bones/126/scale = Vector3(1, 1, 1)
 bones/127/rotation = Quaternion(6.23987e-08, -2.11007e-06, -1.73925e-07, 1)
 bones/128/rotation = Quaternion(-0.331151, -0.213874, -0.150326, 0.906642)
 bones/128/scale = Vector3(1, 1, 1)
@@ -399,25 +403,25 @@ bones/275/rotation = Quaternion(-0.707107, -1.33395e-12, 3.02714e-12, 0.707107)
 bones/276/rotation = Quaternion(0.110716, -6.03563e-09, -0.361375, 0.925824)
 
 [node name="Head" parent="rig_001/Skeleton3D" index="0"]
-transform = Transform3D(2.04772, 1.19655e-10, 2.1565e-11, 7.19922e-11, 1.94262, 0.64759, -1.09424e-11, -0.647564, 1.94262, -2.45201e-11, 3.02039, 4.47198)
+transform = Transform3D(2.04772, 9.64633e-11, 1.66764e-11, 9.67759e-11, 1.94262, 0.647589, -1.32161e-11, -0.647564, 1.94262, -1.86796e-11, 3.02039, 4.47198)
 
 [node name="Circle_005" parent="rig_001/Skeleton3D" index="1"]
-transform = Transform3D(-0.342386, -2.76119e-08, 1.37473e-09, 2.57313e-08, -0.312499, 0.139904, -1.00228e-08, 0.139899, 0.312499, -2.49581e-12, 3.58848, 5.81016)
+transform = Transform3D(-0.342386, -2.76082e-08, 1.37353e-09, 2.57271e-08, -0.312499, 0.139904, -1.00224e-08, 0.139899, 0.3125, -1.42571e-12, 3.58848, 5.81017)
 
 [node name="Circle_006" parent="rig_001/Skeleton3D" index="2"]
-transform = Transform3D(-0.311858, -6.44317e-08, 0.141325, 0.0577474, -0.312499, 0.12743, 0.128989, 0.139899, 0.284636, 1.08699, 3.37292, 5.32866)
+transform = Transform3D(-0.311858, -6.44279e-08, 0.141325, 0.0577473, -0.312499, 0.127429, 0.128989, 0.139899, 0.284636, 1.08699, 3.37291, 5.32866)
 
 [node name="Circle_007" parent="rig_001/Skeleton3D" index="3"]
-transform = Transform3D(-0.284182, 4.01583e-08, -0.190968, -0.0780324, -0.312499, 0.116121, -0.174299, 0.139899, 0.259376, -1.09195, 3.39249, 5.37239)
+transform = Transform3D(-0.284182, 4.01621e-08, -0.190969, -0.0780323, -0.312499, 0.11612, -0.174299, 0.139899, 0.259376, -1.09195, 3.39249, 5.37239)
 
 [node name="Jaw" parent="rig_001/Skeleton3D" index="4"]
-transform = Transform3D(2.04772, 2.67425e-12, -1.77704e-12, -3.16121e-12, 1.97306, -0.547865, 1.16169e-12, 0.547865, 1.97306, -1.46051e-12, 2.15293, 4.27809)
+transform = Transform3D(2.04772, 1.16136e-13, -7.64768e-13, -4.84035e-13, 1.97306, -0.547866, 9.87091e-13, 0.547863, 1.97306, -7.4432e-13, 2.15293, 4.27809)
 
 [node name="Circle_002" parent="rig_001/Skeleton3D" index="5"]
-transform = Transform3D(0.342386, 4.47146e-13, -2.97128e-13, -5.28568e-13, 0.329904, -0.0916052, 1.94239e-13, 0.0916052, 0.329904, -2.80366e-12, 1.74011, 5.77333)
+transform = Transform3D(0.342387, 1.94185e-14, -1.27872e-13, -8.09327e-14, 0.329904, -0.0916054, 1.65046e-13, 0.091605, 0.329904, -1.32352e-12, 1.74011, 5.77333)
 
 [node name="Circle_003" parent="rig_001/Skeleton3D" index="6"]
-transform = Transform3D(0.263232, 4.47146e-13, 0.218946, 0.0585789, 0.329904, -0.0704275, -0.210964, 0.0916052, 0.253635, 1.08699, 1.88126, 5.26501)
+transform = Transform3D(0.263232, 1.94185e-14, 0.218946, 0.0585791, 0.329904, -0.0704276, -0.210964, 0.091605, 0.253635, 1.08699, 1.88125, 5.26501)
 
 [node name="Circle_004" parent="rig_001/Skeleton3D" index="7"]
-transform = Transform3D(0.308927, 4.47146e-13, -0.147622, -0.0394962, 0.329904, -0.0826533, 0.14224, 0.0916052, 0.297665, -1.09195, 1.86844, 5.31117)
+transform = Transform3D(0.308928, 1.94185e-14, -0.147622, -0.0394963, 0.329904, -0.0826535, 0.14224, 0.091605, 0.297665, -1.09195, 1.86844, 5.31117)
