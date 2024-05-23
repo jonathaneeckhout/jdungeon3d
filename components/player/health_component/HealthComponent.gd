@@ -1,5 +1,5 @@
-extends ECSComponent
-class_name ComponentHealth
+extends Component
+class_name HealthComponent
 
 signal health_changed(change_amount: float)
 signal health_max_changed(change_amount: float)
