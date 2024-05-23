@@ -50,7 +50,7 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_sv0vd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5411, 2, 8.89047)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148617, 1.9, 51.4204)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rx1wd")
