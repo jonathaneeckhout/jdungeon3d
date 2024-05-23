@@ -29,6 +29,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 
 func _ready():
+	super._ready()
+
 	# The loot area should not be in any collision layer
 	loot_area.collision_layer = 0
 
