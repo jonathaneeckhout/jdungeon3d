@@ -38,7 +38,7 @@ func _process(_delta):
 	if _wait_to_finish or _health_component.is_dead == true:
 		return
 
-	elif not actor.velocity.is_zero_approx():
+	if not actor.velocity.is_zero_approx():
 		if _movement_component == null:
 			if _animation_player.has_animation("Walk"):
 				_animation_player.play("Walk")

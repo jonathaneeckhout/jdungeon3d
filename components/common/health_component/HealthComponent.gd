@@ -2,6 +2,7 @@ extends Component
 class_name HealthComponent
 
 signal health_changed(change_amount: float)
+signal healed(amount: float)
 signal hurt(amount: float)
 signal died
 signal health_max_changed(change_amount: float)
@@ -10,6 +11,7 @@ signal health_max_changed(change_amount: float)
 @export var maximum: float = 100
 
 var is_dead: bool = false
+
 
 func set_max_health(new_amount: float):
 	var old_max: float = maximum
@@ -34,6 +36,12 @@ func set_health(new_amount: float):
 	if health <= 0:
 		is_dead = true
 		died.emit()
+
+
+func heal(amount: float):
+	healed.emit(amount)
+
+	set_health(health + amount)
 
 
 func take_damage(amount: float):
