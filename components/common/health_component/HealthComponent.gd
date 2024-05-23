@@ -29,5 +29,9 @@ func set_health(new_amount: float):
 	health_changed.emit(new_amount - old_health)
 
 
+func take_damage(amount: float):
+	set_health(health - amount)
+
+
 func get_health() -> float:
 	return health

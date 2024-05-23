@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://0ssul17mr63j"]
+[gd_scene load_steps=13 format=3 uid="uid://0ssul17mr63j"]
 
 [ext_resource type="Script" path="res://scenes/enemies/mushroomdog/Mushroomdog.gd" id="1_ucre5"]
 [ext_resource type="PackedScene" uid="uid://b5lwk4plbr6ld" path="res://assets/models/enemies/mushroomdog/MushroomdogModel.glb" id="1_uyrxu"]
@@ -13,6 +13,10 @@
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_nbexm"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hb7a6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3nthc"]
 
 [node name="Mushroomdog" type="CharacterBody3D"]
 script = ExtResource("1_ucre5")
@@ -45,3 +49,19 @@ navigation_agent = NodePath("../../NavigationAgent3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22676, 0)
 texture = SubResource("ViewportTexture_nbexm")
 _health_component = NodePath("../ComponentList/HealthComponent")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
+shape = SubResource("CapsuleShape3D_hb7a6")
+
+[node name="HitBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.6)
+shape = SubResource("SphereShape3D_3nthc")

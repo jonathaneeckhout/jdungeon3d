@@ -5,6 +5,7 @@ signal attacking
 
 @export var attack_power: float = 10.0
 @export var attack_speed: float = 1.0
+@export var hit_box: Area3D = null
 
 var _attack_timer: Timer = null
 var _attack_pressed: bool = false
@@ -32,3 +33,17 @@ func _physics_process(_delta):
 		# Attack logic here
 		attacking.emit()
 		print("Attacking")
+
+		# Check for hit
+		if hit_box != null:
+			var areas = hit_box.get_overlapping_areas()
+			for area in areas:
+				var body = area.get_parent()
+				if body is Enemy:
+					pass
+					var health_component: HealthComponent = body.componnt_list.get_component(
+						"HealthComponent"
+					)
+					if health_component != null:
+						health_component.take_damage(attack_power)
+					# body.take_damage(attack_power)

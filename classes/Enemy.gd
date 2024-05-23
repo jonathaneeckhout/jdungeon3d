@@ -3,3 +3,9 @@ extends CharacterBody3D
 
 ## The name of the class of the enemy
 @export var enemy_class: String = ""
+
+var componnt_list: ComponentList = null
+
+
+func _ready():
+	componnt_list = get_node("ComponentList") as ComponentList

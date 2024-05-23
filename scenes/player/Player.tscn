@@ -48,6 +48,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Hurtbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.795238, 0)
+collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
@@ -56,6 +57,7 @@ shape = SubResource("CapsuleShape3D_3f8mh")
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
@@ -77,7 +79,8 @@ loot_preview = NodePath("../../Ui/MarginContainer/HBoxContainer/LootPreview")
 
 [node name="HealthComponent" parent="ComponentList" instance=ExtResource("9_1i5uf")]
 
-[node name="CombatComponent" parent="ComponentList" instance=ExtResource("10_v0m4q")]
+[node name="CombatComponent" parent="ComponentList" node_paths=PackedStringArray("hit_box") instance=ExtResource("10_v0m4q")]
+hit_box = NodePath("../../Hitbox")
 
 [node name="AnimationComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("6_nf4qt")]
 model = NodePath("../../Model")

@@ -88,4 +88,8 @@ static func get_object_id(obj: Object) -> int:
 
 
 static func get_component_identifier(component: Component) -> String:
-	return component.get_script().resource_path.get_file()
+	var regex = RegEx.new()
+	# regex remove ".gd" from the end of the file name
+	regex.compile("(.+).gd")
+	var result = regex.search(component.get_script().resource_path.get_file())
+	return result.get_string(1)
