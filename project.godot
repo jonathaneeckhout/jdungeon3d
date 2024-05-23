@@ -29,6 +29,10 @@ gdscript/warnings/narrowing_conversion=0
 
 enabled=PackedStringArray("res://addons/logger/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_left={
