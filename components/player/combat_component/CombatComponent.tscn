@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://duo8qq00wderb"]
+
+[ext_resource type="Script" path="res://components/player/combat_component/CombatComponent.gd" id="1_s0o81"]
+
+[node name="CombatComponent" type="Node"]
+script = ExtResource("1_s0o81")
