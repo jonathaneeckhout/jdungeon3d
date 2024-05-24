@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=22 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bxx5fdoyrlkku" path="res://scenes/ui/inventory_panel/InventoryPanel.tscn" id="10_kufwp"]
 [ext_resource type="PackedScene" uid="uid://duo8qq00wderb" path="res://components/player/combat_component/CombatComponent.tscn" id="10_v0m4q"]
 [ext_resource type="PackedScene" uid="uid://dcomdkqapr25s" path="res://components/common/floating_text_component/FloatingTextComponent.tscn" id="12_k2jjo"]
+[ext_resource type="PackedScene" uid="uid://1hgq14owa6ei" path="res://components/common/attack_component/AttackComponent.tscn" id="13_8iudh"]
 [ext_resource type="PackedScene" uid="uid://drceddn00upe3" path="res://scenes/ui/player_meters/PlayerMeters.tscn" id="14_pta3n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
@@ -94,6 +95,8 @@ show_hurt_animation = false
 
 [node name="FloatingTextComponent" parent="ComponentList" instance=ExtResource("12_k2jjo")]
 text_height = 32.0
+
+[node name="AttackComponent" parent="ComponentList" instance=ExtResource("13_8iudh")]
 
 [node name="LootArea" type="Area3D" parent="."]
 collision_layer = 0

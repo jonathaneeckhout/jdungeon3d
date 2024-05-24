@@ -7,6 +7,7 @@ const TIME_BEFORE_NEXT_PATH_SEARCH: float = 1.0
 @export var navigation_agent: NavigationAgent3D = null
 
 @export var movement_speed_component: MovementSpeedComponent = null
+@export var attack_component: AttackComponent = null
 
 @export var aggro_box: Area3D = null
 
@@ -73,15 +74,11 @@ func attack(delta: float):
 		if !_attack_timer.is_stopped():
 			return
 
-		# Generate a random damage between the parents's min and max attack power
-		#TODO: fetch stats from combat component
-
-		var damage: float = randf_range(2.0, 5.0)
+		var damage: float = attack_component.get_attack_power()
 
 		target_health_component.take_damage(damage)
 
-		#TODO: fetch stats from combat component
-		_attack_timer.start(1.0)
+		_attack_timer.start(attack_component.attack_speed)
 
 	elif _is_target_in_line_of_sight(_current_target):
 		# Move towards the target
@@ -133,7 +130,6 @@ func _select_first_alive_target():
 			return
 
 		_current_target = target
-		print("Selected target: ", _current_target)
 
 		return
 
@@ -149,8 +145,6 @@ func _is_target_in_line_of_sight(target: CharacterBody3D) -> bool:
 
 func _on_aggro_area_area_entered(area: Area3D):
 	var target: CharacterBody3D = area.get_parent()
-
-	print("Target entered aggro range: ", target)
 
 	if not _targets_in_aggro_range.has(target):
 		_targets_in_aggro_range.append(target)

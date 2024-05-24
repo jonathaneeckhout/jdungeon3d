@@ -34,6 +34,7 @@ var _wander_behavior: WanderBehavior = WanderBehavior.new()
 
 var _health_component: HealthComponent = null
 var _movement_speed_component: MovementSpeedComponent = null
+var _attack_component: AttackComponent = null
 
 
 func _ready():
@@ -52,6 +53,10 @@ func _ready():
 
 	_attack_behavior.movement_speed_component = _movement_speed_component
 	_wander_behavior.movement_speed_component = _movement_speed_component
+
+	_attack_component = get_node("../AttackComponent")
+
+	_attack_behavior.attack_component = _attack_component
 
 
 func _physics_process(delta: float):
