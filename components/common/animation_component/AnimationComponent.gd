@@ -4,11 +4,12 @@ extends Component
 @export var model: Node3D = null
 @export var idle_animations: Array[String] = ["Idle"]
 @export var attack_animations: Array[String] = ["Attack"]
+@export var show_hurt_animation: bool = true
 
 var _animation_player: AnimationPlayer = null
 var _health_component: HealthComponent = null
 var _movement_component: MovementComponent = null
-var _combat_component: CombatComponent = null
+var _attack_component: AttackComponent = null
 
 var _wait_to_finish: bool = false
 
@@ -24,14 +25,16 @@ func _ready():
 
 	_health_component = get_node_or_null("../HealthComponent") as HealthComponent
 	if _health_component != null:
-		_health_component.hurt.connect(_on_hurt)
+		if show_hurt_animation:
+			_health_component.hurt.connect(_on_hurt)
+
 		_health_component.died.connect(_on_died)
 
 	_movement_component = get_node_or_null("../MovementComponent") as MovementComponent
 
-	_combat_component = get_node_or_null("../CombatComponent") as CombatComponent
-	if _combat_component != null:
-		_combat_component.attacking.connect(_on_attack)
+	_attack_component = get_node_or_null("../AttackComponent") as AttackComponent
+	if _attack_component != null:
+		_attack_component.attacking.connect(_on_attack)
 
 
 func _process(_delta):
@@ -54,13 +57,16 @@ func _process(_delta):
 		play_random_animation(idle_animations)
 
 
-func play_random_animation(animation_list: Array[String]):
+func play_random_animation(animation_list: Array[String]) -> bool:
 	if animation_list.has(_animation_player.current_animation) and _animation_player.is_playing():
-		return
+		return false
 
 	var random_animation: String = animation_list[randi() % animation_list.size()]
 	if _animation_player.has_animation(random_animation):
 		_animation_player.play(random_animation)
+		return true
+
+	return false
 
 
 func _on_animation_finished(_anim_name: String):
@@ -73,17 +79,19 @@ func _on_attack():
 	if _animation_player.is_playing():
 		_animation_player.stop()
 
-	play_random_animation(attack_animations)
+	if play_random_animation(attack_animations):
+		_wait_to_finish = true
 
 
 func _on_hurt(_amount: float):
-	_wait_to_finish = true
+	_wait_to_finish = false
 
 	if _animation_player.is_playing():
 		_animation_player.stop()
 
 	if _animation_player.has_animation("Hurt"):
 		_animation_player.play("Hurt")
+		_wait_to_finish = true
 
 
 func _on_died():
@@ -94,3 +102,4 @@ func _on_died():
 
 	if _animation_player.has_animation("Die"):
 		_animation_player.play("Die")
+		_wait_to_finish = true

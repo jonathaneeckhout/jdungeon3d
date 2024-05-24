@@ -1,17 +1,13 @@
 class_name CombatComponent
 extends Component
 
-signal attacking
-
-@export var attack_power: float = 10.0
-@export var attack_speed: float = 1.0
-## The delay between the attack button being pressed and the attack actually happening
-@export var attack_delay: float = 0.5
 @export var hit_box: Area3D = null
 
 var _attack_timer: Timer = null
 var _attack_delay_timer: Timer = null
 var _attack_pressed: bool = false
+
+var _attack_component: AttackComponent = null
 
 
 func _ready():
@@ -28,6 +24,8 @@ func _ready():
 	_attack_delay_timer.timeout.connect(_on_attack_delay_timer_timeout)
 	add_child(_attack_delay_timer)
 
+	_attack_component = get_node("../AttackComponent") as AttackComponent
+
 
 func _input(event):
 	if event.is_action_pressed("standard_attack"):
@@ -36,13 +34,12 @@ func _input(event):
 
 func _physics_process(_delta):
 	if _attack_pressed and _attack_timer.is_stopped():
-		_attack_timer.start(attack_speed)
+		_attack_timer.start(_attack_component.attack_speed)
 		_attack_pressed = false
 
-		# Attack logic here
-		attacking.emit()
+		_attack_component.attacking.emit()
 
-		_attack_delay_timer.start(attack_delay)
+		_attack_delay_timer.start(_attack_component.attack_delay)
 
 
 func _on_attack_delay_timer_timeout():
@@ -52,8 +49,8 @@ func _on_attack_delay_timer_timeout():
 		for area in areas:
 			var body = area.get_parent()
 			if body is Enemy:
-				var health_component: HealthComponent = body.componnt_list.get_component(
+				var health_component: HealthComponent = body.component_list.get_component(
 					"HealthComponent"
 				)
 				if health_component != null and not health_component.is_dead:
-					health_component.take_damage(attack_power)
+					health_component.take_damage(_attack_component.get_attack_power())

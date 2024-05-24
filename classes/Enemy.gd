@@ -8,10 +8,10 @@ extends CharacterBody3D
 
 var spawn_location: Vector3 = Vector3.ZERO
 
-var componnt_list: ComponentList = null
+var component_list: ComponentList = null
 
 
 func _ready():
 	spawn_location = position
 
-	componnt_list = get_node("ComponentList") as ComponentList
+	component_list = get_node("ComponentList") as ComponentList

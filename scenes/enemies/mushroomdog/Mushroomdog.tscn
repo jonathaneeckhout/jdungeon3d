@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://0ssul17mr63j"]
+[gd_scene load_steps=18 format=3 uid="uid://0ssul17mr63j"]
 
 [ext_resource type="Script" path="res://scenes/enemies/mushroomdog/Mushroomdog.gd" id="1_ucre5"]
 [ext_resource type="PackedScene" uid="uid://h24uesq3jwr8" path="res://scenes/enemies/mushroomdog/MushroomdogModel.tscn" id="2_4miso"]
 [ext_resource type="PackedScene" uid="uid://6ujxb4xlfsvf" path="res://components/component_list/ComponentList.tscn" id="3_fiy2q"]
+[ext_resource type="PackedScene" uid="uid://bcaf2s8onuwpt" path="res://components/common/movement_speed_component/MovementSpeedComponent.tscn" id="4_31gvc"]
 [ext_resource type="PackedScene" uid="uid://bx2c22mbau62x" path="res://components/common/animation_component/AnimationComponent.tscn" id="4_wbgph"]
 [ext_resource type="PackedScene" uid="uid://bb66yi38wvanp" path="res://components/behaviors/attack_and_wander_component/AttackAndWanderComponent.tscn" id="5_8h1l0"]
 [ext_resource type="PackedScene" uid="uid://1521pj7gpq1y" path="res://components/common/update_face_component/UpdateFaceComponent.tscn" id="6_u6tds"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bxpq3pehfwvmq" path="res://scenes/ui/health_bar/HealthBar.tscn" id="8_exm8v"]
 [ext_resource type="PackedScene" uid="uid://dcomdkqapr25s" path="res://components/common/floating_text_component/FloatingTextComponent.tscn" id="8_lchxq"]
 [ext_resource type="PackedScene" uid="uid://c7c2wr6jplt34" path="res://components/common/despawn_component/DespawnComponent.tscn" id="9_3rm5p"]
+[ext_resource type="PackedScene" uid="uid://1hgq14owa6ei" path="res://components/common/attack_component/AttackComponent.tscn" id="11_is6dp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s6d2s"]
 
@@ -19,6 +21,9 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hb7a6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3nthc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lsphs"]
+radius = 10.0
 
 [node name="Mushroomdog" type="CharacterBody3D"]
 script = ExtResource("1_ucre5")
@@ -34,11 +39,15 @@ transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.2
 [node name="ComponentList" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_fiy2q")]
 actor = NodePath("..")
 
+[node name="MovementSpeedComponent" parent="ComponentList" instance=ExtResource("4_31gvc")]
+
 [node name="AnimationComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("4_wbgph")]
 model = NodePath("../../MushroomdogModel")
 idle_animations = Array[String](["Idle", "Idle_Shake"])
 
-[node name="AttackAndWanderComponent" parent="ComponentList" node_paths=PackedStringArray("navigation_agent") instance=ExtResource("5_8h1l0")]
+[node name="AttackAndWanderComponent" parent="ComponentList" node_paths=PackedStringArray("aggro_box", "hit_box", "navigation_agent") instance=ExtResource("5_8h1l0")]
+aggro_box = NodePath("../../AggroBox")
+hit_box = NodePath("../../HitBox")
 navigation_agent = NodePath("../../NavigationAgent3D")
 
 [node name="UpdateFaceComponent" parent="ComponentList" instance=ExtResource("6_u6tds")]
@@ -48,6 +57,10 @@ navigation_agent = NodePath("../../NavigationAgent3D")
 [node name="FloatingTextComponent" parent="ComponentList" instance=ExtResource("8_lchxq")]
 
 [node name="DespawnComponent" parent="ComponentList" instance=ExtResource("9_3rm5p")]
+
+[node name="AttackComponent" parent="ComponentList" instance=ExtResource("11_is6dp")]
+minimum_attack_power = 2.0
+maximum_attack_power = 5.0
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
@@ -71,3 +84,10 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.6)
 shape = SubResource("SphereShape3D_3nthc")
+
+[node name="AggroBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroBox"]
+shape = SubResource("SphereShape3D_lsphs")
