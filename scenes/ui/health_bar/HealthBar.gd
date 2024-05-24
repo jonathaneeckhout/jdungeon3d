@@ -25,6 +25,7 @@ func update(amount, full):
 	if amount < 0.45 * full:
 		progress_bar.texture_progress = RED_BAR
 	progress_bar.value = amount
+	progress_bar.max_value = full
 
 
 func _on_health_changed(_change_amount: float):
