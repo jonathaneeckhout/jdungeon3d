@@ -3,7 +3,7 @@ extends Component
 
 @export var navigation_agent: NavigationAgent3D = null
 
-@export var movement_speed: float = 5.0
+@export var movement_speed_component: MovementSpeedComponent = null
 
 ## The time the parent should stay idle before wandering
 @export var idle_time: float = 10.0
@@ -47,7 +47,10 @@ func wander(delta: float):
 	var current_agent_position: Vector3 = actor.global_position
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 
-	actor.velocity = current_agent_position.direction_to(next_path_position) * movement_speed
+	actor.velocity = (
+		current_agent_position.direction_to(next_path_position)
+		* movement_speed_component.walk_speed
+	)
 
 	if not actor.is_on_floor():
 		actor.velocity.y -= _gravity * delta

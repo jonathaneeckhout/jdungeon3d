@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=21 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
 [ext_resource type="PackedScene" uid="uid://6ujxb4xlfsvf" path="res://components/component_list/ComponentList.tscn" id="3_ghfnh"]
 [ext_resource type="PackedScene" uid="uid://iu6bb5qppyho" path="res://components/player/movement_component/MovementComponent.tscn" id="4_kjobu"]
+[ext_resource type="PackedScene" uid="uid://bcaf2s8onuwpt" path="res://components/common/movement_speed_component/MovementSpeedComponent.tscn" id="4_o3onj"]
 [ext_resource type="PackedScene" uid="uid://drplm06kt5saj" path="res://components/player/camera_component/CameraComponent.tscn" id="5_eulpo"]
 [ext_resource type="PackedScene" uid="uid://bx2c22mbau62x" path="res://components/common/animation_component/AnimationComponent.tscn" id="6_nf4qt"]
 [ext_resource type="PackedScene" uid="uid://bw5kc4smwcefn" path="res://components/player/inventory_component/InventoryComponent.tscn" id="7_w7ayg"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dxiu6amc5nf7" path="res://scenes/ui/loot_preview/LootPreview.tscn" id="9_sgtll"]
 [ext_resource type="PackedScene" uid="uid://bxx5fdoyrlkku" path="res://scenes/ui/inventory_panel/InventoryPanel.tscn" id="10_kufwp"]
 [ext_resource type="PackedScene" uid="uid://duo8qq00wderb" path="res://components/player/combat_component/CombatComponent.tscn" id="10_v0m4q"]
+[ext_resource type="PackedScene" uid="uid://dcomdkqapr25s" path="res://components/common/floating_text_component/FloatingTextComponent.tscn" id="12_k2jjo"]
 [ext_resource type="PackedScene" uid="uid://drceddn00upe3" path="res://scenes/ui/player_meters/PlayerMeters.tscn" id="14_pta3n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
@@ -67,6 +69,8 @@ shape = SubResource("CapsuleShape3D_ox642")
 [node name="ComponentList" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_ghfnh")]
 actor = NodePath("..")
 
+[node name="MovementSpeedComponent" parent="ComponentList" instance=ExtResource("4_o3onj")]
+
 [node name="MovementComponent" parent="ComponentList" instance=ExtResource("4_kjobu")]
 
 [node name="CameraComponent" parent="ComponentList" node_paths=PackedStringArray("camera_pivot_point") instance=ExtResource("5_eulpo")]
@@ -86,6 +90,10 @@ hit_box = NodePath("../../Hitbox")
 [node name="AnimationComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("6_nf4qt")]
 model = NodePath("../../Model")
 attack_animations = Array[String](["Slash"])
+show_hurt_animation = false
+
+[node name="FloatingTextComponent" parent="ComponentList" instance=ExtResource("12_k2jjo")]
+text_height = 32.0
 
 [node name="LootArea" type="Area3D" parent="."]
 collision_layer = 0

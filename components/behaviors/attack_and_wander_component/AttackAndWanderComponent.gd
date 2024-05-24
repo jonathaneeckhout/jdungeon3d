@@ -17,11 +17,6 @@ extends Component
 		_attack_behavior.navigation_agent = value
 		_wander_behavior.navigation_agent = value
 
-@export var movement_speed: float = 5.0:
-	set(value):
-		movement_speed = value
-		_wander_behavior.movement_speed = value
-
 ## The time the parent should stay idle before wandering
 @export var idle_time: float = 10.0:
 	set(value):
@@ -38,6 +33,7 @@ var _attack_behavior: AttackBehavior = AttackBehavior.new()
 var _wander_behavior: WanderBehavior = WanderBehavior.new()
 
 var _health_component: HealthComponent = null
+var _movement_speed_component: MovementSpeedComponent = null
 
 
 func _ready():
@@ -52,6 +48,10 @@ func _ready():
 	add_child(_wander_behavior)
 
 	_health_component = get_node("../HealthComponent")
+	_movement_speed_component = get_node("../MovementSpeedComponent")
+
+	_attack_behavior.movement_speed_component = _movement_speed_component
+	_wander_behavior.movement_speed_component = _movement_speed_component
 
 
 func _physics_process(delta: float):

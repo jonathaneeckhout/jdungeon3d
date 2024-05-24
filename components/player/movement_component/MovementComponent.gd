@@ -1,13 +1,17 @@
 class_name MovementComponent
 extends Component
 
-@export var walk_speed: float = 2.5
-@export var run_speed: float = 5.0
-@export var jump_velocity: float = 4.5
-
 var walking: bool = false
 
+var _movement_speed_component: MovementSpeedComponent = null
+
 var _gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+
+func _ready():
+	super._ready()
+
+	_movement_speed_component = get_node("../MovementSpeedComponent")
 
 
 func _input(event):
@@ -21,14 +25,14 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and actor.is_on_floor():
-		actor.velocity.y = jump_velocity
+		actor.velocity.y = _movement_speed_component.jump_velocity
 
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (actor.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	var speed: float = run_speed
+	var speed: float = _movement_speed_component.run_speed
 	if walking:
-		speed = walk_speed
+		speed = _movement_speed_component.walk_speed
 
 	if direction:
 		actor.velocity.x = direction.x * speed

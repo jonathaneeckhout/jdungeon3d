@@ -4,6 +4,7 @@ extends Component
 @export var model: Node3D = null
 @export var idle_animations: Array[String] = ["Idle"]
 @export var attack_animations: Array[String] = ["Attack"]
+@export var show_hurt_animation: bool = true
 
 var _animation_player: AnimationPlayer = null
 var _health_component: HealthComponent = null
@@ -24,7 +25,9 @@ func _ready():
 
 	_health_component = get_node_or_null("../HealthComponent") as HealthComponent
 	if _health_component != null:
-		_health_component.hurt.connect(_on_hurt)
+		if show_hurt_animation:
+			_health_component.hurt.connect(_on_hurt)
+
 		_health_component.died.connect(_on_died)
 
 	_movement_component = get_node_or_null("../MovementComponent") as MovementComponent
@@ -71,6 +74,8 @@ func _on_animation_finished(_anim_name: String):
 
 
 func _on_attack():
+	_wait_to_finish = true
+
 	if _animation_player.is_playing():
 		_animation_player.stop()
 
@@ -79,6 +84,8 @@ func _on_attack():
 
 
 func _on_hurt(_amount: float):
+	_wait_to_finish = false
+
 	if _animation_player.is_playing():
 		_animation_player.stop()
 
@@ -88,6 +95,8 @@ func _on_hurt(_amount: float):
 
 
 func _on_died():
+	_wait_to_finish = true
+
 	if _animation_player.is_playing():
 		_animation_player.stop()
 

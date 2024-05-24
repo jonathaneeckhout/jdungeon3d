@@ -6,6 +6,8 @@ const TIME_BEFORE_NEXT_PATH_SEARCH: float = 1.0
 
 @export var navigation_agent: NavigationAgent3D = null
 
+@export var movement_speed_component: MovementSpeedComponent = null
+
 @export var aggro_box: Area3D = null
 
 @export var hit_box: Area3D = null
@@ -83,7 +85,10 @@ func attack(delta: float):
 
 	elif _is_target_in_line_of_sight(_current_target):
 		# Move towards the target
-		actor.velocity = actor.position.direction_to(_current_target.position) * 5.0
+		actor.velocity = (
+			actor.position.direction_to(_current_target.position)
+			* movement_speed_component.run_speed
+		)
 		actor.move_and_slide()
 	else:
 		# If the target's position has changed and the search path timer is not running, calculate a new path towards the target
@@ -95,7 +100,10 @@ func attack(delta: float):
 		var current_agent_position: Vector3 = actor.global_position
 		var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 
-		actor.velocity = current_agent_position.direction_to(next_path_position) * 5.0
+		actor.velocity = (
+			current_agent_position.direction_to(next_path_position)
+			* movement_speed_component.run_speed
+		)
 
 		if not actor.is_on_floor():
 			actor.velocity.y -= _gravity * delta
