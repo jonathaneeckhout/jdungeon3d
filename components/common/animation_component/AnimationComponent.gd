@@ -43,12 +43,12 @@ func _process(_delta):
 			if _animation_player.has_animation("Walk"):
 				_animation_player.play("Walk")
 		else:
-			if _movement_component.sprinting:
-				if _animation_player.has_animation("Run"):
-					_animation_player.play("Run")
-			else:
+			if _movement_component.walking:
 				if _animation_player.has_animation("Walk"):
 					_animation_player.play("Walk")
+			else:
+				if _animation_player.has_animation("Run"):
+					_animation_player.play("Run")
 
 	else:
 		play_random_animation(idle_animations)

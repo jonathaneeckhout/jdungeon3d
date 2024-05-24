@@ -5,16 +5,14 @@ extends Component
 @export var run_speed: float = 5.0
 @export var jump_velocity: float = 4.5
 
-var sprinting: bool = false
+var walking: bool = false
 
 var _gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 func _input(event):
-	if event.is_action_pressed("sprint"):
-		sprinting = true
-	elif event.is_action_released("sprint"):
-		sprinting = false
+	if event.is_action_pressed("walk"):
+		walking = !walking
 
 
 func _physics_process(delta):
@@ -28,9 +26,9 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (actor.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	var speed: float = walk_speed
-	if sprinting:
-		speed = run_speed
+	var speed: float = run_speed
+	if walking:
+		speed = walk_speed
 
 	if direction:
 		actor.velocity.x = direction.x * speed
