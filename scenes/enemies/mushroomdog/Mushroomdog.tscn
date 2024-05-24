@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://0ssul17mr63j"]
+[gd_scene load_steps=15 format=3 uid="uid://0ssul17mr63j"]
 
 [ext_resource type="Script" path="res://scenes/enemies/mushroomdog/Mushroomdog.gd" id="1_ucre5"]
 [ext_resource type="PackedScene" uid="uid://h24uesq3jwr8" path="res://scenes/enemies/mushroomdog/MushroomdogModel.tscn" id="2_4miso"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cmdws134tddd5" path="res://components/common/health_component/HealthComponent.tscn" id="7_rl8p6"]
 [ext_resource type="PackedScene" uid="uid://bxpq3pehfwvmq" path="res://scenes/ui/health_bar/HealthBar.tscn" id="8_exm8v"]
 [ext_resource type="PackedScene" uid="uid://dcomdkqapr25s" path="res://components/common/floating_text_component/FloatingTextComponent.tscn" id="8_lchxq"]
+[ext_resource type="PackedScene" uid="uid://c7c2wr6jplt34" path="res://components/common/despawn_component/DespawnComponent.tscn" id="9_3rm5p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s6d2s"]
 
@@ -45,6 +46,8 @@ navigation_agent = NodePath("../../NavigationAgent3D")
 [node name="HealthComponent" parent="ComponentList" instance=ExtResource("7_rl8p6")]
 
 [node name="FloatingTextComponent" parent="ComponentList" instance=ExtResource("8_lchxq")]
+
+[node name="DespawnComponent" parent="ComponentList" instance=ExtResource("9_3rm5p")]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 

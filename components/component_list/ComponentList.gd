@@ -36,7 +36,7 @@ func _exit_tree() -> void:
 
 func register_component(component: Component) -> void:
 	var component_identifier: String = ComponentList.get_component_identifier(component)
-	var new_arr: Array[Component] = []
+	# var new_arr: Array[Component] = []
 
 	component.actor = actor
 
@@ -45,8 +45,10 @@ func register_component(component: Component) -> void:
 		return
 
 	_components[component_identifier] = component
-	new_arr.assign(_global_component_cache.get(component_identifier, EMPTY_COMP_ARR) + [component])
-	_global_component_cache[component_identifier] = new_arr
+
+	#TODO: Implement this as this fails when repsawning an entity
+	# new_arr.assign(_global_component_cache.get(component_identifier, EMPTY_COMP_ARR) + [component])
+	# _global_component_cache[component_identifier] = new_arr
 
 
 ### GETTERS ###
