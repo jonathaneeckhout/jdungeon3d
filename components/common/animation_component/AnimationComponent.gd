@@ -54,13 +54,16 @@ func _process(_delta):
 		play_random_animation(idle_animations)
 
 
-func play_random_animation(animation_list: Array[String]):
+func play_random_animation(animation_list: Array[String]) -> bool:
 	if animation_list.has(_animation_player.current_animation) and _animation_player.is_playing():
-		return
+		return false
 
 	var random_animation: String = animation_list[randi() % animation_list.size()]
 	if _animation_player.has_animation(random_animation):
 		_animation_player.play(random_animation)
+		return true
+
+	return false
 
 
 func _on_animation_finished(_anim_name: String):
@@ -68,29 +71,26 @@ func _on_animation_finished(_anim_name: String):
 
 
 func _on_attack():
-	_wait_to_finish = true
-
 	if _animation_player.is_playing():
 		_animation_player.stop()
 
-	play_random_animation(attack_animations)
+	if play_random_animation(attack_animations):
+		_wait_to_finish = true
 
 
 func _on_hurt(_amount: float):
-	_wait_to_finish = true
-
 	if _animation_player.is_playing():
 		_animation_player.stop()
 
 	if _animation_player.has_animation("Hurt"):
 		_animation_player.play("Hurt")
+		_wait_to_finish = true
 
 
 func _on_died():
-	_wait_to_finish = true
-
 	if _animation_player.is_playing():
 		_animation_player.stop()
 
 	if _animation_player.has_animation("Die"):
 		_animation_player.play("Die")
+		_wait_to_finish = true

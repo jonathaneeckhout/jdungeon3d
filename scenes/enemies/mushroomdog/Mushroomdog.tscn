@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0ssul17mr63j"]
+[gd_scene load_steps=16 format=3 uid="uid://0ssul17mr63j"]
 
 [ext_resource type="Script" path="res://scenes/enemies/mushroomdog/Mushroomdog.gd" id="1_ucre5"]
 [ext_resource type="PackedScene" uid="uid://h24uesq3jwr8" path="res://scenes/enemies/mushroomdog/MushroomdogModel.tscn" id="2_4miso"]
@@ -20,6 +20,9 @@ viewport_path = NodePath("SubViewport")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3nthc"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_lsphs"]
+radius = 10.0
+
 [node name="Mushroomdog" type="CharacterBody3D"]
 script = ExtResource("1_ucre5")
 enemy_class = "Mushroomdog"
@@ -38,7 +41,9 @@ actor = NodePath("..")
 model = NodePath("../../MushroomdogModel")
 idle_animations = Array[String](["Idle", "Idle_Shake"])
 
-[node name="AttackAndWanderComponent" parent="ComponentList" node_paths=PackedStringArray("navigation_agent") instance=ExtResource("5_8h1l0")]
+[node name="AttackAndWanderComponent" parent="ComponentList" node_paths=PackedStringArray("aggro_box", "hit_box", "navigation_agent") instance=ExtResource("5_8h1l0")]
+aggro_box = NodePath("../../AggroBox")
+hit_box = NodePath("../../HitBox")
 navigation_agent = NodePath("../../NavigationAgent3D")
 
 [node name="UpdateFaceComponent" parent="ComponentList" instance=ExtResource("6_u6tds")]
@@ -71,3 +76,10 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.6)
 shape = SubResource("SphereShape3D_3nthc")
+
+[node name="AggroBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroBox"]
+shape = SubResource("SphereShape3D_lsphs")

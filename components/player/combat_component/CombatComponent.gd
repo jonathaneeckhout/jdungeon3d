@@ -52,7 +52,7 @@ func _on_attack_delay_timer_timeout():
 		for area in areas:
 			var body = area.get_parent()
 			if body is Enemy:
-				var health_component: HealthComponent = body.componnt_list.get_component(
+				var health_component: HealthComponent = body.component_list.get_component(
 					"HealthComponent"
 				)
 				if health_component != null and not health_component.is_dead:
