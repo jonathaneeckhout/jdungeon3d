@@ -1,8 +1,6 @@
 class_name CombatComponent
 extends Component
 
-signal attacking
-
 @export var hit_box: Area3D = null
 
 var _attack_timer: Timer = null
@@ -39,8 +37,7 @@ func _physics_process(_delta):
 		_attack_timer.start(_attack_component.attack_speed)
 		_attack_pressed = false
 
-		# Attack logic here
-		attacking.emit()
+		_attack_component.attacking.emit()
 
 		_attack_delay_timer.start(_attack_component.attack_delay)
 

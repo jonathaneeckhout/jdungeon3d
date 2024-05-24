@@ -1,6 +1,8 @@
 class_name AttackComponent
 extends Component
 
+signal attacking
+
 @export var minimum_attack_power: float = 5.0
 @export var maximum_attack_power: float = 10.0
 

@@ -77,6 +77,8 @@ func attack(delta: float):
 		var damage: float = attack_component.get_attack_power()
 
 		target_health_component.take_damage(damage)
+		
+		attack_component.attacking.emit()
 
 		_attack_timer.start(attack_component.attack_speed)
 

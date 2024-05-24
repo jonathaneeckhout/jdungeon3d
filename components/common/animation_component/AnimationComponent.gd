@@ -9,7 +9,7 @@ extends Component
 var _animation_player: AnimationPlayer = null
 var _health_component: HealthComponent = null
 var _movement_component: MovementComponent = null
-var _combat_component: CombatComponent = null
+var _attack_component: AttackComponent = null
 
 var _wait_to_finish: bool = false
 
@@ -32,9 +32,9 @@ func _ready():
 
 	_movement_component = get_node_or_null("../MovementComponent") as MovementComponent
 
-	_combat_component = get_node_or_null("../CombatComponent") as CombatComponent
-	if _combat_component != null:
-		_combat_component.attacking.connect(_on_attack)
+	_attack_component = get_node_or_null("../AttackComponent") as AttackComponent
+	if _attack_component != null:
+		_attack_component.attacking.connect(_on_attack)
 
 
 func _process(_delta):
