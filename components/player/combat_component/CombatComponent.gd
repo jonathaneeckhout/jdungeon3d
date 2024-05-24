@@ -55,5 +55,5 @@ func _on_attack_delay_timer_timeout():
 				var health_component: HealthComponent = body.componnt_list.get_component(
 					"HealthComponent"
 				)
-				if health_component != null:
+				if health_component != null and not health_component.is_dead:
 					health_component.take_damage(attack_power)

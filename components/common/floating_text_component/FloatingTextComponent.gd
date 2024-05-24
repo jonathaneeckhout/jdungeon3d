@@ -3,7 +3,7 @@ extends Component
 
 @export var text_height: float = -64.0
 
-var _floating_text_scene = preload("res://scenes/ui/floating_text/FloatingText.tscn")
+var _floating_text_scene: PackedScene = preload("res://scenes/ui/floating_text/FloatingText.tscn")
 
 var _health_component: HealthComponent = null
 
