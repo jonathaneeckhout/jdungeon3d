@@ -14,7 +14,7 @@ func _ready():
 	_animation_tree = model.get_node("AnimationTree")
 	_movement_component = get_node("../MovementComponent")
 	_attack_component = get_node("../AttackComponent")
-	_attack_component.attacking.connect(_on_attacking)
+	_attack_component.attacked.connect(_on_attacked)
 
 
 func _physics_process(_delta: float):
@@ -43,6 +43,6 @@ func _physics_process(_delta: float):
 	)
 
 
-func _on_attacking():
+func _on_attacked():
 	var playback = _animation_tree.get("parameters/playback")  # "locomotion" is my AnimationNodeStateMachine
 	playback.start("Slash")

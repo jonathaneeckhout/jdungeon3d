@@ -1,7 +1,7 @@
 class_name AttackComponent
 extends Component
 
-signal attacking
+signal attacked
 
 @export var hit_box: Area3D = null
 
@@ -11,6 +11,8 @@ signal attacking
 @export var attack_speed: float = 1.0
 ## The delay between the attack button being pressed and the attack actually happening
 @export var attack_delay: float = 0.5
+
+var is_attacking: bool = false
 
 var _attack_timer: Timer = null
 var _attack_delay_timer: Timer = null
@@ -22,6 +24,7 @@ func _ready():
 	_attack_timer = Timer.new()
 	_attack_timer.one_shot = true
 	_attack_timer.name = "AttackTimer"
+	_attack_timer.timeout.connect(_on_attack_timer_timeout)
 	add_child(_attack_timer)
 
 	_attack_delay_timer = Timer.new()
@@ -41,7 +44,9 @@ func attack():
 
 	_attack_timer.start(attack_speed)
 
-	attacking.emit()
+	is_attacking = true
+
+	attacked.emit()
 
 	if attack_delay == 0:
 		_hit_targets()
@@ -60,6 +65,10 @@ func _hit_targets():
 				)
 				if health_component != null and not health_component.is_dead:
 					health_component.take_damage(get_attack_power())
+
+
+func _on_attack_timer_timeout():
+	is_attacking = false
 
 
 func _on_attack_delay_timer_timeout():
