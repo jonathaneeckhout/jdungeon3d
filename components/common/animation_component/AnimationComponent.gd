@@ -34,7 +34,7 @@ func _ready():
 
 	_attack_component = get_node_or_null("../AttackComponent") as AttackComponent
 	if _attack_component != null:
-		_attack_component.attacking.connect(_on_attack)
+		_attack_component.attacked.connect(_on_attack)
 
 
 func _process(_delta):

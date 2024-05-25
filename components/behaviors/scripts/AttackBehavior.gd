@@ -78,7 +78,7 @@ func attack(delta: float):
 
 		target_health_component.take_damage(damage)
 		
-		attack_component.attacking.emit()
+		attack_component.attacked.emit()
 
 		_attack_timer.start(attack_component.attack_speed)
 
