@@ -85,13 +85,13 @@ loot_preview = NodePath("../../Ui/BottomRightMarginContainer/HBoxContainer/LootP
 
 [node name="HealthComponent" parent="ComponentList" instance=ExtResource("9_1i5uf")]
 
-[node name="CombatComponent" parent="ComponentList" node_paths=PackedStringArray("hit_box") instance=ExtResource("10_v0m4q")]
-hit_box = NodePath("../../Hitbox")
+[node name="CombatComponent" parent="ComponentList" instance=ExtResource("10_v0m4q")]
 
 [node name="FloatingTextComponent" parent="ComponentList" instance=ExtResource("12_k2jjo")]
 text_height = 32.0
 
-[node name="AttackComponent" parent="ComponentList" instance=ExtResource("13_8iudh")]
+[node name="AttackComponent" parent="ComponentList" node_paths=PackedStringArray("hit_box") instance=ExtResource("13_8iudh")]
+hit_box = NodePath("../../Hitbox")
 
 [node name="AnimationTreeComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("13_5fatc")]
 model = NodePath("../../Model")
