@@ -14,7 +14,6 @@ func _ready():
 	_animation_tree = model.get_node("AnimationTree")
 	_movement_component = get_node("../MovementComponent")
 	_attack_component = get_node("../AttackComponent")
-	_attack_component.attacked.connect(_on_attacked)
 
 
 func _physics_process(_delta: float):
@@ -32,6 +31,8 @@ func _physics_process(_delta: float):
 		"parameters/conditions/idle", _movement_component.input_direction.is_zero_approx()
 	)
 
+	_animation_tree.set("parameters/conditions/attacking", _attack_component.is_attacking)
+
 	_animation_tree.set(
 		"parameters/WalkBlendSpace2D/blend_position",
 		Vector2(_movement_component.input_direction.x, _movement_component.input_direction.y)
@@ -41,8 +42,3 @@ func _physics_process(_delta: float):
 		"parameters/RunBlendSpace2D/blend_position",
 		Vector2(_movement_component.input_direction.x, _movement_component.input_direction.y)
 	)
-
-
-func _on_attacked():
-	var playback = _animation_tree.get("parameters/playback")  # "locomotion" is my AnimationNodeStateMachine
-	playback.start("Slash")
