@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://iu6bb5qppyho" path="res://components/player/movement_component/MovementComponent.tscn" id="4_kjobu"]
 [ext_resource type="PackedScene" uid="uid://bcaf2s8onuwpt" path="res://components/common/movement_speed_component/MovementSpeedComponent.tscn" id="4_o3onj"]
 [ext_resource type="PackedScene" uid="uid://drplm06kt5saj" path="res://components/player/camera_component/CameraComponent.tscn" id="5_eulpo"]
-[ext_resource type="PackedScene" uid="uid://bx2c22mbau62x" path="res://components/common/animation_component/AnimationComponent.tscn" id="6_nf4qt"]
 [ext_resource type="PackedScene" uid="uid://bw5kc4smwcefn" path="res://components/player/inventory_component/InventoryComponent.tscn" id="7_w7ayg"]
 [ext_resource type="PackedScene" uid="uid://64wk7xf4vgg6" path="res://components/player/loot_component/LootComponent.tscn" id="8_8veax"]
 [ext_resource type="PackedScene" uid="uid://cmdws134tddd5" path="res://components/common/health_component/HealthComponent.tscn" id="9_1i5uf"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bxx5fdoyrlkku" path="res://scenes/ui/inventory_panel/InventoryPanel.tscn" id="10_kufwp"]
 [ext_resource type="PackedScene" uid="uid://duo8qq00wderb" path="res://components/player/combat_component/CombatComponent.tscn" id="10_v0m4q"]
 [ext_resource type="PackedScene" uid="uid://dcomdkqapr25s" path="res://components/common/floating_text_component/FloatingTextComponent.tscn" id="12_k2jjo"]
+[ext_resource type="PackedScene" uid="uid://cbuta67dde1id" path="res://components/common/animation_tree_component/AnimationTreeComponent.tscn" id="13_5fatc"]
 [ext_resource type="PackedScene" uid="uid://1hgq14owa6ei" path="res://components/common/attack_component/AttackComponent.tscn" id="13_8iudh"]
 [ext_resource type="PackedScene" uid="uid://drceddn00upe3" path="res://scenes/ui/player_meters/PlayerMeters.tscn" id="14_pta3n"]
 
@@ -88,15 +88,13 @@ loot_preview = NodePath("../../Ui/BottomRightMarginContainer/HBoxContainer/LootP
 [node name="CombatComponent" parent="ComponentList" node_paths=PackedStringArray("hit_box") instance=ExtResource("10_v0m4q")]
 hit_box = NodePath("../../Hitbox")
 
-[node name="AnimationComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("6_nf4qt")]
-model = NodePath("../../Model")
-attack_animations = Array[String](["Slash"])
-show_hurt_animation = false
-
 [node name="FloatingTextComponent" parent="ComponentList" instance=ExtResource("12_k2jjo")]
 text_height = 32.0
 
 [node name="AttackComponent" parent="ComponentList" instance=ExtResource("13_8iudh")]
+
+[node name="AnimationTreeComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("13_5fatc")]
+model = NodePath("../../Model")
 
 [node name="LootArea" type="Area3D" parent="."]
 collision_layer = 0

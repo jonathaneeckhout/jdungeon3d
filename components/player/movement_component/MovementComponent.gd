@@ -2,6 +2,8 @@ class_name MovementComponent
 extends Component
 
 var walking: bool = false
+var input_direction: Vector2 = Vector2.ZERO
+var direction: Vector3 = Vector3.ZERO
 
 var _movement_speed_component: MovementSpeedComponent = null
 
@@ -27,8 +29,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and actor.is_on_floor():
 		actor.velocity.y = _movement_speed_component.jump_velocity
 
-	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var direction = (actor.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	direction = (
+		(actor.transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
+	)
 
 	var speed: float = _movement_speed_component.run_speed
 	if walking:

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbuta67dde1id"]
+
+[ext_resource type="Script" path="res://components/common/animation_tree_component/AnimationTreeComponent.gd" id="1_f7u4d"]
+
+[node name="AnimationTreeComponent" type="Node"]
+script = ExtResource("1_f7u4d")
