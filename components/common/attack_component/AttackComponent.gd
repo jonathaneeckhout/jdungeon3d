@@ -17,6 +17,8 @@ var is_attacking: bool = false
 var _attack_timer: Timer = null
 var _attack_delay_timer: Timer = null
 
+var _attack_again: bool = false
+
 
 func _ready():
 	super._ready()
@@ -39,12 +41,16 @@ func get_attack_power() -> float:
 
 
 func attack():
-	if not _attack_timer.is_stopped():
+	if is_attacking:
+		_attack_again = true
 		return
 
-	_attack_timer.start(attack_speed)
-
 	is_attacking = true
+	_attack()
+
+
+func _attack():
+	_attack_timer.start(attack_speed)
 
 	attacked.emit()
 
@@ -68,7 +74,11 @@ func _hit_targets():
 
 
 func _on_attack_timer_timeout():
-	is_attacking = false
+	if _attack_again:
+		_attack_again = false
+		_attack()
+	else:
+		is_attacking = false
 
 
 func _on_attack_delay_timer_timeout():
