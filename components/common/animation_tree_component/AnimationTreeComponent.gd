@@ -19,19 +19,30 @@ func _ready():
 func _physics_process(_delta: float):
 	_animation_tree.set(
 		"parameters/conditions/walking",
-		not _movement_component.input_direction.is_zero_approx() and _movement_component.walking
+		(
+			not _movement_component.input_direction.is_zero_approx()
+			and _movement_component.walking
+			and not _attack_component.is_attacking
+		)
 	)
 
 	_animation_tree.set(
 		"parameters/conditions/running",
-		not _movement_component.input_direction.is_zero_approx() and not _movement_component.walking
+		(
+			not _movement_component.input_direction.is_zero_approx()
+			and not _movement_component.walking
+			and not _attack_component.is_attacking
+		)
 	)
 
 	_animation_tree.set(
-		"parameters/conditions/idle", _movement_component.input_direction.is_zero_approx()
+		"parameters/conditions/idle",
+		_movement_component.input_direction.is_zero_approx() and not _attack_component.is_attacking
 	)
 
 	_animation_tree.set("parameters/conditions/attacking", _attack_component.is_attacking)
+
+	_animation_tree.set("parameters/AttackStateMachine/conditions/attacking", _attack_component.is_attacking)
 
 	_animation_tree.set(
 		"parameters/WalkBlendSpace2D/blend_position",
