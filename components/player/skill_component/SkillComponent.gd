@@ -13,10 +13,14 @@ var _skills: Node = null
 
 var _skill_mapper: Dictionary = {}
 
+var _attack_component: AttackComponent = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()
+
+	_attack_component = get_node("../AttackComponent")
 
 	_skills = Node.new()
 	_skills.name = "Skills"
@@ -41,6 +45,10 @@ func _physics_process(_delta: float):
 		return
 
 	if skills.size() < _skill_pressed + 1:
+		return
+
+	# Can't cast a skill while you're already attacking
+	if _attack_component.is_attacking:
 		return
 
 	GodotLogger.info("Using skill nr %d" % _skill_pressed)

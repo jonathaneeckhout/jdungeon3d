@@ -48,12 +48,19 @@ func _physics_process(_delta: float):
 		)
 	)
 
-	_animation_tree.set("parameters/conditions/attacking", _attack_component.is_attacking)
-
-	_animation_tree.set("parameters/conditions/using_skill", _skill_component.is_using_skill)
+	_animation_tree.set(
+		"parameters/conditions/attacking",
+		_attack_component.is_attacking and not _skill_component.is_using_skill
+	)
 
 	_animation_tree.set(
-		"parameters/AttackStateMachine/conditions/attacking", _attack_component.is_attacking
+		"parameters/conditions/using_skill",
+		_skill_component.is_using_skill and not _attack_component.is_attacking
+	)
+
+	_animation_tree.set(
+		"parameters/AttackStateMachine/conditions/attacking",
+		_attack_component.is_attacking and not _skill_component.is_using_skill
 	)
 
 	_animation_tree.set(

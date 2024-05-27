@@ -19,6 +19,8 @@ var _attack_delay_timer: Timer = null
 
 var _attack_again: bool = false
 
+var _skill_component: SkillComponent = null
+
 
 func _ready():
 	super._ready()
@@ -35,12 +37,18 @@ func _ready():
 	_attack_delay_timer.timeout.connect(_on_attack_delay_timer_timeout)
 	add_child(_attack_delay_timer)
 
+	_skill_component = get_node_or_null("../SkillComponent")
+
 
 func get_attack_power() -> float:
 	return randf_range(minimum_attack_power, maximum_attack_power)
 
 
 func attack():
+	# Don't attack while using a skill
+	if _skill_component != null and _skill_component.is_using_skill:
+		return
+
 	if is_attacking:
 		_attack_again = true
 		return
