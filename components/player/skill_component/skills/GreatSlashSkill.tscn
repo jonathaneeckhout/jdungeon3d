@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d23f6c7hu4pkm"]
+
+[ext_resource type="Script" path="res://components/player/skill_component/skills/GreatSlashSkill.gd" id="1_8kog6"]
+
+[node name="GreatSlashSkill" type="Node"]
+script = ExtResource("1_8kog6")
+skill_class = "GreatSlash"
+description = "Deal a great amount of damage"
+cast_time = 2.0

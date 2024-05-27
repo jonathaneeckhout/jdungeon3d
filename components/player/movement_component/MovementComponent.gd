@@ -7,6 +7,7 @@ var direction: Vector3 = Vector3.ZERO
 
 var _movement_speed_component: MovementSpeedComponent = null
 var _attack_component: AttackComponent = null
+var _skill_component: SkillComponent = null
 
 var _gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -16,6 +17,7 @@ func _ready():
 
 	_movement_speed_component = get_node("../MovementSpeedComponent")
 	_attack_component = get_node("../AttackComponent")
+	_skill_component = get_node("../SkillComponent")
 
 
 func _input(event):
@@ -29,8 +31,8 @@ func _physics_process(delta):
 		actor.move_and_slide()
 		return
 
-	# Don't move if attacking.
-	if _attack_component.is_attacking:
+	# Don't move if attacking or using a skill.
+	if _attack_component.is_attacking or _skill_component.is_using_skill:
 		actor.velocity.x = 0
 		actor.velocity.z = 0
 		return
