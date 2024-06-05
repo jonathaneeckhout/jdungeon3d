@@ -1,7 +1,0 @@
-This approach uses a combination of Entities, Components and Systems to allow modularity and ease of access.
-
-Entities are simple empty nodes in this case, since they have plenty of ways to handle their own identity. Their purpose is simply to contain components.
-
-Components are also nodes, but they automatically register themselves on a variable that is shared among all other instances AND can be accessed statically (without an instance). They should only CONTAIN data and have minimal functionality past that.
-
-Systems is where most of the functionality goes, they act as Singletons and are in charge of communicating components among each other.
