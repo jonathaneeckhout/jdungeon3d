@@ -7,3 +7,4 @@ script = ExtResource("1_8kog6")
 skill_class = "GreatSlash"
 description = "Deal a great amount of damage"
 cast_time = 2.0
+hit_time = 1.3

@@ -1,7 +1,9 @@
 class_name SkillComponent
 extends Component
 
-@export var skills: Array[PackedScene] = [null, null, null, null]
+@export var hit_box: Area3D = null
+
+@export var skill_scenes: Array[PackedScene] = [null, null, null, null]
 
 var is_using_skill: bool = false
 var current_skill: Skill = null
@@ -44,7 +46,7 @@ func _physics_process(_delta: float):
 	if _skill_pressed <= -1:
 		return
 
-	if skills.size() < _skill_pressed + 1:
+	if skill_scenes.size() < _skill_pressed + 1:
 		return
 
 	# Can't cast a skill while you're already attacking
@@ -72,12 +74,13 @@ func _load_skills():
 
 	var i: int = 0
 
-	for skill_scene: PackedScene in skills:
+	for skill_scene: PackedScene in skill_scenes:
 		if skill_scene == null:
 			continue
 
 		var skill: Skill = skill_scene.instantiate()
 		skill.name = skill.skill_class
+		skill.hit_box = hit_box
 		_skills.add_child(skill)
 
 		_skill_mapper = {i: skill}
@@ -104,6 +107,15 @@ func use_skill(slot: int) -> bool:
 		current_skill = null
 
 	return is_using_skill
+
+
+func get_skills() -> Array[Skill]:
+	var skills: Array[Skill] = []
+
+	for skill in _skills.get_children():
+		skills.append(skill)
+
+	return skills
 
 
 func _on_skill_casted():

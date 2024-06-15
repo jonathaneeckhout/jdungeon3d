@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=25 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://drceddn00upe3" path="res://scenes/ui/player_meters/PlayerMeters.tscn" id="14_pta3n"]
 [ext_resource type="PackedScene" uid="uid://eheq3a5gso8o" path="res://components/player/skill_component/SkillComponent.tscn" id="14_tx1c5"]
 [ext_resource type="PackedScene" uid="uid://d23f6c7hu4pkm" path="res://components/player/skill_component/skills/GreatSlashSkill.tscn" id="15_jbabb"]
+[ext_resource type="PackedScene" uid="uid://qp6o3drk3irc" path="res://scenes/ui/skill_bar/skill_bar.tscn" id="20_gfo2c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
 
@@ -98,8 +99,9 @@ hit_box = NodePath("../../Hitbox")
 [node name="AnimationTreeComponent" parent="ComponentList" node_paths=PackedStringArray("model") instance=ExtResource("13_5fatc")]
 model = NodePath("../../Model")
 
-[node name="SkillComponent" parent="ComponentList" instance=ExtResource("14_tx1c5")]
-skills = Array[PackedScene]([ExtResource("15_jbabb"), null, null, null])
+[node name="SkillComponent" parent="ComponentList" node_paths=PackedStringArray("hit_box") instance=ExtResource("14_tx1c5")]
+hit_box = NodePath("../../Hitbox")
+skill_scenes = Array[PackedScene]([ExtResource("15_jbabb"), null, null, null])
 
 [node name="LootArea" type="Area3D" parent="."]
 collision_layer = 0
@@ -171,3 +173,19 @@ theme_override_constants/margin_bottom = 16
 [node name="PlayerMeters" parent="Ui/TopLeftMarginContainer" node_paths=PackedStringArray("health_component") instance=ExtResource("14_pta3n")]
 layout_mode = 2
 health_component = NodePath("../../../ComponentList/HealthComponent")
+
+[node name="MarginContainer" type="MarginContainer" parent="Ui"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="SkillBar" parent="Ui/MarginContainer" node_paths=PackedStringArray("skill_component") instance=ExtResource("20_gfo2c")]
+layout_mode = 2
+skill_component = NodePath("../../../ComponentList/SkillComponent")
