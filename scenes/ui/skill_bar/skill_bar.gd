@@ -47,3 +47,5 @@ func _check_skill_timeout():
 			skill_button_timeout_label.text = (
 				"%02d:%02d" % [floor(time_left / 60), int(time_left) % 60]
 			)
+
+		i += 1

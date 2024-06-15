@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d23f6c7hu4pkm"]
 
-[ext_resource type="Script" path="res://components/player/skill_component/skills/GreatSlashSkill.gd" id="1_8kog6"]
+[ext_resource type="Script" path="res://components/player/skill_component/skills/great_slash_skill/GreatSlashSkill.gd" id="1_8kog6"]
 
 [node name="GreatSlashSkill" type="Node"]
 script = ExtResource("1_8kog6")

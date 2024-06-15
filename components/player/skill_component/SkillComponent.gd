@@ -84,7 +84,7 @@ func _load_skills():
 		skill.hit_box = hit_box
 		_skills.add_child(skill)
 
-		_skill_mapper = {i: skill}
+		_skill_mapper[i] = skill
 		i += 1
 
 

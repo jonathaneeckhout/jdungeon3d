@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=28 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
@@ -19,8 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://1hgq14owa6ei" path="res://components/common/attack_component/AttackComponent.tscn" id="13_8iudh"]
 [ext_resource type="PackedScene" uid="uid://drceddn00upe3" path="res://scenes/ui/player_meters/PlayerMeters.tscn" id="14_pta3n"]
 [ext_resource type="PackedScene" uid="uid://eheq3a5gso8o" path="res://components/player/skill_component/SkillComponent.tscn" id="14_tx1c5"]
-[ext_resource type="PackedScene" uid="uid://d23f6c7hu4pkm" path="res://components/player/skill_component/skills/GreatSlashSkill.tscn" id="15_jbabb"]
 [ext_resource type="PackedScene" uid="uid://cpw60yltxdjev" path="res://components/player/stats_component/StatsComponent.tscn" id="16_oue23"]
+[ext_resource type="PackedScene" uid="uid://d23f6c7hu4pkm" path="res://components/player/skill_component/skills/great_slash_skill/GreatSlashSkill.tscn" id="17_8pjhe"]
+[ext_resource type="PackedScene" uid="uid://b2opehd06crfo" path="res://components/player/skill_component/skills/battlefield_mending_skill/BattlefieldMendingSkill.tscn" id="18_7bx3q"]
 [ext_resource type="PackedScene" uid="uid://qp6o3drk3irc" path="res://scenes/ui/skill_bar/skill_bar.tscn" id="20_gfo2c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
@@ -78,9 +79,6 @@ actor = NodePath("..")
 [node name="StatsComponent" parent="ComponentList" instance=ExtResource("16_oue23")]
 
 [node name="BaseStatsComponent" parent="ComponentList" instance=ExtResource("5_dpett")]
-minimum_attack_power = 5.0
-maximum_attack_power = 10.0
-attack_speed = 1.0
 
 [node name="MovementSpeedComponent" parent="ComponentList" instance=ExtResource("4_o3onj")]
 
@@ -110,7 +108,7 @@ model = NodePath("../../Model")
 
 [node name="SkillComponent" parent="ComponentList" node_paths=PackedStringArray("hit_box") instance=ExtResource("14_tx1c5")]
 hit_box = NodePath("../../Hitbox")
-skill_scenes = Array[PackedScene]([ExtResource("15_jbabb"), null, null, null])
+skill_scenes = Array[PackedScene]([ExtResource("17_8pjhe"), ExtResource("18_7bx3q"), null, null])
 
 [node name="LootArea" type="Area3D" parent="."]
 collision_layer = 0

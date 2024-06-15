@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2opehd06crfo"]
+
+[ext_resource type="Script" path="res://components/player/skill_component/skills/battlefield_mending_skill/BattlefieldMendingSkill.gd" id="1_1mjqt"]
+
+[node name="BattlefieldMendingSkill" type="Node"]
+script = ExtResource("1_1mjqt")
+skill_class = "Battlefield Mending"
+description = "Heals the player for a certain amount"
+cast_time = 2.0
+hit_time = 2.0
+timeout = 20.0
