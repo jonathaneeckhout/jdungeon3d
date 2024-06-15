@@ -18,6 +18,7 @@ signal skill_recharged
 ## The time before this skill can be used again
 @export var timeout: float = 10.0
 
+var actor: Node3D = null
 var hit_box: Area3D = null
 
 var _cast_timer: Timer = null
@@ -58,6 +59,7 @@ func use() -> bool:
 	skill_casting.emit()
 
 	return true
+
 
 func is_ready() -> bool:
 	return _timeout_timer.is_stopped()

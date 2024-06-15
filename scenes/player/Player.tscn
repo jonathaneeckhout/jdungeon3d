@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://cqwv8qsyohma4"]
+[gd_scene load_steps=27 format=3 uid="uid://cqwv8qsyohma4"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_cl805"]
 [ext_resource type="PackedScene" uid="uid://bp6dnf73o6v4w" path="res://scenes/player/PlayerModel.tscn" id="2_xfbpx"]
 [ext_resource type="PackedScene" uid="uid://6ujxb4xlfsvf" path="res://components/component_list/ComponentList.tscn" id="3_ghfnh"]
 [ext_resource type="PackedScene" uid="uid://iu6bb5qppyho" path="res://components/player/movement_component/MovementComponent.tscn" id="4_kjobu"]
 [ext_resource type="PackedScene" uid="uid://bcaf2s8onuwpt" path="res://components/common/movement_speed_component/MovementSpeedComponent.tscn" id="4_o3onj"]
+[ext_resource type="PackedScene" uid="uid://djxlqthl5p6i2" path="res://components/player/base_stats_component/BaseStatsComponent.tscn" id="5_dpett"]
 [ext_resource type="PackedScene" uid="uid://drplm06kt5saj" path="res://components/player/camera_component/CameraComponent.tscn" id="5_eulpo"]
 [ext_resource type="PackedScene" uid="uid://bw5kc4smwcefn" path="res://components/player/inventory_component/InventoryComponent.tscn" id="7_w7ayg"]
 [ext_resource type="PackedScene" uid="uid://64wk7xf4vgg6" path="res://components/player/loot_component/LootComponent.tscn" id="8_8veax"]
@@ -19,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://drceddn00upe3" path="res://scenes/ui/player_meters/PlayerMeters.tscn" id="14_pta3n"]
 [ext_resource type="PackedScene" uid="uid://eheq3a5gso8o" path="res://components/player/skill_component/SkillComponent.tscn" id="14_tx1c5"]
 [ext_resource type="PackedScene" uid="uid://d23f6c7hu4pkm" path="res://components/player/skill_component/skills/GreatSlashSkill.tscn" id="15_jbabb"]
+[ext_resource type="PackedScene" uid="uid://cpw60yltxdjev" path="res://components/player/stats_component/StatsComponent.tscn" id="16_oue23"]
 [ext_resource type="PackedScene" uid="uid://qp6o3drk3irc" path="res://scenes/ui/skill_bar/skill_bar.tscn" id="20_gfo2c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kx2v7"]
@@ -72,6 +74,13 @@ shape = SubResource("CapsuleShape3D_ox642")
 
 [node name="ComponentList" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_ghfnh")]
 actor = NodePath("..")
+
+[node name="StatsComponent" parent="ComponentList" instance=ExtResource("16_oue23")]
+
+[node name="BaseStatsComponent" parent="ComponentList" instance=ExtResource("5_dpett")]
+minimum_attack_power = 5.0
+maximum_attack_power = 10.0
+attack_speed = 1.0
 
 [node name="MovementSpeedComponent" parent="ComponentList" instance=ExtResource("4_o3onj")]
 

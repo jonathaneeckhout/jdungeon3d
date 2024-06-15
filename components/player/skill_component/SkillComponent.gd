@@ -80,6 +80,7 @@ func _load_skills():
 
 		var skill: Skill = skill_scene.instantiate()
 		skill.name = skill.skill_class
+		skill.actor = actor
 		skill.hit_box = hit_box
 		_skills.add_child(skill)
 
