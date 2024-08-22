@@ -4,68 +4,83 @@ This document describes the game mechanics of JDungeon3D.
 This is a document is not final yet and open for suggestions and improvements. If you feel like adding/changing something have a look at the CONTRIBUTING.MD file.
 
 ## Movement
-The player has the freedom to move seamlessly throughout the open world using a combination of the WSAD keys and the mouse. Specifically, the controls are as follows:
+The player has the freedom to move seamlessly throughout the open world.
 
+To define the boundaries of the game world, certain areas are restricted. The player is not allowed to swim in the sea as it will serve as a natural boundary that the player cannot cross. Furthermore, steep hills and cliffs will be used strategically to limit access to specific regions, guiding the player’s exploration and progression within the game world.
+
+## Controls   
+    
+Movement works trough standard directional inputs. A WASD scheme by default.
 * **W**: Move forward
 * **S**: Move backward
 * **A**: Strafe left
 * **D**: Strafe right
 
-Additionally, the mouse is used to enhance the player's control over their character and view of the environment:
+### Mouse cursor and camera movement:
+The game allows independent movement of the mouse cursor as a way to select things in the world and to move the camera.
+* When moving the camera the cursor is considered to be in the center of the screen, allowing you to "aim" at objects with the camera to select them. This makes it impossible to move the cursor towards HUD elements and is reliant on key binds. 
+* When moving the cursor, the camera remains stationary. But you can select anything within your field of view.  
+  
+  A button can be used to temporarily invert the behavior. By default, the mouse moves the camera.
 
-* **Right Mouse Button:** Holding the right mouse button and moving the mouse rotates the character along with the camera.
-* **Left Mouse Button:** Holding the left mouse button and moving the mouse rotates the camera around the character without actually rotating the character itself, providing a flexible and immersive viewing experience.
-
-To define the boundaries of the game world, certain areas are restricted. The player is not allowed to swim; water bodies will serve as natural boundaries that the player cannot cross. Furthermore, steep hills and cliffs will be used strategically to limit access to specific regions, guiding the player’s exploration and progression within the game world.
-
+    
 ## Combat
 Within the world of JDungeon, players will encounter various enemies. These enemies are entities that can be targeted and fought against. Defeating enemies will reward players with experience points and potential rewards in the form of loot or quest progression.
 
 ### Targeting and Engaging Enemies
-* **Targeting:** Left-clicking an enemy will target it, making it your primary target.
-* **Engaging Combat:** Right-clicking an enemy will trigger your character to engage in combat. If the enemy is within range of your auto-attack skills, the player character will automatically attack the enemy.
+* **Targeting:** Left-clicking on an enemy under your cursor marks them as your current target.
+* **Engaging Combat:** If the auto-attack option is selected, you'll automatically attack your enemy when it is within range and you're not busy performing a different action. Otherwise, you must press or hold the dedicated attack button to toggle/maintain your basic attack.
 
 ### Challenging Enemies and Rewards
 JDungeon's main focus is to present players with challenging enemies. The difficulty of enemies varies, and defeating stronger enemies will yield higher rewards. These rewards can include more experience points, better loot, and significant progress in quests. This encourages players to develop their skills and strategies to overcome tougher adversaries for greater benefits.
+#### Enemy Type Philosophies
+* **Swarm:** Very weak enemies that only pose a threat in groups. Their health is minimal, but their combined attack when swarmed can surpass a normal or elite enemy. 
+* **Grunt:** The typical base-line foe. Trivial for non-new players, but by no means harmless.
+* **Elite:** Exceptionally strong foes and the most damaging available. But low enough health to be beaten quickly. Elites are something that not even experienced players should take lightly.
+* **Boss:** Huge health pools and dangerous attacks. Bosses cannot be mobbed like other types can, instead providing a more drawn out combat experience.
 
 ## Skills
 In JDungeon, players have the opportunity to obtain and utilize various skills. These skills can enhance a player's abilities in combat, providing clever tools to gain the upper hand and secure victory.
 
 ### Obtaining Skills
-Skills can be acquired through completing certain challenging quests or by defeating difficult foes. This ensures that players are rewarded for their efforts and progress within the game.
+Skills can be acquired by performing certain activities, including combat. This ensures that players are rewarded for their efforts and progress within the game. Each activity has its own pool of skills that the player can choose from as they perform said activities, but different pools may have overlapping skills.
 
 ### Types of Skills
 There are different types of skills available to players:
 
-* **Instant Skills:** These skills can be performed instantly on a target, providing immediate effects.
-* **Cast Time Skills:** These skills require a casting time, during which the player must remain stationary or perform specific actions to complete the skill.
-* **Area Skills:** Certain skills require the player to aim at a specific area using the mouse, allowing for strategic placement and execution.
+* **Instant Skills:** These skills activate instantly with an immediate effect.
+* **Active Skills:** These have a brief time after activation that prevents the user from performing other actions (usually occupied by an animation). Active skills cannot be interrupted even if their animation were to be stopped for any reason.
+* **Cast Time Skills:** Upon usage, the player becomes unable to perform other actions, sometimes even becoming unable to move. After a timer, the skill activates. These may be interrupted by other creatures or the user itself.
 
 ### Skill Mechanics
 
+* **Targeting:** Skills have different targeting requirements for being activated. Some acquire targets automatically and can be activated at any time (some may require a valid target to be present), while others may require a specific creature to be selected. Additionally, some allow manually aiming at a spot in the ground instead of at creatures.
 * **Energy Cost:** Performing a skill may cost energy, which must be managed to ensure the player can continue to use their abilities effectively during combat.
 * **Cooldowns:** After using a certain skill, there may be a cooldown period during which the skill cannot be used again. This requires players to strategically plan their skill usage to maximize effectiveness and maintain a tactical advantage in combat.
-* **Skill Selection:** Players can only select a limited number of 8 skills for each combat situation. This means that players must choose wisely to ensure they have the correct combination of skills for each specific encounter. Proper skill selection can greatly influence the outcome of a battle, encouraging strategic thinking and preparation.
+* **Skill Selection:** Players can only select a limited number of 8 skills for each combat situation. This means that players must choose wisely to ensure they have the correct combination of skills for each specific encounter. Proper skill selection can greatly influence the outcome of a battle, encouraging strategic thinking and preparation. Skills may be changed in any safe zone.
 
 JDungeon's skill system is designed to provide depth and strategy to combat, encouraging players to develop and utilize a variety of skills to overcome challenges and achieve success in the game world.
-
+  
 ## Stats
 Each player in JDungeon has a certain set of base stats: Strength, Agility, Intellect, and Vitality. These stats are fundamental to a player's capabilities in combat and exploration.
 
 ### Base Stats
-* **Strength:** A measure of a player's physical power, affecting their attack power and melee damage.
+* **Strength:** A measure of a player's physical power, affecting their attack power and melee damage. 
 * **Agility:** Determines a player's speed, reflexes, and dexterity, influencing their attack speed, critical hit chance, and evasion.
-* **Intellect:** Represents a player's intelligence and magical prowess, affecting their spell power and magical damage.
+* **Intellect:** Represents a player's intelligence and magical prowess, affecting their critical hit damage, spell power and magical damage.
 * **Vitality:** Measures a player's health and resilience, influencing their maximum health points and overall durability in combat.
 
 ### Secondary Stats
 These base stats are used to calculate secondary stats, including:
-
-* **Attack Power:** Determines the damage dealt by physical attacks.
-* **Spell Power:** Influences the effectiveness of magical spells and abilities.
-* **Defense:** Reduces incoming damage from physical attacks.
-* **Energy:** Represents a player's resource pool for using skills and abilities.
-* **Health:** Determines a player's maximum health points.
+*(Values in parenthesis is how much the values are increased by the named stat)*
+* **Attack Power:** Determines the damage dealt by physical attacks. (Strength)
+* **Spell Power:** Influences the effectiveness of magical spells and abilities. (Intellect)
+* **Defense:** Reduces incoming damage from physical attacks. (Only from armor)
+* **Energy:** Some skills consume energy and cannot be used without the required amount, this regenerates over time. (Intellect)
+* **Health:** Determines a player's maximum health points. (Strength)
+* **Attack Speed:** Increases the speed of most combat animations.
+* **Evasion:** Negates damage taken up to the stored amount. Evasion regenerates rapidly up to its maximum and it is reduced by the amount of damage taken. (Agility)
+*  **Critical Hit Chance:** The chance of performing a critical hit, applying a multiplier to damage dealt. (Agility) 
 
 ### Stat Enhancement
 Stats can be increased through various means:
@@ -103,17 +118,15 @@ In JDungeon, characters can equip multiple pieces of equipment to enhance their 
 
 ### Equipment Slots
 Players can equip items in various slots, including:
-
-* Headpiece
-* Neck
-* Body
-* Legs
-* Arms
-* Left Hand
-* Right Hand
-* Left Ring
-* Right Ring
-* Boots
+* Armor (Main armor piece covering at least the waist)
+* Head (Helmet or any large headgear)
+* Arms (Gauntlets, gloves)
+* Legs (Boots, shin-guards, footwear)
+* Accessory 1 (Any miscellaneous addition)
+* Accessory 2
+* Accessory ...
+* Hand (Occupied by the main weapon)
+* Offhand (When using one handed weapons, it can hold another weapon/shield. Otherwise it is disabled while the main weapon is equipped.)
 
 ### Equipment Management
 * **Inventory Interaction:** When unequipping an item, it is placed back into the inventory of the player.
